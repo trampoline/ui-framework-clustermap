@@ -327,19 +327,25 @@ body {
   z-index: 20;
   .inner {
     .clearfix;
-    padding: 0 20px;
+    padding: 0 15px;
   }
-  h1 {
+  h1.logo {
     .text-hide;
-    background-image: url('../img/logo.png');
-    background-image: url('../img/logo.svg'), none;
+    background-image: url('../img/sprite.png');
+    background-image: url('../img/sprite.svg'), none;
     background-repeat: no-repeat;
-    background-position: 0 0;
+    background-position: -132px -243px;
     display: block;
-    width: 174px;
-    height: 24px;
+    width: 40px;
+    height: 40px;
     float: left;
-    margin: 20px 0;
+    margin: 10px 0;
+  }
+  h1, h2 {
+      padding: 5px 10px;
+      display: block;
+      float: left;
+      margin: 10px 0;
   }
   ul {
     float: right;
@@ -605,6 +611,9 @@ body {
     &:first-child {
       margin-left: 0;
     }
+  }
+  p.report-issue {
+    float: right;
   }
 }
 

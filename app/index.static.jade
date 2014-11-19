@@ -123,36 +123,27 @@ html(lang='en')
     #wrap
       header#page-header
         .inner
-          h1 Top 50
+          h1.logo EC
+          h2 Startup Hubs
           ul.nav-links
+            li: a.trends(href="#") Trends
             li: a.map.active(href="#") Map
-            li: a.lists(href="#") Top 50 Report
+            li: a.lists(href="#") Lists
+            li: a.company(href="#") Company
 
       section#page-intro
         .inner
           .col
             h1
-              | Data, visualisation and analysis showcasing Britain&#8217;s high growth companies
+              | Data, visualisation and analysis showcasing Europe&#8217;s startups
             a(href="/#/map")
               button(type='button').btn Map
           .col
             p
-              | This site was created by growth data specialists&nbsp;
+              | This site was created by&nbsp;
+              a(href="https://www.grantthornton.com/" target="_blank") Grant Thornton
+              | &nbsp;and growth data specialists&nbsp;
               a(href="http://www.trampolinesystems.com" target="_blank") Trampoline Systems
-              | &nbsp;to highlight the fastest-growing businesses across the UK as an
-              | accompaniment to the&nbsp;
-              a(href="http://www.scaleupreport.org" target="_blank") Scale-up Report.
-
-            p
-              | The analysis covers every company in the UK and follows the OECD definition of&nbsp;
-              i high growth.
-              | &nbsp;This requires a minimum of 20% growth in either revenue or employment over two
-              | successive years.
-
-            p
-              | The Top 50 Report shows a league table of the fastest-growing companies linking to further details.
-              | The Map shows the distribution of high growth businesses around the UK. Zoom in to see where individual
-              | companies are located. Click on a region to see its statistics.
 
       section#main
         .container
@@ -167,8 +158,8 @@ html(lang='en')
 
                 aside
                   header.primary
-                    h1 Britain&#8217;s high growth companies visualised
-                    h2 by Trampoline Systems
+                    h1 Europe&#8217;s startup companies visualised
+                    h2 by Grant Thornton & Trampoline Systems
 
                   h1#map-boundaryline-selection
 
@@ -189,11 +180,8 @@ html(lang='en')
                     //     | -
                     //     small Total employees
 
-                  a(href='/#/lists').btn
-                    | Top 50 Report
-
                   header.secondary
-                    h2 No. of Scale-ups in region
+                    h2 No. of Start-ups in region
                   #color-scale-component
 
               #map-component
@@ -393,8 +381,10 @@ html(lang='en')
               .trampoline
                 p
                   | Data and analytics by&nbsp;
+                  a(href="https://www.grantthornton.com/") Grant Thornton
+                  | &nbsp;&amp;&nbsp;
                   a(href='http://www.trampolinesystems.com/') Trampoline Systems
-                p
+                p.report-issue
                   a(href='mailto:clustermap-issues@trampolinesystems.com?subject=Cabmridge 50 issue report') Report issue
 
     //begin-static-base-js
