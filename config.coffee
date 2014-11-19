@@ -7,7 +7,7 @@ exports.config =
   files:
     javascripts:
       joinTo:
-        'js/app.js': /^app/
+        'js/app.js': /^app\/scripts/
         'js/polyfills.js': /^vendor\/polyfill_scripts/
         'js/vendor.js': /^vendor\/scripts/
         'test/scenarios.js': /^test(\/|\\)e2e/
