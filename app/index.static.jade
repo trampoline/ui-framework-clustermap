@@ -127,10 +127,10 @@ html(lang='en')
           h2 Startup Hubs
           #geo-sponsors
           ul.nav-links
-            li: a.trends(href="#") Trends
-            li: a.map.active(href="#") Map
-            li: a.lists(href="#") Lists
-            li: a.company(href="#") Company
+            li: a.view-trends(href="#") Trends
+            li: a.view-map.active(href="#") Map
+            li: a.view-lists(href="#") Lists
+            li: a.view-company(href="#") Company
 
       section#page-intro
         .inner
@@ -165,21 +165,6 @@ html(lang='en')
                   h1#map-boundaryline-selection
 
                   #map-report-component
-                    // header.secondary
-                    //   h2 -
-                    //   h3 -
-                    //   // button(type='reset').btn-reset Reset to UK wide
-
-                    // ul
-                    //   li
-                    //     | -
-                    //     small Companies
-                    //   li
-                    //     | -
-                    //     small Total revenue
-                    //   li
-                    //     | -
-                    //     small Total employees
 
                   header.secondary
                     h2 No. of companies in region
@@ -187,7 +172,7 @@ html(lang='en')
 
               #map-component
 
-            #page-lists
+            #page-trends
               .inner
                 .div-scroll
                   .div-fixed
@@ -197,50 +182,6 @@ html(lang='en')
                       h1#lists-boundaryline-selection
 
                       #revenue-bands-table
-                        // .table-responsive
-                        //   table.table-stats
-                        //     thead
-                        //       tr
-                        //         th &nbsp;
-                        //         th Investor-backed companies
-                        //         th Investors
-                        //         th Constituencies
-                        //         th Revenue
-                        //         th Rev. change
-                        //         th Employees
-                        //     tbody
-                        //       tr
-                        //         th
-                        //           i.icon-info(data-toggle='tooltip', data-container='body', title='Total')
-                        //           | Total
-                        //         td
-                        //           span.totals -
-                        //         td
-                        //           span.totals -
-                        //         td
-                        //           span.totals -
-                        //         td
-                        //           span.totals -
-                        //         td
-                        //           span.totals -
-                        //         td
-                        //           span.totals -
-                        //       tr
-                        //         th
-                        //           i.icon-info(data-toggle='tooltip', data-container='body', title='Average')
-                        //           | Average
-                        //         td
-                        //           span.averages -
-                        //         td
-                        //           span.averages -
-                        //         td
-                        //           span.averages -
-                        //         td
-                        //           span.averages -
-                        //         td
-                        //           span.averages -
-                        //         td
-                        //           span.averages -
 
                       #scaleup-factor-table
                         .table-responsive
@@ -261,121 +202,24 @@ html(lang='en')
                       .full-report-overview
                         h2 Top 50
 
-                      // #full-report-charts
-                      //   .grid
-                      //     .tbl
-                      //       .tbl-cell.charts
-                      //         .tbl
-                      //           .tbl-row
-                      //             .tbl-cell
-                      //               .box.box-first
-                      //                 header Turnover
-                      //                 #turnover-timeline
-
                       #rankings-table
-                        // .table-responsive
-                        //   table.table
-                        //     thead
-                        //       tr
-                        //         th Investor-backed company
-                        //         th Postcode
-                        //         th Investor
-                        //         th Revenue
-                        //         th Rev. change
-                        //         th Employess
-                        //         th Emp. change
-                        //     tbody
-                        //       - var i = 1;
-                        //       - while(i--)
-                        //         tr
-                        //           td
-                        //             a(href='#') -
-                        //           td -
-                        //           td
-                        //             a(href='#') -
-                        //           td
-                        //             | -
-                        //             small &nbsp;(-)
-                        //           td
-                        //             | -
-                        //             i.icon-negative
-                        //           td
-                        //             | -
-                        //             small &nbsp;(-)
-                        //           td
-                        //             | -
-                        //             i.icon-positive
+
                       p
                         small * estimated figure
 
-                      // .full-report-details
-                      //   .grid
-                      //     .tbl
-                      //       .tbl-cell.charts
-                      //         .tbl
-                      //           .tbl-row
-                      //             .tbl-cell
-                      //               .box.box-first
-                      //                 header -
-                      //                 div
-                      //                   p -
-                      //                   p -
-                      //                   p -
-                      //             .tbl-cell
-                      //               .box.box-last
-                      //                 header -
-                      //                 div
-                      //                   p -
-                      //                   p -
-                      //           .tbl-row
-                      //             .tbl-cell
-                      //               .box.box-first
-                      //                 header -
-                      //                 div
-                      //                   p -
-                      //                   p -
-                      //             .tbl-cell
-                      //               .box.box-last
-                      //                 header -
-                      //                 div
-                      //                   p -
-                      //                   p -
-                      //                   p -
+            #page-company
 
-                      //       .tbl-cell.details
-                      //         .tbl
-                      //           .tbl-cell
-                      //             .box
-                      //               header -
-                      //               div
-                      //                 ul
-                      //                   li -
-                      //                   li -
-                      //                   li -
-                      //                   li -
-                      //                 p: a(href='#') Show more...
-                      //         .tbl
-                      //           .tbl-cell
-                      //             .box
-                      //               header -
-                      //               div
-                      //                 ul
-                      //                   li -
-                      //                   li -
-                      //                   li -
-                      //                   li -
-                      //                 p: a(href='#') Show more...
-                      //         .tbl
-                      //           .tbl-cell
-                      //             .box
-                      //               header -
-                      //               div
-                      //                 ul
-                      //                   li -
-                      //                   li -
-                      //                 li -
-                      //                 li -
-                      //               p: a(href='#') Show more...
+            #page-lists
+              .inner
+                .div-scroll
+                  .div-fixed
+
+                    #full-report-component
+
+                      h1#lists-boundaryline-selection
+
+                      #full-report-table
+
 
           footer#main-footer
             .inner
