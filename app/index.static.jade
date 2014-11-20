@@ -167,7 +167,14 @@ html(lang='en')
                   #map-report-component
 
                   header.secondary
-                    h2 No. of companies in region
+                    h2 Filter
+                  #filter-component
+
+                  header.secondary
+                    h2 Territory shading
+                  #variable-selection-component
+                  #stat-selection-component
+                  #scale-selection-component
                   #color-scale-component
 
               #map-component
@@ -177,7 +184,7 @@ html(lang='en')
                 .div-scroll
                   .div-fixed
 
-                    #full-report-component
+                    .full-report-component
 
                       h1#lists-boundaryline-selection
 
@@ -214,9 +221,20 @@ html(lang='en')
                 .div-scroll
                   .div-fixed
 
-                    #full-report-component
+                    .full-report-component
 
                       h1#lists-boundaryline-selection
+
+                      #full-report-charts
+                        .grid
+                          .tbl
+                            .tbl-cell.charts
+                              .tbl
+                                .tbl-row
+                                  .tbl-cell
+                                    .box.box-first
+                                      header Turnover
+                                      #turnover-timeline
 
                       #full-report-table
 
