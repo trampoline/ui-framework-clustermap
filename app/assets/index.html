@@ -101,11 +101,21 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" data-dismiss="modal" aria-hidden="true" class="close">&times;</button>
-            <h4>Methodology</h4>
+            <h4>EU Startup Hubs</h4>
           </div>
           <div class="modal-body">
             <p>
-              Methodology
+              Grant Thornton UK LLP and Trampoline Systems have been commissioned by the European Commission to create a
+              dynamic map of the web entrepreneur and start up ecosystem across Europe.
+            </p>
+            <p>
+              This map will provide unrivalled
+              insight into some of the key web entrepreneurial/start up hubs across Europe, the businesses that are located
+              in them and the networks and relationships between them.
+            </p>
+            <p>
+              The initial release is scheduled for Q1 2015, and prior to that this site will show occasional drops of some of the
+              data and features that will be available in the release.
               
             </p>
           </div>
@@ -273,6 +283,12 @@
     <script type="text/javascript">{{{repl-js}}}</script>
     
     -->
+    <script type="text/javascript">
+      if (window.config && window.config.app && window.config.app.properties && window.config.app.properties.popup_methodology) {
+        $('#page-methodology').modal('show')
+      }
+      
+    </script>
   </body>
 </html>
 <!--end-->
