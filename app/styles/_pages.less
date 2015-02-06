@@ -848,16 +848,26 @@ body {
   height: 28px;
   background: url(@mapSpritePNGPath) no-repeat 0 0;
   background-image: url(@mapSpriteSVGPath), none;
+  color: #fff;
+  p {
+    text-align: center;
+    font-size: 1em;
+    margin-left: 0%;
+    margin-top: 5px;
+  }
 }
 
 .map-marker-1 {
+  .map-marker;
   background-position: 0 0;
 }
 .map-marker-2 {
-  background-position: 24px 0;
+  .map-marker;
+  background-position: -24px 0;
 }
 .map-marker-3 {
-  background-position: 48px 0;
+  .map-marker;
+  background-position: -48px 0;
 }
 
 // Responsive styles
