@@ -117,16 +117,32 @@ html(lang='en')
             h4.
               EU Startup Hubs
           .modal-body
-            p.
-              Grant Thornton UK LLP and Trampoline Systems have been commissioned by the European Commission to create a
-              dynamic map of the web entrepreneur and start up ecosystem across Europe.
-            p.
-              This map will provide unrivalled
-              insight into some of the key web entrepreneurial/start up hubs across Europe, the businesses that are located
-              in them and the networks and relationships between them.
-            p.
-              The initial release is scheduled for Q1 2015, and prior to that this site will show occasional drops of some of the
-              data and features that will be available in the release.
+            p
+              | EU StartupHubs is an ambitious two-year project to map Europe&#39;s startup ecosystem. The project is a
+              | key component of the European Commission&#39;s &quot;Startup Europe&quot; programme. On-the-ground research is being
+              | conducted by&nbsp;
+              a(href="https://www.grantthornton.com/" target="_blank") Grant Thornton
+              |. A sophisticated analytic platform is being developed by&nbsp;
+              a(href="http://trampolinesystems.com" target="_blank") Trampoline Systems
+              | .
+
+            p
+              | The beta release provides analysis on 10 hub cities across Europe using data sourced from&nbsp;
+              a(href="https://angel.co/" target="_blank") AngelList
+              | &nbsp;and&nbsp;
+              a(href="https://www.crunchbase.com/" target="_blank") Crunchbase
+              | . The full release will extend this to 15 cities and add corporate registry data
+              | including revenue and employment intelligence where available. The cities currently covered are Berlin,
+              | Brussels, Bucherest, Helsinki, London, Madrid, Manchester, Munich, Paris and Stockholm.
+
+            p
+              | If you&#39;re a startup in one of the featured cities and you&#39;d like to be included on the map please
+              | email us with your company name, registered number, office address, website, twitter details, AngelList
+              | profile page and Crunchbase profile page. After the beta we&#39;ll be adding a form on the website.
+
+            p
+              | Contact us at&nbsp;
+              a(href="mailto:hello@startuphubs.eu") hello@startuphubs.eu
 
     #wrap
       header#page-header
@@ -145,14 +161,25 @@ html(lang='en')
           .col
             h1
               | Showcasing Europe&#8217;s startups
-            a(href="/#/map")
-              button(type='button').btn Map
+            // a(href="/#/map")
+            //   button(type='button').btn Map
           .col
             p
               | This site was created by&nbsp;
               a(href="https://www.grantthornton.com/" target="_blank") Grant Thornton
               | &nbsp;and growth data specialists&nbsp;
               a(href="http://www.trampolinesystems.com" target="_blank") Trampoline Systems
+            p
+              | It includes data from :
+              table(style="width:100%;")
+                tbody
+                  tr
+                    td
+                      a(href="/img/crunchbase.png")
+                        img(src="https://www.crunchbase.com/assets/cb-logo-39f37c9a0a04733cc79b91b71ff589ae.png")
+                    td
+                      a(href="https://angel.co")
+                        img(src="/img/angellist-logo.png" width="120")
 
       section#main
         .container
