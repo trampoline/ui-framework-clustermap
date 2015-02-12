@@ -71,7 +71,7 @@ html(lang='en')
         ga('send', 'pageview');
       }
 
-  body.view-map
+  body.view-trends
 
     #browser-support.modal.fade
       .modal-dialog
@@ -115,7 +115,7 @@ html(lang='en')
           .modal-header
             button.close(type='button' data-dismiss='modal' aria-hidden='true') &times;
             h4.
-              EU Startup Hubs
+              Startup Hubs EU (beta)
           .modal-body
             p
               | EU StartupHubs is an ambitious two-year project to map Europe&#39;s startup ecosystem. The project is a
@@ -148,11 +148,11 @@ html(lang='en')
       header#page-header
         .inner
           h1.logo EC
-          h2 Startup Hubs
+          h2 Startup Hubs EU (beta)
           #geo-sponsors
           ul.nav-links
-            li: a.view-trends(href="#") Trends
-            li: a.view-map.active(href="#") Map
+            li: a.view-trends.active(href="#") Trends
+            li: a.view-map(href="#") Map
             li: a.view-lists(href="#") Lists
             li: a.view-company(href="#") Company
 
@@ -319,9 +319,9 @@ html(lang='en')
               .trampoline
                 p
                   | Data and analytics by&nbsp;
-                  a(href="https://www.grantthornton.com/") Grant Thornton
-                  | &nbsp;&amp;&nbsp;
-                  a(href='http://www.trampolinesystems.com/') Trampoline Systems
+                  a(href='http://www.trampolinesystems.com/' target="_blank") Trampoline Systems
+                  | &nbsp;- On-the-ground research by&nbsp;
+                  a(href="https://www.grantthornton.com/" target="_blank") Grant Thornton
                 p.report-issue
                   a(href='mailto:clustermap-issues@trampolinesystems.com?subject=clustermap issue report') Report issue
 
