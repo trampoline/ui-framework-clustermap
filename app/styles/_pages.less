@@ -333,6 +333,7 @@ body {
     }
   }
   &.view-company {
+    #map-report { display: none; }
     #page-trends { display: none; }
     #page-map { display: none; }
     #page-lists { display: none; }
@@ -513,7 +514,7 @@ body {
 
 #map-report {
   position: absolute;
-  right: 0px; // -@map-details-size;
+  right: -280px; // -@map-details-size;
   width: @map-details-size + @map-arrow-size;
   z-index: 1000;
   header {
