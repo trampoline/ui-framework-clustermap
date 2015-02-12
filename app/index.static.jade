@@ -151,9 +151,9 @@ html(lang='en')
           h2 Startup Hubs EU (beta)
           #geo-sponsors
           ul.nav-links
-            li: a.view-trends.active(href="#") Trends
+            li: a.view-trends.active(href="#") Overview
             li: a.view-map(href="#") Map
-            li: a.view-lists(href="#") Lists
+            li: a.view-lists(href="#") List
             li: a.view-company(href="#") Company
 
       section
@@ -171,12 +171,12 @@ html(lang='en')
               aside
                 header.primary
                   h1 Filters
-                  h2 Zoom in for detailed view
+                  // h2 Zoom in for detailed view
 
                 #map-report-component
 
                 header.secondary
-                  h2 Filter
+                  h2 Currently displayed:
 
                 h1#map-boundaryline-selection
 
@@ -205,10 +205,13 @@ html(lang='en')
                     //   button(type='button').btn Map
                   .col
                     p
-                      | An evolving project to map data on startups across Europe.
-                      | An initiative of the Startup Europe programme.
+                      | This platform is being developed as part of&nbsp;
+                      a(href="http://ec.europa.eu/digital-agenda/about-startup-europe" target="_blank") Startup Europe
+                      | &nbsp;to provide a detailed and consistent analysis of the start-up ecosystem across Europe.
+                      | New functionality and data sources are being introduced progressively through 2015 and 2016.
+                      | The current beta release contains only partial data and some known inconsistencies.
                     p
-                      | Including data from :
+                      | Includes data from :
                       table(style="width:100%;")
                         tbody
                           tr
@@ -233,11 +236,11 @@ html(lang='en')
                           .tbl-row
                             .tbl-cell
                               .box.box-first
-                                header Hubs
+                                header Cities
                                 #mini-map-component
                             .tbl-cell
                               .box.box-first
-                                header Total investment by hub
+                                header Companies &amp; investment by city
                                 #region-investment-histogram
 
                       #revenue-bands-table
@@ -248,6 +251,9 @@ html(lang='en')
                       #rankings-table
 
                       #formation-timeline
+
+                      h2 Investment
+                      #turnover-timeline
 
             #page-company
               .inner
@@ -282,23 +288,6 @@ html(lang='en')
                   .div-fixed
 
                     .full-report-component
-
-                      h1#lists-boundaryline-selection
-
-                      #full-report-charts
-                        .grid
-                          .tbl
-                            .tbl-cell.charts
-                              .tbl
-                                .tbl-row
-                                  .tbl-cell
-                                    .box.box-first
-                                      header Investment
-                                      #turnover-timeline
-                                  // .tbl-cell
-                                  //   .box.box-first
-                                  //     header Employment
-                                  //     #employment-timeline
 
                       #full-report-table
 

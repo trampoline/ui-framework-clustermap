@@ -130,9 +130,9 @@
           <h2>Startup Hubs EU (beta)</h2>
           <div id="geo-sponsors"></div>
           <ul class="nav-links">
-            <li><a href="#" class="view-trends active">Trends</a></li>
+            <li><a href="#" class="view-trends active">Overview</a></li>
             <li><a href="#" class="view-map">Map</a></li>
-            <li><a href="#" class="view-lists">Lists</a></li>
+            <li><a href="#" class="view-lists">List</a></li>
             <li><a href="#" class="view-company">Company</a></li>
           </ul>
         </div>
@@ -146,11 +146,11 @@
               <aside>
                 <header class="primary">
                   <h1>Filters</h1>
-                  <h2>Zoom in for detailed view</h2>
+                  <!-- h2 Zoom in for detailed view-->
                 </header>
                 <div id="map-report-component"></div>
                 <header class="secondary">
-                  <h2>Filter</h2>
+                  <h2>Currently displayed:</h2>
                 </header>
                 <h1 id="map-boundaryline-selection"></h1>
                 <div id="filter-component"></div>
@@ -177,11 +177,11 @@
                     <!--   button(type='button').btn Map-->
                   </div>
                   <div class="col">
-                    <p>
-                      An evolving project to map data on startups across Europe.
-                      An initiative of the Startup Europe programme.
+                    <p>This platform is being developed as part of&nbsp;<a href="http://ec.europa.eu/digital-agenda/about-startup-europe" target="_blank">Startup Europe</a>&nbsp;to provide a detailed and consistent analysis of the start-up ecosystem across Europe.
+                      New functionality and data sources are being introduced progressively through 2015 and 2016.
+                      The current beta release contains only partial data and some known inconsistencies.
                     </p>
-                    <p>Including data from :
+                    <p>Includes data from :
                       <table style="width:100%;">
                         <tbody>
                           <tr>
@@ -204,13 +204,13 @@
                           <div class="tbl-row">
                             <div class="tbl-cell">
                               <div class="box box-first">
-                                <header>Hubs</header>
+                                <header>Cities</header>
                                 <div id="mini-map-component"></div>
                               </div>
                             </div>
                             <div class="tbl-cell">
                               <div class="box box-first">
-                                <header>Total investment by hub</header>
+                                <header>Companies &amp; investment by city</header>
                                 <div id="region-investment-histogram"></div>
                               </div>
                             </div>
@@ -223,6 +223,8 @@
                       </div>
                       <div id="rankings-table"></div>
                       <div id="formation-timeline"></div>
+                      <h2>Investment</h2>
+                      <div id="turnover-timeline"></div>
                     </div>
                   </div>
                 </div>
@@ -272,29 +274,6 @@
                 <div class="div-scroll">
                   <div class="div-fixed">
                     <div class="full-report-component">
-                      <h1 id="lists-boundaryline-selection"></h1>
-                      <div id="full-report-charts">
-                        <div class="grid">
-                          <div class="tbl">
-                            <div class="tbl-cell charts">
-                              <div class="tbl">
-                                <div class="tbl-row">
-                                  <div class="tbl-cell">
-                                    <div class="box box-first">
-                                      <header>Investment</header>
-                                      <div id="turnover-timeline"></div>
-                                    </div>
-                                  </div>
-                                  <!-- .tbl-cell-->
-                                  <!--   .box.box-first-->
-                                  <!--     header Employment-->
-                                  <!--     #employment-timeline-->
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
                       <div id="full-report-table"></div>
                     </div>
                   </div>
