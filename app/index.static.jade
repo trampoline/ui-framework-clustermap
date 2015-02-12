@@ -156,28 +156,7 @@ html(lang='en')
             li: a.view-lists(href="#") Lists
             li: a.view-company(href="#") Company
 
-      section#page-intro
-        .inner
-          .col
-            h1
-              | Mapping Europe&#8217;s startup ecosystem
-            // a(href="/#/map")
-            //   button(type='button').btn Map
-          .col
-            p
-              | An evolving project to map data on startups across Europe.
-              | An initiative of the Startup Europe programme.
-            p
-              | Including data from :
-              table(style="width:100%;")
-                tbody
-                  tr
-                    td
-                      a(href="https://www.crunchbase.com" target="_blank")
-                        img(src="/img/crunchbase.png")
-                    td
-                      a(href="https://angel.co" target="_blank")
-                        img(src="/img/angellist-logo.png" width="120")
+      section
 
       section#main
         .container
@@ -185,36 +164,62 @@ html(lang='en')
 
           #main-content
 
+            #map-report.open
+              a(href='#')
+                i Show / hide
+
+              aside
+                header.primary
+                  h1 Filters
+                  h2 Zoom in for detailed view
+
+                #map-report-component
+
+                header.secondary
+                  h2 Filter
+
+                h1#map-boundaryline-selection
+
+                #filter-component
+                #ons-sector-tag-filter-component
+                #datasource-tag-filter-component
+                header.secondary
+                  h2 Number of companies
+                // #variable-selection-component
+                // #stat-selection-component
+                // #scale-selection-component
+                #color-scale-component
+
             #page-map
-              #map-report.open
-                a(href='#')
-                  i Show / hide
-
-                aside
-                  header.primary
-                    h1 Filters
-                    h2 Zoom in for detailed view
-
-                  #map-report-component
-
-                  header.secondary
-                    h2 Filter
-
-                  h1#map-boundaryline-selection
-
-                  #filter-component
-                  #ons-sector-tag-filter-component
-                  #datasource-tag-filter-component
-                  header.secondary
-                    h2 Number of companies
-                  // #variable-selection-component
-                  // #stat-selection-component
-                  // #scale-selection-component
-                  #color-scale-component
 
               #map-component
 
             #page-trends
+
+              #page-intro
+                .inner
+                  .col
+                    h1
+                      | Mapping Europe&#8217;s startup ecosystem
+                    // a(href="/#/map")
+                    //   button(type='button').btn Map
+                  .col
+                    p
+                      | An evolving project to map data on startups across Europe.
+                      | An initiative of the Startup Europe programme.
+                    p
+                      | Including data from :
+                      table(style="width:100%;")
+                        tbody
+                          tr
+                            td
+                              a(href="https://www.crunchbase.com" target="_blank")
+                                img(src="/img/crunchbase.png")
+                            td
+                              a(href="https://angel.co" target="_blank")
+                                img(src="/img/angellist-logo.png" width="120")
+
+
               .inner
                 .div-scroll
                   .div-fixed
@@ -254,10 +259,6 @@ html(lang='en')
                       #company-report-charts
                         .grid
                           .tbl
-                            .tbl-row
-                              .tbl-cell
-                                #company-metadata
-                          .tbl
                             .tbl-cell.charts
                               .tbl
                                 .tbl-row
@@ -269,6 +270,10 @@ html(lang='en')
                                   //   .box.box-first
                                   //     header Employment
                                   //     #company-employment-timeline
+                          .tbl
+                            .tbl-row
+                              .tbl-cell
+                                #company-metadata
 
 
             #page-lists
@@ -307,7 +312,7 @@ html(lang='en')
                   | &nbsp;- On-the-ground research by&nbsp;
                   a(href="https://www.grantthornton.com/" target="_blank") Grant Thornton
                 p.report-issue
-                  a(href='mailto:clustermap-issues@trampolinesystems.com?subject=clustermap issue report') Report issue
+                  a(href='mailto:clustermap-issues@trampolinesystems.com?subject=Startup Hubs EU issue report') Report issue
 
     //begin-static-base-js
     script(type="text/javascript", src="cljs/goog/base.js")

@@ -137,62 +137,63 @@
           </ul>
         </div>
       </header>
-      <section id="page-intro">
-        <div class="inner">
-          <div class="col">
-            <h1>Mapping Europe&#8217;s startup ecosystem</h1>
-            <!-- a(href="/#/map")-->
-            <!--   button(type='button').btn Map-->
-          </div>
-          <div class="col">
-            <p>
-              An evolving project to map data on startups across Europe.
-              An initiative of the Startup Europe programme.
-            </p>
-            <p>Including data from :
-              <table style="width:100%;">
-                <tbody>
-                  <tr>
-                    <td><a href="https://www.crunchbase.com" target="_blank"><img src="/img/crunchbase.png"></a></td>
-                    <td><a href="https://angel.co" target="_blank"><img src="/img/angellist-logo.png" width="120"></a></td>
-                  </tr>
-                </tbody>
-              </table>
-            </p>
-          </div>
-        </div>
-      </section>
+      <section></section>
       <section id="main">
         <div class="container">
           <header id="main-header"></header>
           <div id="main-content">
+            <div id="map-report" class="open"><a href="#"><i>Show / hide</i></a>
+              <aside>
+                <header class="primary">
+                  <h1>Filters</h1>
+                  <h2>Zoom in for detailed view</h2>
+                </header>
+                <div id="map-report-component"></div>
+                <header class="secondary">
+                  <h2>Filter</h2>
+                </header>
+                <h1 id="map-boundaryline-selection"></h1>
+                <div id="filter-component"></div>
+                <div id="ons-sector-tag-filter-component"></div>
+                <div id="datasource-tag-filter-component"></div>
+                <header class="secondary">
+                  <h2>Number of companies</h2>
+                </header>
+                <!-- #variable-selection-component-->
+                <!-- #stat-selection-component-->
+                <!-- #scale-selection-component-->
+                <div id="color-scale-component"></div>
+              </aside>
+            </div>
             <div id="page-map">
-              <div id="map-report" class="open"><a href="#"><i>Show / hide</i></a>
-                <aside>
-                  <header class="primary">
-                    <h1>Filters</h1>
-                    <h2>Zoom in for detailed view</h2>
-                  </header>
-                  <div id="map-report-component"></div>
-                  <header class="secondary">
-                    <h2>Filter</h2>
-                  </header>
-                  <h1 id="map-boundaryline-selection"></h1>
-                  <div id="filter-component"></div>
-                  <div id="ons-sector-tag-filter-component"></div>
-                  <div id="datasource-tag-filter-component"></div>
-                  <header class="secondary">
-                    <h2>Number of companies</h2>
-                  </header>
-                  <!-- #variable-selection-component-->
-                  <!-- #stat-selection-component-->
-                  <!-- #scale-selection-component-->
-                  <div id="color-scale-component"></div>
-                </aside>
-              </div>
               <div id="map-component"></div>
             </div>
             <div id="page-trends">
+              <div id="page-intro">
+                <div class="inner">
+                  <div class="col">
+                    <h1>Mapping Europe&#8217;s startup ecosystem</h1>
+                    <!-- a(href="/#/map")-->
+                    <!--   button(type='button').btn Map-->
+                  </div>
+                  <div class="col">
+                    <p>
+                      An evolving project to map data on startups across Europe.
+                      An initiative of the Startup Europe programme.
+                    </p>
+                    <p>Including data from :
+                      <table style="width:100%;">
+                        <tbody>
+                          <tr>
+                            <td><a href="https://www.crunchbase.com" target="_blank"><img src="/img/crunchbase.png"></a></td>
+                            <td><a href="https://angel.co" target="_blank"><img src="/img/angellist-logo.png" width="120"></a></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </p>
+                  </div>
+                </div>
+              </div>
               <div class="inner">
                 <div class="div-scroll">
                   <div class="div-fixed">
@@ -235,13 +236,6 @@
                       <div id="company-report-charts">
                         <div class="grid">
                           <div class="tbl">
-                            <div class="tbl-row">
-                              <div class="tbl-cell">
-                                <div id="company-metadata"></div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="tbl">
                             <div class="tbl-cell charts">
                               <div class="tbl">
                                 <div class="tbl-row">
@@ -255,8 +249,14 @@
                                   <!--   .box.box-first-->
                                   <!--     header Employment-->
                                   <!--     #company-employment-timeline-->
-                                  
                                 </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="tbl">
+                            <div class="tbl-row">
+                              <div class="tbl-cell">
+                                <div id="company-metadata"></div>
                               </div>
                             </div>
                           </div>
@@ -306,7 +306,7 @@
             <div class="inner">
               <div class="trampoline">
                 <p>Data and analytics by&nbsp;<a href="http://www.trampolinesystems.com/" target="_blank">Trampoline Systems</a>&nbsp;- On-the-ground research by&nbsp;<a href="https://www.grantthornton.com/" target="_blank">Grant Thornton</a></p>
-                <p class="report-issue"><a href="mailto:clustermap-issues@trampolinesystems.com?subject=clustermap issue report">Report issue</a></p>
+                <p class="report-issue"><a href="mailto:clustermap-issues@trampolinesystems.com?subject=Startup Hubs EU issue report">Report issue</a></p>
               </div>
             </div>
           </footer>
