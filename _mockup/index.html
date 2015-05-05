@@ -19,15 +19,15 @@
         <div class="grdc">
           <header class="page-header">
             <h1 class="logo">EC</h1>
-            <div class="company-search">
-              <input type="text" placeholder="Company Search">
-            </div>
             <ul class="nav-links">
               <li class="view-intro"><a href="#">Introduction</a></li>
               <li class="view-about"><a href="#">About</a></li>
               <li class="view-login"><a href="#">Login</a></li>
               <li class="view-register"><a href="#">Register</a></li>
             </ul>
+            <div class="company-search">
+              <input type="text" placeholder="Company Search">
+            </div>
           </header>
         </div>
       </div>
@@ -584,7 +584,7 @@
                                 <p>Intro text...</p>
                               </header>
                               <div class="table-responsive">
-                                <table class="table">
+                                <table class="table table-outlined">
                                   <thead>
                                     <tr>
                                       <th class="sort-asc"> <a href="#">Company<i></i></a></th>
@@ -729,7 +729,6 @@
           e.preventDefault();
           
           $('body').removeClass('page-condensed');
-          $(window).scrollTop(0);
           
           $('#section-nav').find('li.active').removeClass('active').end().find('li:first').addClass('active');
           

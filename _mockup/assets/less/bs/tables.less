@@ -21,7 +21,6 @@ th {
 // Baseline styles
 
 .table {
-  border: 1px solid @table-border-color;
   margin-bottom: @line-height-computed;
   max-width: 100%;
   width: 100%;
@@ -87,6 +86,10 @@ th {
   }
 }
 
+.table-outlined {
+  border: 1px solid @table-border-color;
+}
+
 
 // // Condensed table w/ half padding
 
@@ -99,6 +102,95 @@ th {
       > td {
         padding: @table-condensed-cell-padding;
       }
+    }
+  }
+}
+
+.table-filtered {
+  th.title {
+    color: lighten(@text-color, 34%);
+  }
+  td.amount {
+    > span {
+      display: none;
+    }
+  }
+  .bar-chart {
+    background-color: lighten(desaturate(@brand-secondary, 30%), 34%);
+  }
+  .active-row {
+    th.title {
+      color: @text-color;
+    }
+    td.amount {
+      > span {
+        display: inline;
+      }
+    }
+    .bar-chart {
+      background-color: @brand-secondary;
+    }
+  }
+}
+
+.table-stats {
+  th.title {
+    font-weight: normal;
+    width: 25%;
+  }
+  td.amount {
+    text-align: right;
+    white-space: nowrap;
+    width: 4em;
+  }
+
+}
+
+.table-nav {
+  overflow: hidden;
+  padding: 0 20px;
+  margin-bottom: 20px;
+  .record-count {
+    color: #999;
+    float: left;
+  }
+  nav {
+    float: right;
+    text-align: right;
+    .btn {
+      margin-left: 5px;
+    }
+  }
+}
+
+.table-key {
+  margin: 0 0 10px auto;
+  td {
+    text-align: center;
+    padding: 3px 10px;
+    &.hm-1 {
+      background-color: @hm-1;
+      color: contrast(@hm-1, @text-color, #fff, @hm-threshold);
+    }
+    &.hm-2 {
+      background-color: @hm-2;
+      color: contrast(@hm-2, @text-color, #fff, @hm-threshold);
+    }
+    &.hm-3 {
+      background-color: @hm-3;
+      color: contrast(@hm-3, @text-color, #fff, @hm-threshold);
+    }
+    &.hm-4 {
+      background-color: @hm-4;
+      color: contrast(@hm-4, @text-color, #fff, @hm-threshold);
+    }
+    &.hm-5 {
+      background-color: @hm-5;
+      color: contrast(@hm-5, @text-color, #fff, @hm-threshold);
+    }
+    &.hm-6 {
+      background-color: @hm-6;
+      color: contrast(@hm-6, @text-color, #fff, @hm-threshold);
     }
   }
 }
@@ -177,19 +269,3 @@ th {
   }
 }
 
-.table-nav {
-  overflow: hidden;
-  padding: 0 20px;
-  margin-bottom: 20px;
-  .record-count {
-    color: #999;
-    float: left;
-  }
-  nav {
-    float: right;
-    text-align: right;
-    .btn {
-      margin-left: 5px;
-    }
-  }
-}

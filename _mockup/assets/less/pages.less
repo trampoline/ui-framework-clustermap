@@ -1,3 +1,5 @@
+// Base Variables
+// ----------------------------------
 @header-height: 50px;
 @header-border-color: #2D2D2D;
 @footer-height: 120px;
@@ -9,7 +11,11 @@
 @sprite-png: '../img/sprite.png';
 @sprite-svg: '../img/sprite.svg';
 
+@company-logo-width: 120px;
+
+
 // DIV Table layouts
+// ----------------------------------
 .tbl {
   border-collapse: collapse;
   border-spacing: 0;
@@ -57,7 +63,7 @@
 
 
 // Panel Grid
-
+// ----------------------------------
 @media (min-width: @screen-sm-min) {
   .panel-grid-container {
     margin-top:   -15px;
@@ -71,6 +77,9 @@
     border-collapse: separate;
     width: 100%;
     border-spacing: 15px;
+    table {
+      border-collapse: collapse;
+    }
   }
 
   .panel-row {
@@ -79,10 +88,7 @@
       display: table-cell;
       vertical-align: top;
       .panel-body {
-
-        &::before, &::after { // Fixes strange inheritance from border-spacing
-          display: none;
-        }
+        padding: 20px 15px;
       }
     }
   }
@@ -90,6 +96,7 @@
 
 
 // Icons
+// ----------------------------------
 [class^="icon-"],
 [class*=" icon-"] {
   display: inline-block;
@@ -130,7 +137,6 @@
   }
 }
 
-
 .icon-negative, .icon-positive {
   .square(0px);
   background: transparent;
@@ -147,6 +153,8 @@
 }
 
 
+// Page Styles
+// ----------------------------------
 html, body {
   height: 100%;
   margin: 0;
@@ -185,20 +193,29 @@ body.view-company {
 
 h1.logo {
   .text-hide();
-  border-right: 1px solid @header-border-color;
   float: left;
   height: @header-height;
-  margin: 0 @spacing 0 0;
   width: 176px;
+  margin: 0 auto;
 
   background: url(@logo-png) 50% 50% no-repeat;
   background-image: url(@logo-svg), none;
-
 }
 
 .company-search {
-  float: left;
-  width: 400px;
+  @media (min-width: @screen-md-min) {
+    border-left: 1px solid @header-border-color;
+    border-top: 0 none;
+    float: left;
+    width: 400px;
+    padding-left: @spacing;
+    clear: none;
+  }
+
+  border-top: 1px solid @header-border-color;
+  clear: both;
+  padding: 0 (@spacing/2);
+
   input {
     background-color: @gray-darker;
     background-image: ;
@@ -222,11 +239,20 @@ h1.logo {
 }
 
 .nav-links {
-  float: right;
+  @media (min-width: 540px) {
+    border-left: 1px solid @header-border-color;
+    border-top: 0 none;
+    float: right;
+    clear: none;
+    margin: 0 0 0 @spacing;
+  }
+  border-top: 1px solid @header-border-color;
+  clear: both;
   list-style: none;
-  margin: 0 0 0 @spacing;
+  margin: 0;
+  overflow: hidden;
   padding: 0 10px;
-  border-left: 1px solid @header-border-color;
+  white-space: nowrap;
   li {
     float: left;
     &.view-intro {
@@ -317,8 +343,6 @@ h1.logo {
     }
   }
 }
-
-
 
 .content-container {
   position: relative;
@@ -480,10 +504,16 @@ h1.logo {
 .section-headlines {
   background: @gray-dark;
   color: #fff;
+  .stat-title, .stat-change {
+    color: #999;
+  }
+  .stat-amount, .stat-change {
+    display: block;
+    margin-left: 0;
+  }
 }
 
 .stat-title, .stat-change {
-  color: #999;
   font-size: @font-size-large;
   font-weight: normal;
   margin: 4px 0;
@@ -499,15 +529,16 @@ h1.logo {
 .stat-amount {
   font-size: 48px;
   line-height: 1;
+  display: inline-block;
   small {
     font-size: @font-size-large;
   }
 }
 
 .stat-change {
-
+  display: inline-block;
+  margin-left: 5px;
 }
-
 
 
 .section-map {
@@ -530,102 +561,9 @@ h1.logo {
   }
 }
 
-.table-key {
-  margin: 0 0 10px auto;
-  td {
-    text-align: center;
-    padding: 3px 10px;
-    &.hm-1 {
-      background-color: @hm-1;
-      color: contrast(@hm-1, @text-color, #fff, @hm-threshold);
-    }
-    &.hm-2 {
-      background-color: @hm-2;
-      color: contrast(@hm-2, @text-color, #fff, @hm-threshold);
-    }
-    &.hm-3 {
-      background-color: @hm-3;
-      color: contrast(@hm-3, @text-color, #fff, @hm-threshold);
-    }
-    &.hm-4 {
-      background-color: @hm-4;
-      color: contrast(@hm-4, @text-color, #fff, @hm-threshold);
-    }
-    &.hm-5 {
-      background-color: @hm-5;
-      color: contrast(@hm-5, @text-color, #fff, @hm-threshold);
-    }
-    &.hm-6 {
-      background-color: @hm-6;
-      color: contrast(@hm-6, @text-color, #fff, @hm-threshold);
-    }
-  }
-}
-
-
 .section-charts {
   background: @gray-light;
 }
-
-.table-stats {
-  th.title {
-    font-weight: normal;
-    width: 25%;
-  }
-  td.amount {
-    text-align: right;
-    white-space: nowrap;
-    width: 4em;
-  }
-
-}
-
-.company-header {
-  &:extend(.clearfix all);
-  background: #fff;
-  padding: 15px;
-  h3 {
-    display: inline;
-  }
-  .company-buttons {
-    float: right;
-  }
-}
-
-.section-company-info {
-  background: @gray-light;
-}
-
-
-
-.table-filtered {
-  th.title {
-    color: lighten(@text-color, 34%);
-  }
-  td.amount {
-    > span {
-      display: none;
-    }
-  }
-  .bar-chart {
-    background-color: lighten(desaturate(@brand-secondary, 30%), 34%);
-  }
-  .active-row {
-    th.title {
-      color: @text-color;
-    }
-    td.amount {
-      > span {
-        display: inline;
-      }
-    }
-    .bar-chart {
-      background-color: @brand-secondary;
-    }
-  }
-}
-
-
 
 .bar-chart-container {
   overflow: hidden;
@@ -646,5 +584,90 @@ h1.logo {
   height: 230px;
 }
 
+.chart-container-lg {
+  height: 280px;
+}
 
 
+.company-header {
+  &:extend(.clearfix all);
+  background: #fff;
+  padding: 15px;
+  h3 {
+    display: inline-block;
+    margin: 0 15px;
+  }
+  .company-buttons {
+    float: right;
+    .btn {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    .btn + .btn {
+      margin-left: 5px;
+    }
+  }
+}
+
+.section-company-info {
+  background: @gray-light;
+}
+
+.company-logo {
+  @media (min-width: @screen-sm-min) {
+    float: left;
+    width: @company-logo-width;
+    padding-right: 20px;
+  }
+
+  > img {
+    .img-responsive();
+  }
+}
+
+.company-details {
+  @media (min-width: @screen-sm-min) {
+    margin-left: @company-logo-width;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    border-top: 1px solid @gray-light;
+    margin-bottom: 5px;
+    padding-top: 5px;
+    &:first-child {
+      padding-top: 0;
+      border-top: 0 none;
+    }
+  }
+  h4, p {
+    font-size: @font-size-medium;
+    margin-bottom: 5px;
+  }
+}
+
+.company-address {
+  h4, address div {
+    font-size: @font-size-medium;
+  }
+  h4 {
+    margin-bottom: 5px;
+  }
+  address {
+    margin-bottom: 20px;
+  }
+}
+
+.map-container {
+  background: @gray-lighter;
+  border: 1px solid @gray-light;
+  height: 210px;
+}
+
+.chart-heading {
+  margin-bottom: 20px;
+}

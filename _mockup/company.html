@@ -19,15 +19,15 @@
         <div class="grdc">
           <header class="page-header">
             <h1 class="logo">EC</h1>
-            <div class="company-search">
-              <input type="text" placeholder="Company Search">
-            </div>
             <ul class="nav-links">
               <li class="view-intro"><a href="#">Introduction</a></li>
               <li class="view-about"><a href="#">About</a></li>
               <li class="view-login"><a href="#">Login</a></li>
               <li class="view-register"><a href="#">Register</a></li>
             </ul>
+            <div class="company-search">
+              <input type="text" placeholder="Company Search">
+            </div>
           </header>
         </div>
       </div>
@@ -68,31 +68,120 @@
                                   <div class="panel-row">
                                     <div class="panel">
                                       <div class="panel-body">
-                                        <p><a href="#"><i class="icon-twitter"></i></a>&nbsp;<a href="#"><i class="icon-linkedin"></i></a>&nbsp;<a href="#"><i class="icon-crunch"></i></a>&nbsp;<a href="#"><i class="icon-angel"></i></a></p>
+                                        <div class="company-logo"></div>
+                                        <div class="company-details">
+                                          <ul>
+                                            <li>
+                                              <h4>Description</h4>
+                                              <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum distinctio aliquid voluptatum temporibus suscipit at, quae ea facilis nobis! Facilis quia, repellendus sunt numquam, aut distinctio placeat commodi quisquam eius.</p>
+                                            </li>
+                                            <li>
+                                              <h4>Sector</h4>
+                                              <p><a href="#">Other service activities</a></p>
+                                              <p>SIC 1234 5678 - Other Business Activities</p>
+                                              <p>SIC 1234 5678 - Other Business Activities</p>
+                                            </li>
+                                            <li>
+                                              <h4>Registration Number</h4>
+                                              <p>0123456789</p>
+                                            </li>
+                                            <li>
+                                              <h4>Website</h4>
+                                              <p><a href="#">abcdefghijk.com</a></p>
+                                            </li>
+                                            <li>
+                                              <p><a href="#"><i class="icon-twitter"></i></a>&nbsp;<a href="#"><i class="icon-linkedin"></i></a>&nbsp;<a href="#"><i class="icon-crunch"></i></a>&nbsp;<a href="#"><i class="icon-angel"></i></a></p>
+                                            </li>
+                                          </ul>
+                                        </div>
                                       </div>
                                     </div>
                                     <div class="panel">
                                       <div class="panel-body">
-                                        <p> </p>
+                                        <div class="company-address">
+                                          <div class="row">
+                                            <div class="col-sm-6">
+                                              <address>
+                                                <h4>Registered Address</h4>
+                                                <div>110 Fulbourn Rd</div>
+                                                <div>Cambridge</div>
+                                                <div>Cambridgeshire</div>
+                                                <div>CB1 9NJ</div>
+                                                <div>UK</div>
+                                              </address>
+                                            </div>
+                                            <div class="col-sm-6">
+                                              <address>
+                                                <h4>Second Address</h4>
+                                                <div>110 Fulbourn Rd</div>
+                                                <div>Cambridge</div>
+                                                <div>Cambridgeshire</div>
+                                                <div>CB1 9NJ</div>
+                                                <div>UK</div>
+                                              </address>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="company-map">
+                                          <div class="map-container"></div>
+                                        </div>
                                       </div>
                                     </div>
                                   </div>
                                   <div class="panel-row">
                                     <div class="panel">
                                       <div class="panel-body">
-                                        <p> </p>
+                                        <div class="chart-heading">
+                                          <h4 class="stat-title">Turnover (2013)</h4>
+                                          <div class="stat-amount">43.3M<small>GBP</small></div>
+                                          <div class="stat-change"> <i class="icon-positive"></i><span>15.6%</span></div>
+                                        </div>
+                                        <div class="chart-container-lg"></div>
                                       </div>
                                     </div>
                                     <div class="panel">
                                       <div class="panel-body">
-                                        <p> </p>
+                                        <div class="chart-heading">
+                                          <h4 class="stat-title">Employees (2013)</h4>
+                                          <div class="stat-amount">43,367</div>
+                                          <div class="stat-change"><i class="icon-positive"></i><span>15.6%</span></div>
+                                        </div>
+                                        <div class="chart-container-lg"></div>
                                       </div>
                                     </div>
                                   </div>
                                   <div class="panel-row">
                                     <div class="panel">
                                       <div class="panel-body">
-                                        <p> </p>
+                                        <h3>Directors</h3>
+                                        <div class="table-responsive">
+                                          <table class="table">
+                                            <thead>
+                                              <tr>
+                                                <th>Name</th>
+                                                <th>Start Date</th>
+                                                <th>ZZZ</th>
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              <tr>
+                                                <td>Mr Joe Blogs</td>
+                                                <td>19<sup>th</sup> May 1998</td>
+                                                <td>--</td>
+                                              </tr>
+                                              <tr>
+                                                <td>Ms Mary Smith</td>
+                                                <td>3<sup>rd</sup> Jan 1999</td>
+                                                <td>--</td>
+                                              </tr>
+                                              <tr>
+                                                <td>Mr Alan Robertson</td>
+                                                <td>21<sup>st</sup> Aug 2001</td>
+                                                <td>--</td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </div>
                                       </div>
                                     </div>
                                   </div>
@@ -129,13 +218,6 @@
             
               $('body').addClass('page-condensed');
               
-              $('[data-spy="scroll"]').each(function () {
-                var $spy = $(this).scrollspy('refresh');
-              });
-              
-              $('#data-col').scrollspy({ target: '#section-nav' })
-              
-              
             }
           }
         });
@@ -143,27 +225,6 @@
         $('.view-intro').on('click', function(e){
           e.preventDefault();
           $('body').removeClass('page-condensed');
-          //- $(window).scrollTop(0);
-        });
-        
-        
-        $('#filter-toggle').on('click', function(){
-          $('#data-container').toggleClass('show-filters');
-        });
-        
-        $('.filter-header').on('click', function(){
-          var $t = $(this), $o = $t.next('.filter-items'), $p = $t.parent('.filter-group'), active = $p.hasClass('active') ? true : false;
-          
-          if (active) {
-            $o.slideUp(function(){
-              $p.removeClass('active');
-            });
-          }
-          else {
-            $o.slideDown(function(){
-              $p.addClass('active');
-            });
-          }
         });
         
       });

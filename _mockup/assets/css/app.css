@@ -1171,7 +1171,6 @@ th {
   text-align: left;
 }
 .table {
-  border: 1px solid #d5d5d5;
   margin-bottom: 20px;
   max-width: 100%;
   width: 100%;
@@ -1241,6 +1240,9 @@ th {
 .table > tbody > tr:nth-of-type(even) {
   background-color: #f8f7f6;
 }
+.table-outlined {
+  border: 1px solid #d5d5d5;
+}
 .table-condensed > thead > tr > th,
 .table-condensed > tbody > tr > th,
 .table-condensed > tfoot > tr > th,
@@ -1248,6 +1250,80 @@ th {
 .table-condensed > tbody > tr > td,
 .table-condensed > tfoot > tr > td {
   padding: 5px;
+}
+.table-filtered th.title {
+  color: #8a8a8a;
+}
+.table-filtered td.amount > span {
+  display: none;
+}
+.table-filtered .bar-chart {
+  background-color: #7cbce8;
+}
+.table-filtered .active-row th.title {
+  color: #333333;
+}
+.table-filtered .active-row td.amount > span {
+  display: inline;
+}
+.table-filtered .active-row .bar-chart {
+  background-color: #006db6;
+}
+.table-stats th.title {
+  font-weight: normal;
+  width: 25%;
+}
+.table-stats td.amount {
+  text-align: right;
+  white-space: nowrap;
+  width: 4em;
+}
+.table-nav {
+  overflow: hidden;
+  padding: 0 20px;
+  margin-bottom: 20px;
+}
+.table-nav .record-count {
+  color: #999;
+  float: left;
+}
+.table-nav nav {
+  float: right;
+  text-align: right;
+}
+.table-nav nav .btn {
+  margin-left: 5px;
+}
+.table-key {
+  margin: 0 0 10px auto;
+}
+.table-key td {
+  text-align: center;
+  padding: 3px 10px;
+}
+.table-key td.hm-1 {
+  background-color: #ffeebb;
+  color: #333333;
+}
+.table-key td.hm-2 {
+  background-color: #ffdb76;
+  color: #333333;
+}
+.table-key td.hm-3 {
+  background-color: #ffb754;
+  color: #333333;
+}
+.table-key td.hm-4 {
+  background-color: #ff9041;
+  color: #ffffff;
+}
+.table-key td.hm-5 {
+  background-color: #f06132;
+  color: #ffffff;
+}
+.table-key td.hm-6 {
+  background-color: #e13322;
+  color: #ffffff;
 }
 .table-responsive {
   overflow-x: auto;
@@ -1298,22 +1374,6 @@ th {
   .table-responsive > .table-bordered > tfoot > tr:last-child > td {
     border-bottom: 0;
   }
-}
-.table-nav {
-  overflow: hidden;
-  padding: 0 20px;
-  margin-bottom: 20px;
-}
-.table-nav .record-count {
-  color: #999;
-  float: left;
-}
-.table-nav nav {
-  float: right;
-  text-align: right;
-}
-.table-nav nav .btn {
-  margin-left: 5px;
 }
 fieldset {
   padding: 0;
@@ -2597,6 +2657,7 @@ button.close {
 .company-header:after {
   content: " ";
   display: table;
+  border-collapse: collapse;
 }
 .clearfix:after,
 .container:after,
@@ -2700,6 +2761,9 @@ button.close {
     width: 100%;
     border-spacing: 15px;
   }
+  .panel-grid table {
+    border-collapse: collapse;
+  }
   .panel-row {
     display: table-row;
   }
@@ -2707,9 +2771,8 @@ button.close {
     display: table-cell;
     vertical-align: top;
   }
-  .panel-row .panel .panel-body::before,
-  .panel-row .panel .panel-body::after {
-    display: none;
+  .panel-row .panel .panel-body {
+    padding: 20px 15px;
   }
 }
 [class^="icon-"],
@@ -2810,17 +2873,27 @@ h1.logo {
   text-shadow: none;
   background-color: transparent;
   border: 0;
-  border-right: 1px solid #2d2d2d;
   float: left;
   height: 50px;
-  margin: 0 20px 0 0;
   width: 176px;
+  margin: 0 auto;
   background: url('../img/logo-eu.png') 50% 50% no-repeat;
   background-image: url('../img/logo-eu.svg'), none;
 }
 .company-search {
-  float: left;
-  width: 400px;
+  border-top: 1px solid #2d2d2d;
+  clear: both;
+  padding: 0 10px;
+}
+@media (min-width: 992px) {
+  .company-search {
+    border-left: 1px solid #2d2d2d;
+    border-top: 0 none;
+    float: left;
+    width: 400px;
+    padding-left: 20px;
+    clear: none;
+  }
 }
 .company-search input {
   background-color: #1a1a1a;
@@ -2854,11 +2927,22 @@ h1.logo {
   background: #2d2d2d;
 }
 .nav-links {
-  float: right;
+  border-top: 1px solid #2d2d2d;
+  clear: both;
   list-style: none;
-  margin: 0 0 0 20px;
+  margin: 0;
+  overflow: hidden;
   padding: 0 10px;
-  border-left: 1px solid #2d2d2d;
+  white-space: nowrap;
+}
+@media (min-width: 540px) {
+  .nav-links {
+    border-left: 1px solid #2d2d2d;
+    border-top: 0 none;
+    float: right;
+    clear: none;
+    margin: 0 0 0 20px;
+  }
 }
 .nav-links li {
   float: left;
@@ -3093,9 +3177,17 @@ h1.logo {
   background: #333333;
   color: #fff;
 }
+.section-headlines .stat-title,
+.section-headlines .stat-change {
+  color: #999;
+}
+.section-headlines .stat-amount,
+.section-headlines .stat-change {
+  display: block;
+  margin-left: 0;
+}
 .stat-title,
 .stat-change {
-  color: #999;
   font-size: 18px;
   font-weight: normal;
   margin: 4px 0;
@@ -3107,9 +3199,14 @@ h1.logo {
 .stat-amount {
   font-size: 48px;
   line-height: 1;
+  display: inline-block;
 }
 .stat-amount small {
   font-size: 18px;
+}
+.stat-change {
+  display: inline-block;
+  margin-left: 5px;
 }
 .section-map .panel-body {
   padding: 0;
@@ -3126,79 +3223,8 @@ h1.logo {
   font-size: 14px;
   color: #999;
 }
-.table-key {
-  margin: 0 0 10px auto;
-}
-.table-key td {
-  text-align: center;
-  padding: 3px 10px;
-}
-.table-key td.hm-1 {
-  background-color: #ffeebb;
-  color: #333333;
-}
-.table-key td.hm-2 {
-  background-color: #ffdb76;
-  color: #333333;
-}
-.table-key td.hm-3 {
-  background-color: #ffb754;
-  color: #333333;
-}
-.table-key td.hm-4 {
-  background-color: #ff9041;
-  color: #ffffff;
-}
-.table-key td.hm-5 {
-  background-color: #f06132;
-  color: #ffffff;
-}
-.table-key td.hm-6 {
-  background-color: #e13322;
-  color: #ffffff;
-}
 .section-charts {
   background: #eeeeee;
-}
-.table-stats th.title {
-  font-weight: normal;
-  width: 25%;
-}
-.table-stats td.amount {
-  text-align: right;
-  white-space: nowrap;
-  width: 4em;
-}
-.company-header {
-  background: #fff;
-  padding: 15px;
-}
-.company-header h3 {
-  display: inline;
-}
-.company-header .company-buttons {
-  float: right;
-}
-.section-company-info {
-  background: #eeeeee;
-}
-.table-filtered th.title {
-  color: #8a8a8a;
-}
-.table-filtered td.amount > span {
-  display: none;
-}
-.table-filtered .bar-chart {
-  background-color: #7cbce8;
-}
-.table-filtered .active-row th.title {
-  color: #333333;
-}
-.table-filtered .active-row td.amount > span {
-  display: inline;
-}
-.table-filtered .active-row .bar-chart {
-  background-color: #006db6;
 }
 .bar-chart-container {
   overflow: hidden;
@@ -3216,4 +3242,82 @@ h1.logo {
 }
 .chart-container {
   height: 230px;
+}
+.chart-container-lg {
+  height: 280px;
+}
+.company-header {
+  background: #fff;
+  padding: 15px;
+}
+.company-header h3 {
+  display: inline-block;
+  margin: 0 15px;
+}
+.company-header .company-buttons {
+  float: right;
+}
+.company-header .company-buttons .btn {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.company-header .company-buttons .btn + .btn {
+  margin-left: 5px;
+}
+.section-company-info {
+  background: #eeeeee;
+}
+@media (min-width: 768px) {
+  .company-logo {
+    float: left;
+    width: 120px;
+    padding-right: 20px;
+  }
+}
+.company-logo > img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+@media (min-width: 768px) {
+  .company-details {
+    margin-left: 120px;
+  }
+}
+.company-details ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.company-details li {
+  border-top: 1px solid #eeeeee;
+  margin-bottom: 5px;
+  padding-top: 5px;
+}
+.company-details li:first-child {
+  padding-top: 0;
+  border-top: 0 none;
+}
+.company-details h4,
+.company-details p {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+.company-address h4,
+.company-address address div {
+  font-size: 16px;
+}
+.company-address h4 {
+  margin-bottom: 5px;
+}
+.company-address address {
+  margin-bottom: 20px;
+}
+.map-container {
+  background: #f8f7f6;
+  border: 1px solid #eeeeee;
+  height: 210px;
+}
+.chart-heading {
+  margin-bottom: 20px;
 }

@@ -21,14 +21,14 @@ html(lang='en')(style="margin-bottom:-300px;")
         .grdc
           header.page-header
             h1.logo EC
-            .company-search
-              input(type="text", placeholder="Company Search")
-
             ul.nav-links
               li.view-intro: a(href="#") Introduction
               li.view-about: a(href="#") About
               li.view-login: a(href="#") Login
               li.view-register: a(href="#") Register
+
+            .company-search
+              input(type="text", placeholder="Company Search")
 
 
 
@@ -79,32 +79,110 @@ html(lang='en')(style="margin-bottom:-300px;")
                                   .panel-row
                                     .panel
                                       .panel-body
-                                        p
-                                          a(href="#"): i.icon-twitter
-                                          &nbsp;
-                                          a(href="#"): i.icon-linkedin
-                                          &nbsp;
-                                          a(href="#"): i.icon-crunch
-                                          &nbsp;
-                                          a(href="#"): i.icon-angel
+                                        .company-logo
+
+                                        .company-details
+                                            ul
+                                              li
+                                                h4 Description
+                                                p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum distinctio aliquid voluptatum temporibus suscipit at, quae ea facilis nobis! Facilis quia, repellendus sunt numquam, aut distinctio placeat commodi quisquam eius.
+
+                                              li
+                                                h4 Sector
+                                                p: a(href="#") Other service activities
+                                                p SIC 1234 5678 - Other Business Activities
+                                                p SIC 1234 5678 - Other Business Activities
+
+                                              li
+                                                h4 Registration Number
+                                                p 0123456789
+                                              li
+                                                h4 Website
+                                                p: a(href="#") abcdefghijk.com
+                                              li
+                                                p
+                                                  a(href="#"): i.icon-twitter
+                                                  &nbsp;
+                                                  a(href="#"): i.icon-linkedin
+                                                  &nbsp;
+                                                  a(href="#"): i.icon-crunch
+                                                  &nbsp;
+                                                  a(href="#"): i.icon-angel
 
 
                                     .panel
                                       .panel-body
-                                        p 
+                                        .company-address
+                                          .row
+                                            .col-sm-6
+                                              address
+                                                h4 Registered Address
+                                                div 110 Fulbourn Rd
+                                                div Cambridge
+                                                div Cambridgeshire
+                                                div CB1 9NJ
+                                                div UK
+                                            .col-sm-6
+                                              address
+                                                h4 Second Address
+                                                div 110 Fulbourn Rd
+                                                div Cambridge
+                                                div Cambridgeshire
+                                                div CB1 9NJ
+                                                div UK
+                                        .company-map
+                                          .map-container
+
+
                                   .panel-row
                                     .panel
                                       .panel-body
-                                        p 
+                                        .chart-heading
+                                          h4.stat-title Turnover (2013)
+                                          .stat-amount 43.3M
+                                            small GBP
+                                          .stat-change 
+                                            i.icon-positive
+                                            span 15.6%
+
+                                        .chart-container-lg
+
                                     .panel
                                       .panel-body
-                                        p 
+                                        .chart-heading
+                                          h4.stat-title Employees (2013)
+                                          .stat-amount 43,367
+                                          .stat-change
+                                            i.icon-positive
+                                            span 15.6%
+
+                                        .chart-container-lg
+
+
                                   .panel-row
                                     .panel
                                       .panel-body
-                                        p 
-                               
-
+                                        h3 Directors
+                                        .table-responsive
+                                          table.table
+                                            thead
+                                              tr
+                                                th Name
+                                                th Start Date
+                                                th ZZZ
+                                            tbody
+                                              tr
+                                                td Mr Joe Blogs
+                                                td 19<sup>th</sup> May 1998
+                                                td --
+                                              tr
+                                                td Ms Mary Smith
+                                                td 3<sup>rd</sup> Jan 1999
+                                                td --
+                                              tr
+                                                td Mr Alan Robertson
+                                                td 21<sup>st</sup> Aug 2001
+                                                td --
 
                           footer.page-footer
                             div
@@ -131,13 +209,6 @@ html(lang='en')(style="margin-bottom:-300px;")
 
               $('body').addClass('page-condensed');
               
-              $('[data-spy="scroll"]').each(function () {
-                var $spy = $(this).scrollspy('refresh');
-              });
-
-              $('#data-col').scrollspy({ target: '#section-nav' })
-
-
             }
           }
         });
@@ -145,27 +216,6 @@ html(lang='en')(style="margin-bottom:-300px;")
         $('.view-intro').on('click', function(e){
           e.preventDefault();
           $('body').removeClass('page-condensed');
-          //- $(window).scrollTop(0);
-        });
-
-
-        $('#filter-toggle').on('click', function(){
-          $('#data-container').toggleClass('show-filters');
-        });
-
-        $('.filter-header').on('click', function(){
-          var $t = $(this), $o = $t.next('.filter-items'), $p = $t.parent('.filter-group'), active = $p.hasClass('active') ? true : false;
-
-          if (active) {
-            $o.slideUp(function(){
-              $p.removeClass('active');
-            });
-          }
-          else {
-            $o.slideDown(function(){
-              $p.addClass('active');
-            });
-          }
         });
 
       });

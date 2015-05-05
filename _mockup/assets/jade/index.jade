@@ -21,16 +21,14 @@ html(lang='en')(style="margin-bottom:-300px;")
         .grdc
           header.page-header
             h1.logo EC
-            .company-search
-              input(type="text", placeholder="Company Search")
-
             ul.nav-links
               li.view-intro: a(href="#") Introduction
               li.view-about: a(href="#") About
               li.view-login: a(href="#") Login
               li.view-register: a(href="#") Register
 
-
+            .company-search
+              input(type="text", placeholder="Company Search")
 
       .grdr
         .grdc.intro#intro
@@ -45,8 +43,6 @@ html(lang='en')(style="margin-bottom:-300px;")
             | New functionality and data sources are being introduced progressively through 2015 and 2016.
             | The current beta release contains only partial data and some known inconsistencies.
 
-
-
       .grdr
         .grdc
           .filter-settings
@@ -58,8 +54,6 @@ html(lang='en')(style="margin-bottom:-300px;")
               li
                 span Filter item name
                 button(type="button").close &times;
-
-
 
       .grdr
         .grdc.grdh
@@ -395,7 +389,7 @@ html(lang='en')(style="margin-bottom:-300px;")
                                 p Intro text...
 
                               .table-responsive
-                                table.table
+                                table.table.table-outlined
                                   thead
                                     tr
                                       th.sort-asc 
@@ -500,7 +494,6 @@ html(lang='en')(style="margin-bottom:-300px;")
           e.preventDefault();
 
           $('body').removeClass('page-condensed');
-          $(window).scrollTop(0);
 
           $('#section-nav').find('li.active').removeClass('active').end().find('li:first').addClass('active');
 
