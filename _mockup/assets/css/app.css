@@ -1206,6 +1206,10 @@ th {
   margin-top: 8px;
   border: 5px solid transparent;
 }
+.table > thead > tr > th small,
+.table > thead > tr > td small {
+  font-weight: normal;
+}
 .table > thead > tr > th.sort-asc,
 .table > thead > tr > td.sort-asc,
 .table > thead > tr > th.sort-desc,
@@ -2588,7 +2592,9 @@ button.close {
 .page-header:before,
 .page-header:after,
 .page-footer:before,
-.page-footer:after {
+.page-footer:after,
+.company-header:before,
+.company-header:after {
   content: " ";
   display: table;
 }
@@ -2600,7 +2606,8 @@ button.close {
 .panel-body:after,
 .modal-footer:after,
 .page-header:after,
-.page-footer:after {
+.page-footer:after,
+.company-header:after {
   clear: both;
 }
 .center-block {
@@ -2655,6 +2662,7 @@ button.close {
   border-spacing: 0;
   display: table;
   width: 100%;
+  table-layout: fixed;
   height: 100%;
 }
 .grdr {
@@ -2677,6 +2685,91 @@ button.close {
 .grda {
   position: absolute;
 }
+@media (min-width: 768px) {
+  .panel-grid-container {
+    margin-top: -15px;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+  .panel-grid {
+    border-collapse: collapse;
+    border-spacing: 0;
+    display: table;
+    table-layout: fixed;
+    border-collapse: separate;
+    width: 100%;
+    border-spacing: 15px;
+  }
+  .panel-row {
+    display: table-row;
+  }
+  .panel-row .panel {
+    display: table-cell;
+    vertical-align: top;
+  }
+  .panel-row .panel .panel-body::before,
+  .panel-row .panel .panel-body::after {
+    display: none;
+  }
+}
+[class^="icon-"],
+[class*=" icon-"] {
+  display: inline-block;
+  background: url('../img/sprite.png') 0 0 no-repeat;
+  background-image: '../img/sprite.svg', none;
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+.icon-twitter,
+.icon-linkedin,
+.icon-crunch,
+.icon-angel {
+  width: 32px;
+  height: 32px;
+}
+.icon-twitter {
+  background-position: 0 -56px;
+}
+a:hover .icon-twitter {
+  background-position: -36px -56px;
+}
+.icon-linkedin {
+  background-position: 0 -96px;
+}
+a:hover .icon-linkedin {
+  background-position: -36px -96px;
+}
+.icon-crunch {
+  background-position: 0 -136px;
+}
+a:hover .icon-crunch {
+  background-position: -36px -136px;
+}
+.icon-angel {
+  background-position: 0 -176px;
+}
+a:hover .icon-angel {
+  background-position: -36px -176px;
+}
+.icon-negative,
+.icon-positive {
+  width: 0px;
+  height: 0px;
+  background: transparent;
+  border: 6px solid transparent;
+  margin: 3px 5px 0 0;
+}
+.icon-negative {
+  border-top-color: #E13322;
+  border-bottom-width: 0;
+}
+.icon-positive {
+  border-bottom-color: #0A8905;
+  border-top-width: 0;
+}
 html,
 body {
   height: 100%;
@@ -2691,6 +2784,9 @@ body.page-condensed #filter-col {
 }
 body.page-condensed #intro {
   display: none;
+}
+body.view-company {
+  background: #1a1a1a;
 }
 .page-header,
 .page-footer {
@@ -2719,6 +2815,8 @@ h1.logo {
   height: 50px;
   margin: 0 20px 0 0;
   width: 176px;
+  background: url('../img/logo-eu.png') 50% 50% no-repeat;
+  background-image: url('../img/logo-eu.svg'), none;
 }
 .company-search {
   float: left;
@@ -2773,9 +2871,14 @@ h1.logo {
   font-size: 16px;
   padding: 0 10px;
 }
+.nav-links a:focus,
+.nav-links a:active {
+  outline: none;
+  text-decoration: none;
+}
 .intro {
   height: 388px;
-  background: #22828a url(../img/banner.jpg) 50% 100% no-repeat;
+  background: #006db6 url('../img/banner-cambridge.png') 50% 100% no-repeat;
   background-size: cover;
   color: #fff;
   vertical-align: middle;
@@ -2861,9 +2964,29 @@ h1.logo {
   line-height: 30px;
   color: #919191;
 }
-.section-nav > a {
+.section-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0 5px;
+  overflow: hidden;
+}
+.section-nav li {
+  float: left;
+}
+.section-nav li.active a {
+  background: #d1d1d1;
+}
+.section-nav a {
   color: #333333;
-  margin-right: 15px;
+  display: block;
+  float: left;
+  padding: 0 10px;
+}
+.section-nav a:hover,
+.section-nav a:focus {
+  background: #d1d1d1;
+  text-decoration: none;
+  outline: none;
 }
 .filters {
   width: 0;
@@ -2890,6 +3013,9 @@ h1.logo {
 .filter-group.active .filter-items {
   display: block;
 }
+.filter-group.active .icon-toggle-filter {
+  background-position: -20px -36px;
+}
 .filter-header {
   padding: 10px 15px;
   font-size: 16px;
@@ -2901,12 +3027,11 @@ h1.logo {
   display: block;
   margin-right: 25px;
 }
-.filter-header i {
+.filter-header .icon-toggle-filter {
   float: right;
-  display: inline-block;
   width: 16px;
   height: 16px;
-  outline: 1px solid orange;
+  background-position: 0 -36px;
 }
 .filter-items {
   display: none;
@@ -3009,27 +3134,27 @@ h1.logo {
   padding: 3px 10px;
 }
 .table-key td.hm-1 {
-  background-color: #f5dad8;
+  background-color: #ffeebb;
   color: #333333;
 }
 .table-key td.hm-2 {
-  background-color: #eab6b1;
+  background-color: #ffdb76;
   color: #333333;
 }
 .table-key td.hm-3 {
-  background-color: #e19790;
+  background-color: #ffb754;
   color: #333333;
 }
 .table-key td.hm-4 {
-  background-color: #d97d73;
+  background-color: #ff9041;
   color: #ffffff;
 }
 .table-key td.hm-5 {
-  background-color: #a56368;
+  background-color: #f06132;
   color: #ffffff;
 }
 .table-key td.hm-6 {
-  background-color: #6b4760;
+  background-color: #e13322;
   color: #ffffff;
 }
 .section-charts {
@@ -3044,6 +3169,19 @@ h1.logo {
   white-space: nowrap;
   width: 4em;
 }
+.company-header {
+  background: #fff;
+  padding: 15px;
+}
+.company-header h3 {
+  display: inline;
+}
+.company-header .company-buttons {
+  float: right;
+}
+.section-company-info {
+  background: #eeeeee;
+}
 .table-filtered th.title {
   color: #8a8a8a;
 }
@@ -3051,7 +3189,7 @@ h1.logo {
   display: none;
 }
 .table-filtered .bar-chart {
-  background-color: #94c2c6;
+  background-color: #7cbce8;
 }
 .table-filtered .active-row th.title {
   color: #333333;
@@ -3060,7 +3198,7 @@ h1.logo {
   display: inline;
 }
 .table-filtered .active-row .bar-chart {
-  background-color: #22828a;
+  background-color: #006db6;
 }
 .bar-chart-container {
   overflow: hidden;
@@ -3071,7 +3209,7 @@ h1.logo {
   float: left;
   width: 0%;
   height: 100%;
-  background-color: #22828a;
+  background-color: #006db6;
   -webkit-transition: width 0.6s ease;
   -o-transition: width 0.6s ease;
   transition: width 0.6s ease;

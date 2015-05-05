@@ -32,7 +32,7 @@
         </div>
       </div>
       <div class="grdr">
-        <div style="height: 388px;background: #22828a;vertical-align:middle;" id="intro" class="grdc intro">
+        <div id="intro" class="grdc intro">
           <h2>Mapping Europe&#8217;s startup ecosystem</h2>
           <p>This platform is being developed as part of&nbsp;<a href="http://ec.europa.eu/digital-agenda/about-startup-europe" target="_blank">Startup Europe</a>&nbsp;to provide a detailed and consistent analysis of the startup ecosystem across Europe.
             New functionality and data sources are being introduced progressively through 2015 and 2016.
@@ -313,12 +313,17 @@
                 <div class="grd">
                   <div class="grdr">
                     <div class="grdc">
-                      <nav class="section-nav"><a href="#headlines">Headlines</a><a href="#map">Map</a><a href="#charts">Charts</a><a href="#index">Index</a></nav>
+                      <ul id="section-nav" class="section-nav nav">
+                        <li><a href="#headlines">Headlines</a></li>
+                        <li><a href="#map">Map</a></li>
+                        <li><a href="#charts">Charts</a></li>
+                        <li><a href="#index">Index</a></li>
+                      </ul>
                     </div>
                   </div>
                   <div class="grdr">
                     <div class="grdc grdh grdw">
-                      <div id="data-col" class="grdp grdh">
+                      <div id="data-col" data-spy="scroll" data-target="#section-nav" class="grdp grdh">
                         <div class="grdh grdw grda">
                           <div id="data-details" class="main-content">
                             <section id="headlines" class="section section-headlines">
@@ -584,9 +589,9 @@
                                     <tr>
                                       <th class="sort-asc"> <a href="#">Company<i></i></a></th>
                                       <th> <a href="#">Sector<i></i></a></th>
-                                      <th class="text-right"> <a href="#">Turnover<small>(2014)</small><i></i></a></th>
+                                      <th class="text-right"> <a href="#">Turnover<small> (2014)</small><i></i></a></th>
                                       <th class="text-right sort-desc"> <a href="#">% Turnover growth<i></i></a></th>
-                                      <th class="text-right"> <a href="#">Employees<small>(2014)<i></i></small></a></th>
+                                      <th class="text-right"> <a href="#">Employees<small> (2014)<i></i></small></a></th>
                                       <th class="text-right"><a href="#">% Employee growth<i></i></a></th>
                                     </tr>
                                   </thead>
@@ -695,14 +700,39 @@
             if ($win.scrollTop() > height) {
             
               $('body').addClass('page-condensed');
+              
             }
           }
         });
         
+        $('[data-spy="scroll"]').each(function () {
+          var $spy = $(this).scrollspy('refresh');
+        });
+        
+        $('#data-col').scrollspy({ target: '#section-nav' })
+        
+        
+        $('#section-nav').on('click','a', function(){
+          if (!$('body').hasClass('page-condensed')) {
+            $('body').addClass('page-condensed');
+          }
+          
+          var $target = $(this.hash);
+          $('#data-col').animate({
+            scrollTop: $target.parent().scrollTop() + $target.offset().top - $target.parent().offset().top
+          }, 1000);
+          return false;
+        });
+        
+        
         $('.view-intro').on('click', function(e){
           e.preventDefault();
+          
           $('body').removeClass('page-condensed');
           $(window).scrollTop(0);
+          
+          $('#section-nav').find('li.active').removeClass('active').end().find('li:first').addClass('active');
+          
         });
         
         
@@ -724,6 +754,7 @@
             });
           }
         });
+        
       });
       
     </script>

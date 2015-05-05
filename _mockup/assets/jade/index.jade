@@ -33,7 +33,7 @@ html(lang='en')(style="margin-bottom:-300px;")
 
 
       .grdr
-        .grdc(style="height: 388px;background: #22828a;vertical-align:middle;")#intro.intro
+        .grdc.intro#intro
 
           h2
             | Mapping Europe&#8217;s startup ecosystem
@@ -142,16 +142,16 @@ html(lang='en')(style="margin-bottom:-300px;")
                   .grdr
                     .grdc
 
-                      nav.section-nav
-                        a(href="#headlines") Headlines
-                        a(href="#map") Map
-                        a(href="#charts") Charts
-                        a(href="#index") Index
+                      ul.section-nav.nav#section-nav
+                        li: a(href="#headlines") Headlines
+                        li: a(href="#map") Map
+                        li: a(href="#charts") Charts
+                        li: a(href="#index") Index
 
                   .grdr
                     .grdc.grdh.grdw
 
-                      .grdp.grdh#data-col
+                      .grdp.grdh#data-col(data-spy="scroll", data-target="#section-nav")
                         .grdh.grdw.grda
 
                           .main-content#data-details
@@ -406,14 +406,14 @@ html(lang='en')(style="margin-bottom:-300px;")
                                           i
                                       th.text-right 
                                         a(href="#") Turnover
-                                          small (2014)
+                                          small  (2014)
                                           i
                                       th.text-right.sort-desc 
                                         a(href="#") % Turnover growth
                                           i
                                       th.text-right 
                                         a(href="#") Employees
-                                          small (2014)
+                                          small  (2014)
                                             i
                                       th.text-right
                                         a(href="#") % Employee growth
@@ -471,14 +471,39 @@ html(lang='en')(style="margin-bottom:-300px;")
             if ($win.scrollTop() > height) {
 
               $('body').addClass('page-condensed');
+              
             }
           }
         });
 
+        $('[data-spy="scroll"]').each(function () {
+          var $spy = $(this).scrollspy('refresh');
+        });
+
+        $('#data-col').scrollspy({ target: '#section-nav' })
+
+
+        $('#section-nav').on('click','a', function(){
+          if (!$('body').hasClass('page-condensed')) {
+            $('body').addClass('page-condensed');
+          }
+
+          var $target = $(this.hash);
+          $('#data-col').animate({
+            scrollTop: $target.parent().scrollTop() + $target.offset().top - $target.parent().offset().top
+          }, 1000);
+          return false;
+        });
+
+
         $('.view-intro').on('click', function(e){
           e.preventDefault();
+
           $('body').removeClass('page-condensed');
           $(window).scrollTop(0);
+
+          $('#section-nav').find('li.active').removeClass('active').end().find('li:first').addClass('active');
+
         });
 
 
@@ -500,5 +525,6 @@ html(lang='en')(style="margin-bottom:-300px;")
             });
           }
         });
+
       });
 

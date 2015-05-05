@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" style="margin-bottom:-300px;">
+  <head>
+    <title>clustermap</title>
+    <meta charset="utf-8">
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="clustermap">
+    <meta name="author" content="Trampoline Systems Ltd">
+    <link type="text/css" rel="stylesheet" href="assets/css/app.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+  </head>
+  <body class="page-condensed view-company">
+    <div class="grd grdh">
+      <div class="grdr">
+        <div class="grdc">
+          <header class="page-header">
+            <h1 class="logo">EC</h1>
+            <div class="company-search">
+              <input type="text" placeholder="Company Search">
+            </div>
+            <ul class="nav-links">
+              <li class="view-intro"><a href="#">Introduction</a></li>
+              <li class="view-about"><a href="#">About</a></li>
+              <li class="view-login"><a href="#">Login</a></li>
+              <li class="view-register"><a href="#">Register</a></li>
+            </ul>
+          </header>
+        </div>
+      </div>
+      <div class="grdr">
+        <div id="intro" class="grdc intro">
+          <h2>Mapping Europe&#8217;s startup ecosystem</h2>
+          <p>This platform is being developed as part of&nbsp;<a href="http://ec.europa.eu/digital-agenda/about-startup-europe" target="_blank">Startup Europe</a>&nbsp;to provide a detailed and consistent analysis of the startup ecosystem across Europe.
+            New functionality and data sources are being introduced progressively through 2015 and 2016.
+            The current beta release contains only partial data and some known inconsistencies.
+          </p>
+        </div>
+      </div>
+      <div class="grdr">
+        <div class="grdc">
+          <div class="company-header">
+            <h3>Company Name</h3>
+            <div class="company-buttons">
+              <button type="button" id="company-close" class="btn btn-primary">Close</button>
+              <button type="button" id="company-edit" class="btn btn-default">Edit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="grdr">
+        <div class="grdc grdh">
+          <div id="data-container" class="grd">
+            <div class="grdr">
+              <div class="grdc grdh">
+                <div class="grd">
+                  <div class="grdr">
+                    <div class="grdc grdh grdw">
+                      <div id="data-col" class="grdp grdh">
+                        <div class="grdh grdw grda">
+                          <div id="data-details" class="main-content">
+                            <section id="company-info" class="section section-company-info">
+                              <div class="panel-grid-container">
+                                <div class="panel-grid">
+                                  <div class="panel-row">
+                                    <div class="panel">
+                                      <div class="panel-body">
+                                        <p><a href="#"><i class="icon-twitter"></i></a>&nbsp;<a href="#"><i class="icon-linkedin"></i></a>&nbsp;<a href="#"><i class="icon-crunch"></i></a>&nbsp;<a href="#"><i class="icon-angel"></i></a></p>
+                                      </div>
+                                    </div>
+                                    <div class="panel">
+                                      <div class="panel-body">
+                                        <p> </p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="panel-row">
+                                    <div class="panel">
+                                      <div class="panel-body">
+                                        <p> </p>
+                                      </div>
+                                    </div>
+                                    <div class="panel">
+                                      <div class="panel-body">
+                                        <p> </p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="panel-row">
+                                    <div class="panel">
+                                      <div class="panel-body">
+                                        <p> </p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </section>
+                          </div>
+                          <footer class="page-footer">
+                            <div>Research and analysis by&nbsp;<a href="https://www.grantthornton.com/" target="_blank">Grant Thornton</a>&nbsp;- interactive platform by &nbsp;<a href="http://www.trampolinesystems.com/" target="_blank">Trampoline Systems</a></div>
+                            <div class="report-issue"><a href="mailto:clustermap-issues@trampolinesystems.com?subject=Startup Hubs EU issue report">Report issue</a></div>
+                          </footer>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      $(function(){
+      
+        $(window).scroll(function() {
+          var $intro = $('#intro');
+          
+          if ($intro.is(':visible')) {
+            var $win = $(this),
+                height = parseInt($intro.outerHeight(),10);
+                
+            if ($win.scrollTop() > height) {
+            
+              $('body').addClass('page-condensed');
+              
+              $('[data-spy="scroll"]').each(function () {
+                var $spy = $(this).scrollspy('refresh');
+              });
+              
+              $('#data-col').scrollspy({ target: '#section-nav' })
+              
+              
+            }
+          }
+        });
+        
+        $('.view-intro').on('click', function(e){
+          e.preventDefault();
+          $('body').removeClass('page-condensed');
+          //- $(window).scrollTop(0);
+        });
+        
+        
+        $('#filter-toggle').on('click', function(){
+          $('#data-container').toggleClass('show-filters');
+        });
+        
+        $('.filter-header').on('click', function(){
+          var $t = $(this), $o = $t.next('.filter-items'), $p = $t.parent('.filter-group'), active = $p.hasClass('active') ? true : false;
+          
+          if (active) {
+            $o.slideUp(function(){
+              $p.removeClass('active');
+            });
+          }
+          else {
+            $o.slideDown(function(){
+              $p.addClass('active');
+            });
+          }
+        });
+        
+      });
+      
+    </script>
+  </body>
+</html>
