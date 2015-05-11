@@ -4,6 +4,8 @@ exports.config =
     definition: 'commonjs'
   paths:
     public: 'public'
+  conventions:
+    ignored: ['app/styles/bs', 'app/styles/app-modules']
   files:
     javascripts:
       joinTo:
@@ -29,11 +31,6 @@ exports.config =
     stylesheets:
       joinTo:
         'css/app.css': /^(app|vendor)\/styles/
-      order:
-        before: [
-          'vendor/styles/bootstrap.less',
-          'vendor/styles/mapbox.css'
-        ]
     templates:
       joinTo:
         'js/templates.js': /.+\.jade$/

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head style="margin-bottom:-300px;">
+    <title>clustermap</title>
+    <meta charset="utf-8">
+    <!--if IEmeta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="clustermap">
+    <meta name="author" content="Trampoline Systems Ltd">
+    <link type="text/css" rel="stylesheet" href="css/app.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="js/polyfills.js"></script>
+    <script type="text/javascript" src="js/vendor.js"></script>
+  </head>
+  <body class="page-condensed view-company">
+    <div class="grd grdh">
+      <div class="grdr">
+        <div class="grdc">
+          <header class="page-header">
+            <h1 class="logo">EC</h1>
+            <ul class="nav-links">
+              <li class="view-intro"><a href="#">Introduction</a></li>
+              <li class="view-about"><a href="#">About</a></li>
+              <li class="view-login"><a href="#">Login</a></li>
+              <li class="view-register"><a href="#">Register</a></li>
+            </ul>
+            <div class="company-search">
+              <input type="text" placeholder="Company Search">
+            </div>
+          </header>
+        </div>
+      </div>
+      <div class="grdr">
+        <div id="intro" class="grdc intro">
+          <h2>Mapping Europe&#8217;s startup ecosystem</h2>
+          <p>This platform is being developed as part of&nbsp;<a href="http://ec.europa.eu/digital-agenda/about-startup-europe" target="_blank">Startup Europe</a>&nbsp;to provide a detailed and consistent analysis of the startup ecosystem across Europe.
+            New functionality and data sources are being introduced progressively through 2015 and 2016.
+            The current beta release contains only partial data and some known inconsistencies.
+          </p>
+        </div>
+      </div>
+      <div class="grdr">
+        <div class="grdc">
+          <div class="company-header">
+            <h3>Company Name</h3>
+            <div class="company-buttons">
+              <button type="button" id="company-close" class="btn btn-primary">Close</button>
+              <button type="button" id="company-edit" class="btn btn-default">Edit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="grdr">
+        <div class="grdc grdh">
+          <div id="data-container" class="grd">
+            <div class="grdr">
+              <div class="grdc grdh">
+                <div class="grd">
+                  <div class="grdr">
+                    <div class="grdc grdh grdw">
+                      <div id="data-col" class="grdp grdh">
+                        <div class="grdh grdw grda">
+                          <div id="data-details" class="main-content">
+                            <section id="company-info" class="section section-company-info">
+                              <div class="panel-grid-container">
+                                <div class="panel-grid">
+                                  <div class="panel-row">
+                                    <div class="panel">
+                                      <div class="panel-body">
+                                        <div class="company-logo"></div>
+                                        <div class="company-details">
+                                          <ul>
+                                            <li>
+                                              <h4>Description</h4>
+                                              <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum distinctio aliquid voluptatum temporibus suscipit at, quae ea facilis nobis! Facilis quia, repellendus sunt numquam, aut distinctio placeat commodi quisquam eius.</p>
+                                            </li>
+                                            <li>
+                                              <h4>Sector</h4>
+                                              <p><a href="#">Other service activities</a></p>
+                                              <p>SIC 1234 5678 - Other Business Activities</p>
+                                              <p>SIC 1234 5678 - Other Business Activities</p>
+                                            </li>
+                                            <li>
+                                              <h4>Registration Number</h4>
+                                              <p>0123456789</p>
+                                            </li>
+                                            <li>
+                                              <h4>Website</h4>
+                                              <p><a href="#">abcdefghijk.com</a></p>
+                                            </li>
+                                            <li>
+                                              <p><a href="#"><i class="icon-twitter"></i></a>&nbsp;<a href="#"><i class="icon-linkedin"></i></a>&nbsp;<a href="#"><i class="icon-crunch"></i></a>&nbsp;<a href="#"><i class="icon-angel"></i></a></p>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="panel">
+                                      <div class="panel-body">
+                                        <div class="company-address">
+                                          <div class="row">
+                                            <div class="col-sm-6">
+                                              <address>
+                                                <h4>Registered Address</h4>
+                                                <div>110 Fulbourn Rd</div>
+                                                <div>Cambridge</div>
+                                                <div>Cambridgeshire</div>
+                                                <div>CB1 9NJ</div>
+                                                <div>UK</div>
+                                              </address>
+                                            </div>
+                                            <div class="col-sm-6">
+                                              <address>
+                                                <h4>Second Address</h4>
+                                                <div>110 Fulbourn Rd</div>
+                                                <div>Cambridge</div>
+                                                <div>Cambridgeshire</div>
+                                                <div>CB1 9NJ</div>
+                                                <div>UK</div>
+                                              </address>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="company-map">
+                                          <div class="map-container"></div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="panel-row">
+                                    <div class="panel">
+                                      <div class="panel-body">
+                                        <div class="chart-heading">
+                                          <h4 class="stat-title">Turnover (2013)</h4>
+                                          <div class="stat-amount">43.3M<small>GBP</small></div>
+                                          <div class="stat-change"> <i class="icon-positive"></i><span>15.6%</span></div>
+                                        </div>
+                                        <div class="chart-container-lg"></div>
+                                      </div>
+                                    </div>
+                                    <div class="panel">
+                                      <div class="panel-body">
+                                        <div class="chart-heading">
+                                          <h4 class="stat-title">Employees (2013)</h4>
+                                          <div class="stat-amount">43,367</div>
+                                          <div class="stat-change"><i class="icon-positive"></i><span>15.6%</span></div>
+                                        </div>
+                                        <div class="chart-container-lg"></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="panel-row">
+                                    <div class="panel">
+                                      <div class="panel-body">
+                                        <h3>Directors</h3>
+                                        <div class="table-responsive">
+                                          <table class="table">
+                                            <thead>
+                                              <tr>
+                                                <th>Name</th>
+                                                <th>Start Date</th>
+                                                <th>ZZZ</th>
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              <tr>
+                                                <td>Mr Joe Blogs</td>
+                                                <td>19<sup>th</sup> May 1998</td>
+                                                <td>--</td>
+                                              </tr>
+                                              <tr>
+                                                <td>Ms Mary Smith</td>
+                                                <td>3<sup>rd</sup> Jan 1999</td>
+                                                <td>--</td>
+                                              </tr>
+                                              <tr>
+                                                <td>Mr Alan Robertson</td>
+                                                <td>21<sup>st</sup> Aug 2001</td>
+                                                <td>--</td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </section>
+                          </div>
+                          <footer class="page-footer">
+                            <div>Research and analysis by&nbsp;<a href="https://www.grantthornton.com/" target="_blank">Grant Thornton</a>&nbsp;- interactive platform by &nbsp;<a href="http://www.trampolinesystems.com/" target="_blank">Trampoline Systems</a></div>
+                            <div class="report-issue"><a href="mailto:clustermap-issues@trampolinesystems.com?subject=Startup Hubs EU issue report">Report issue</a></div>
+                          </footer>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      $(function(){
+      
+        $(window).scroll(function() {
+          var $intro = $('#intro');
+      
+          if ($intro.is(':visible')) {
+            var $win = $(this),
+                height = parseInt($intro.outerHeight(),10);
+      
+            if ($win.scrollTop() > height) {
+      
+              $('body').addClass('page-condensed');
+              
+            }
+          }
+        });
+      
+        $('.view-intro').on('click', function(e){
+          e.preventDefault();
+          $('body').removeClass('page-condensed');
+        });
+      
+      });
+    </script>
+  </body>
+</html>

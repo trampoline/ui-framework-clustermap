@@ -1,0 +1,223 @@
+doctype html
+html(lang='en')
+  head(style="margin-bottom:-300px;")
+    title clustermap
+    meta(charset='utf-8')
+    //if IE
+      meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0')
+    meta(name='description', content='clustermap')
+    meta(name='author', content='Trampoline Systems Ltd')
+
+    link(type='text/css', rel='stylesheet', href='css/app.css')
+    script(type='text/javascript', src='http://code.jquery.com/jquery-1.11.2.min.js')
+    script(type='text/javascript', src='js/polyfills.js')
+    script(type='text/javascript', src='js/vendor.js')
+
+  body.page-condensed.view-company
+
+    .grd.grdh
+
+      .grdr
+        .grdc
+          header.page-header
+            h1.logo EC
+            ul.nav-links
+              li.view-intro: a(href="#") Introduction
+              li.view-about: a(href="#") About
+              li.view-login: a(href="#") Login
+              li.view-register: a(href="#") Register
+
+            .company-search
+              input(type="text", placeholder="Company Search")
+
+
+
+      .grdr
+        .grdc.intro#intro
+
+          h2
+            | Mapping Europe&#8217;s startup ecosystem
+
+          p
+            | This platform is being developed as part of&nbsp;
+            a(href="http://ec.europa.eu/digital-agenda/about-startup-europe" target="_blank") Startup Europe
+            | &nbsp;to provide a detailed and consistent analysis of the startup ecosystem across Europe.
+            | New functionality and data sources are being introduced progressively through 2015 and 2016.
+            | The current beta release contains only partial data and some known inconsistencies.
+
+
+
+      .grdr
+        .grdc
+          .company-header
+            h3 Company Name
+            .company-buttons
+              button(type="button").btn.btn-primary#company-close Close
+              button(type="button").btn.btn-default#company-edit Edit
+
+      .grdr
+        .grdc.grdh
+
+          .grd#data-container
+            .grdr
+
+              .grdc.grdh
+                .grd
+
+                  .grdr
+                    .grdc.grdh.grdw
+
+                      .grdp.grdh#data-col
+                        .grdh.grdw.grda
+
+                          .main-content#data-details
+
+                            section.section.section-company-info#company-info
+
+                              .panel-grid-container
+                                .panel-grid
+                                  .panel-row
+                                    .panel
+                                      .panel-body
+                                        .company-logo
+
+                                        .company-details
+                                            ul
+                                              li
+                                                h4 Description
+                                                p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum distinctio aliquid voluptatum temporibus suscipit at, quae ea facilis nobis! Facilis quia, repellendus sunt numquam, aut distinctio placeat commodi quisquam eius.
+
+                                              li
+                                                h4 Sector
+                                                p: a(href="#") Other service activities
+                                                p SIC 1234 5678 - Other Business Activities
+                                                p SIC 1234 5678 - Other Business Activities
+
+                                              li
+                                                h4 Registration Number
+                                                p 0123456789
+                                              li
+                                                h4 Website
+                                                p: a(href="#") abcdefghijk.com
+                                              li
+                                                p
+                                                  a(href="#"): i.icon-twitter
+                                                  | &nbsp;
+                                                  a(href="#"): i.icon-linkedin
+                                                  | &nbsp;
+                                                  a(href="#"): i.icon-crunch
+                                                  | &nbsp;
+                                                  a(href="#"): i.icon-angel
+
+
+                                    .panel
+                                      .panel-body
+                                        .company-address
+                                          .row
+                                            .col-sm-6
+                                              address
+                                                h4 Registered Address
+                                                div 110 Fulbourn Rd
+                                                div Cambridge
+                                                div Cambridgeshire
+                                                div CB1 9NJ
+                                                div UK
+                                            .col-sm-6
+                                              address
+                                                h4 Second Address
+                                                div 110 Fulbourn Rd
+                                                div Cambridge
+                                                div Cambridgeshire
+                                                div CB1 9NJ
+                                                div UK
+                                        .company-map
+                                          .map-container
+
+
+                                  .panel-row
+                                    .panel
+                                      .panel-body
+                                        .chart-heading
+                                          h4.stat-title Turnover (2013)
+                                          .stat-amount 43.3M
+                                            small GBP
+                                          .stat-change 
+                                            i.icon-positive
+                                            span 15.6%
+
+                                        .chart-container-lg
+
+                                    .panel
+                                      .panel-body
+                                        .chart-heading
+                                          h4.stat-title Employees (2013)
+                                          .stat-amount 43,367
+                                          .stat-change
+                                            i.icon-positive
+                                            span 15.6%
+
+                                        .chart-container-lg
+
+
+                                  .panel-row
+                                    .panel
+                                      .panel-body
+                                        h3 Directors
+                                        .table-responsive
+                                          table.table
+                                            thead
+                                              tr
+                                                th Name
+                                                th Start Date
+                                                th ZZZ
+                                            tbody
+                                              tr
+                                                td Mr Joe Blogs
+                                                td 19<sup>th</sup> May 1998
+                                                td --
+                                              tr
+                                                td Ms Mary Smith
+                                                td 3<sup>rd</sup> Jan 1999
+                                                td --
+                                              tr
+                                                td Mr Alan Robertson
+                                                td 21<sup>st</sup> Aug 2001
+                                                td --
+
+                          footer.page-footer
+                            div
+                              | Research and analysis by&nbsp;
+                              a(href="https://www.grantthornton.com/" target="_blank") Grant Thornton
+                              | &nbsp;- interactive platform by &nbsp;
+                              a(href='http://www.trampolinesystems.com/' target="_blank") Trampoline Systems
+                            div.report-issue
+                              a(href='mailto:clustermap-issues@trampolinesystems.com?subject=Startup Hubs EU issue report') Report issue
+
+
+
+    script(type="text/javascript").
+      $(function(){
+
+        $(window).scroll(function() {
+          var $intro = $('#intro');
+
+          if ($intro.is(':visible')) {
+            var $win = $(this),
+                height = parseInt($intro.outerHeight(),10);
+
+            if ($win.scrollTop() > height) {
+
+              $('body').addClass('page-condensed');
+              
+            }
+          }
+        });
+
+        $('.view-intro').on('click', function(e){
+          e.preventDefault();
+          $('body').removeClass('page-condensed');
+        });
+
+      });
+
