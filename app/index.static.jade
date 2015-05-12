@@ -81,10 +81,10 @@ html(lang='en')
           header.page-header
             h1.logo EC
             ul.nav-links
-              li.view-intro: a(href="#") Introduction
-              li.view-about: a(href="#") About
-              li.view-login: a(href="#") Login
-              li.view-register: a(href="#") Register
+              li.link-intro: a(href="#") Introduction
+              li.link-about: a(href="#") About
+              li.link-login: a(href="#") Login
+              li.link-register: a(href="#") Register
 
             .company-search
               //- input(type="text", placeholder="Company Search")
@@ -104,23 +104,35 @@ html(lang='en')
 
       .grdr
         .grdc
-          #filter-description-component
-            .filter-settings
-              .filter-buttons
-                button(type="button").btn.btn-primary#filter-toggle Open Filter
-                button(type="button").btn.btn-default#filter-reset Reset
+          .view.view-main
+            #filter-description-component
+              .filter-settings
+                .filter-buttons
+                  button(type="button").btn.btn-primary#filter-toggle Open Filter
+                  button(type="button").btn.btn-default#filter-reset Reset
 
-            //-   ul.filter-selected-items
-            //-     li
-            //-       span Filter item name
-            //-       button(type="button").close &times;
+              //-   ul.filter-selected-items
+              //-     li
+              //-       span Filter item name
+              //-       button(type="button").close &times;
 
+      .grdr
+        .grdc
+          .view.view-company
+            .company-header
+              h3 Company Name
+              .company-buttons
+                span#company-close
+                  button(type="button").btn.btn-primary Close
+                //- span#company-edit
+                //-   button(type="button").btn.btn-default Edit
+              
       .grdr
         .grdc.grdh
 
           .grd#data-container
             .grdr
-              .grdc.grdh#filters.filters
+              .grdc.grdh#filters.filters.view.view-main
                 .grd
                   .grdr
                     .grdc
@@ -193,7 +205,7 @@ html(lang='en')
 
               .grdc.grdh
                 .grd
-                  .grdr
+                  .grdr.view.view-main
                     .grdc
 
                       ul.section-nav.nav#section-nav
@@ -210,7 +222,7 @@ html(lang='en')
 
                           .main-content#data-details
 
-                            section.section.section-headlines#headlines
+                            section.section.section-headlines.view.view-main#headlines
                               h3 Headlines
                               #headline-stats-component
                                 //- .row.headline-stats
@@ -245,7 +257,7 @@ html(lang='en')
                                 //-           | 4.3K
                                 //-           small  GBP
 
-                            section.section.section-map#map
+                            section.section.section-map.view.view-main#map
                               header
                                 h3 Map
                                 p Intro text...
@@ -285,7 +297,7 @@ html(lang='en')
                                   #map-component
 
 
-                            section.section.section-charts#charts
+                            section.section.section-charts.view.view-main#charts
                               header
                                 h3 Charts
                                 p Intro text...
@@ -445,7 +457,7 @@ html(lang='en')
 
 
 
-                            section.section.section-index#index
+                            section.section.section-index.view.view-main#index
                               header
                                 h3 Index
                                 p Intro text...
@@ -503,7 +515,120 @@ html(lang='en')
                                   button(type="button").btn.btn-default.btn-sm Next
                                   button(type="button").btn.btn-default.btn-sm Last
 
+                            section.section.section-company-info.view.view-company#company-info
 
+                              .panel-grid-container
+                                .panel-grid
+                                  .panel-row
+                                    .panel
+                                      .panel-body
+                                        .company-logo
+
+                                        .company-details
+                                            ul
+                                              li
+                                                h4 Description
+                                                p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum distinctio aliquid voluptatum temporibus suscipit at, quae ea facilis nobis! Facilis quia, repellendus sunt numquam, aut distinctio placeat commodi quisquam eius.
+
+                                              li
+                                                h4 Sector
+                                                p: a(href="#") Other service activities
+                                                p SIC 1234 5678 - Other Business Activities
+                                                p SIC 1234 5678 - Other Business Activities
+
+                                              li
+                                                h4 Registration Number
+                                                p 0123456789
+                                              li
+                                                h4 Website
+                                                p: a(href="#") abcdefghijk.com
+                                              li
+                                                p
+                                                  a(href="#"): i.icon-twitter
+                                                  | &nbsp;
+                                                  a(href="#"): i.icon-linkedin
+                                                  | &nbsp;
+                                                  a(href="#"): i.icon-crunch
+                                                  | &nbsp;
+                                                  a(href="#"): i.icon-angel
+
+
+                                    .panel
+                                      .panel-body
+                                        .company-address
+                                          .row
+                                            .col-sm-6
+                                              address
+                                                h4 Registered Address
+                                                div 110 Fulbourn Rd
+                                                div Cambridge
+                                                div Cambridgeshire
+                                                div CB1 9NJ
+                                                div UK
+                                            .col-sm-6
+                                              address
+                                                h4 Second Address
+                                                div 110 Fulbourn Rd
+                                                div Cambridge
+                                                div Cambridgeshire
+                                                div CB1 9NJ
+                                                div UK
+                                        .company-map
+                                          .map-container
+
+
+                                  .panel-row
+                                    .panel
+                                      .panel-body
+                                        .chart-heading
+                                          h4.stat-title Turnover (2013)
+                                          .stat-amount 43.3M
+                                            small GBP
+                                          .stat-change 
+                                            i.icon-positive
+                                            span 15.6%
+
+                                        .chart-container-lg
+
+                                    .panel
+                                      .panel-body
+                                        .chart-heading
+                                          h4.stat-title Employees (2013)
+                                          .stat-amount 43,367
+                                          .stat-change
+                                            i.icon-positive
+                                            span 15.6%
+
+                                        .chart-container-lg
+
+
+                                  .panel-row
+                                    .panel
+                                      .panel-body
+                                        h3 Directors
+                                        .table-responsive
+                                          table.table
+                                            thead
+                                              tr
+                                                th Name
+                                                th Start Date
+                                                th ZZZ
+                                            tbody
+                                              tr
+                                                td Mr Joe Blogs
+                                                td 19<sup>th</sup> May 1998
+                                                td --
+                                              tr
+                                                td Ms Mary Smith
+                                                td 3<sup>rd</sup> Jan 1999
+                                                td --
+                                              tr
+                                                td Mr Alan Robertson
+                                                td 21<sup>st</sup> Aug 2001
+                                                td --
+
+                                  
+                                  
                           footer.page-footer
                             div
                               | Research and analysis by&nbsp;
@@ -569,7 +694,7 @@ html(lang='en')
         });
 
 
-        $('.view-intro').on('click', function(e){
+        $('.link-intro').on('click', function(e){
           e.preventDefault();
 
           $('body').removeClass('page-condensed');
