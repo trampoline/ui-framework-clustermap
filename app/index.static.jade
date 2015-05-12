@@ -305,141 +305,142 @@ html(lang='en')
                               .panel
                                 .panel-heading
                                   h4 Compare Areas
-                                  div
-                                    span.custom-select
-                                      select
-                                        option Number of companies
-                                        option Number of companies
-                                        option Number of companies
-                                        option Number of companies
+                                  //- div
+                                  //-   span.custom-select
+                                  //-     select
+                                  //-       option Number of companies
+                                  //-       option Number of companies
+                                  //-       option Number of companies
+                                  //-       option Number of companies
 
                                 .panel-body
-                                  table.table.table-stats.table-filtered
-                                    tr.active-row
-                                      th.title
-                                        span Cambridge Ahead
-                                      td.amount
-                                        span 560
-                                      td.bar
-                                        .bar-chart-container
-                                          .bar-chart(style="width:75%")
-                                    tr
-                                      th.title
-                                        span City of Cambridge
-                                      td.amount
-                                        span 460
-                                      td.bar
-                                        .bar-chart-container
-                                          .bar-chart(style="width:65%")
-                                    tr
-                                      th.title
-                                        span East Cambridge
-                                      td.amount
-                                        span 360
-                                      td.bar
-                                        .bar-chart-container
-                                          .bar-chart(style="width:55%")
-                                    tr
-                                      th.title
-                                        span Fenland
-                                      td.amount
-                                        span 260
-                                      td.bar
-                                        .bar-chart-container
-                                          .bar-chart(style="width:45%")
-                                    tr
-                                      th.title
-                                        span Huntingdonshire
-                                      td.amount
-                                        span 160
-                                      td.bar
-                                        .bar-chart-container
-                                          .bar-chart(style="width:35%")
-                                    tr
-                                      th.title
-                                        span South Cambridge
-                                      td.amount
-                                        span 60
-                                      td.bar
-                                        .bar-chart-container
-                                          .bar-chart(style="width:25%")
+                                  #region-investment-histogram
+                                    //- table.table.table-stats.table-filtered
+                                    //-   tr.active-row
+                                    //-     th.title
+                                    //-       span Cambridge Ahead
+                                    //-     td.amount
+                                    //-       span 560
+                                    //-     td.bar
+                                    //-       .bar-chart-container
+                                    //-         .bar-chart(style="width:75%")
+                                    //-   tr
+                                    //-     th.title
+                                    //-       span City of Cambridge
+                                    //-     td.amount
+                                    //-       span 460
+                                    //-     td.bar
+                                    //-       .bar-chart-container
+                                    //-         .bar-chart(style="width:65%")
+                                    //-   tr
+                                    //-     th.title
+                                    //-       span East Cambridge
+                                    //-     td.amount
+                                    //-       span 360
+                                    //-     td.bar
+                                    //-       .bar-chart-container
+                                    //-         .bar-chart(style="width:55%")
+                                    //-   tr
+                                    //-     th.title
+                                    //-       span Fenland
+                                    //-     td.amount
+                                    //-       span 260
+                                    //-     td.bar
+                                    //-       .bar-chart-container
+                                    //-         .bar-chart(style="width:45%")
+                                    //-   tr
+                                    //-     th.title
+                                    //-       span Huntingdonshire
+                                    //-     td.amount
+                                    //-       span 160
+                                    //-     td.bar
+                                    //-       .bar-chart-container
+                                    //-         .bar-chart(style="width:35%")
+                                    //-   tr
+                                    //-     th.title
+                                    //-       span South Cambridge
+                                    //-     td.amount
+                                    //-       span 60
+                                    //-     td.bar
+                                    //-       .bar-chart-container
+                                    //-         .bar-chart(style="width:25%")
 
-                              .panel
-                                .panel-heading
-                                  h4 Compare Sectors
-                                  div
-                                    span.custom-select
-                                      select
-                                        option Number of companies
-                                        option Number of companies
-                                        option Number of companies
-                                        option Number of companies
+                              //- .panel
+                              //-   .panel-heading
+                              //-     h4 Compare Sectors
+                              //-     //- div
+                              //-     //-   span.custom-select
+                              //-     //-     select
+                              //-     //-       option Number of companies
+                              //-     //-       option Number of companies
+                              //-     //-       option Number of companies
+                              //-     //-       option Number of companies
 
-                                .panel-body
-                                  table.table.table-stats
-                                    tr
-                                      th.title
-                                        span Cambridge Ahead
-                                      td.amount
-                                        span 560
-                                      td.bar
-                                        .bar-chart-container
-                                          .bar-chart(style="width:75%")
-                                    tr
-                                      th.title
-                                        span City of Cambridge
-                                      td.amount
-                                        span 460
-                                      td.bar
-                                        .bar-chart-container
-                                          .bar-chart(style="width:65%")
-                                    tr
-                                      th.title
-                                        span East Cambridge
-                                      td.amount
-                                        span 360
-                                      td.bar
-                                        .bar-chart-container
-                                          .bar-chart(style="width:55%")
-                                    tr
-                                      th.title
-                                        span Fenland
-                                      td.amount
-                                        span 260
-                                      td.bar
-                                        .bar-chart-container
-                                          .bar-chart(style="width:45%")
-                                    tr
-                                      th.title
-                                        span Huntingdonshire
-                                      td.amount
-                                        span 160
-                                      td.bar
-                                        .bar-chart-container
-                                          .bar-chart(style="width:35%")
-                                    tr
-                                      th.title
-                                        span South Cambridge
-                                      td.amount
-                                        span 60
-                                      td.bar
-                                        .bar-chart-container
-                                          .bar-chart(style="width:25%")
+                              //-   .panel-body
+                              //-     #sector-histogram 
+                              //-       //- table.table.table-stats
+                              //-       //-   tr
+                              //-       //-     th.title
+                              //-       //-       span Cambridge Ahead
+                              //-       //-     td.amount
+                              //-       //-       span 560
+                              //-       //-     td.bar
+                              //-       //-       .bar-chart-container
+                              //-       //-         .bar-chart(style="width:75%")
+                              //-       //-   tr
+                              //-       //-     th.title
+                              //-       //-       span City of Cambridge
+                              //-       //-     td.amount
+                              //-       //-       span 460
+                              //-       //-     td.bar
+                              //-       //-       .bar-chart-container
+                              //-       //-         .bar-chart(style="width:65%")
+                              //-       //-   tr
+                              //-       //-     th.title
+                              //-       //-       span East Cambridge
+                              //-       //-     td.amount
+                              //-       //-       span 360
+                              //-       //-     td.bar
+                              //-       //-       .bar-chart-container
+                              //-       //-         .bar-chart(style="width:55%")
+                              //-       //-   tr
+                              //-       //-     th.title
+                              //-       //-       span Fenland
+                              //-       //-     td.amount
+                              //-       //-       span 260
+                              //-       //-     td.bar
+                              //-       //-       .bar-chart-container
+                              //-       //-         .bar-chart(style="width:45%")
+                              //-       //-   tr
+                              //-       //-     th.title
+                              //-       //-       span Huntingdonshire
+                              //-       //-     td.amount
+                              //-       //-       span 160
+                              //-       //-     td.bar
+                              //-       //-       .bar-chart-container
+                              //-       //-         .bar-chart(style="width:35%")
+                              //-       //-   tr
+                              //-       //-     th.title
+                              //-       //-       span South Cambridge
+                              //-       //-     td.amount
+                              //-       //-       span 60
+                              //-       //-     td.bar
+                              //-       //-       .bar-chart-container
+                              //-       //-         .bar-chart(style="width:25%")
 
+                              //- .panel
+                              //-   .panel-heading
+                              //-     h4 Company Size
+                              //-     div
+                              //-       span.custom-select
+                              //-         select
+                              //-           option Number of companies
+                              //-           option Number of companies
+                              //-           option Number of companies
+                              //-           option Number of companies
 
-                              .panel
-                                .panel-heading
-                                  h4 Company Size
-                                  div
-                                    span.custom-select
-                                      select
-                                        option Number of companies
-                                        option Number of companies
-                                        option Number of companies
-                                        option Number of companies
-
-                                .panel-body
-                                  .chart-container
+                              //-   .panel-body
+                              //-     .chart-container
 
                               .panel
                                 .panel-heading
@@ -453,7 +454,7 @@ html(lang='en')
                                         option Number of companies
 
                                 .panel-body
-                                  .chart-container
+                                  .chart-container#turnover-timeline
 
 
 
