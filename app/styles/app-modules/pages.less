@@ -374,7 +374,7 @@ h1.logo {
   li {
     float: left;
     &.active a {
-      background: @gray;      
+      background: @gray;
     }
   }
   a {
@@ -544,6 +544,12 @@ h1.logo {
 .section-map {
   .panel-body {
     padding: 0;
+    #map-component {
+      height: 500px;
+      .map {
+        height: 100%;
+      }
+    }
   }
 }
 
