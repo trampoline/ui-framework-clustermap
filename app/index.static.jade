@@ -1,18 +1,76 @@
 doctype html
 html(lang='en')
   head(style="margin-bottom:-300px;")
+  
+    //begin-static-app-name
     title clustermap
+    //end-static-app-name
+    //app-name
+      <title>{{{app-name}}}</title>
+
     meta(charset='utf-8')
     //if IE
       meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
     meta(name='viewport', content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0')
+    
+    //begin-static-app-name
     meta(name='description', content='clustermap')
+    //end-static-app-name
+    //app-name
+      <meta name="description" content="{{{app-name}}}"/>
+    
     meta(name='author', content='Trampoline Systems Ltd')
 
+    link(type='text/css', rel='stylesheet', href="http://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.css")
     link(type='text/css', rel='stylesheet', href='css/app.css')
-    script(type='text/javascript', src='http://code.jquery.com/jquery-1.11.2.min.js')
+    
     script(type='text/javascript', src='js/polyfills.js')
+    script(type='text/javascript', src='http://code.jquery.com/jquery-1.11.2.min.js')
+
+    <!--[if lte IE 7]>
+    script(type="text/javascript").
+      $(document).ready(function(){ $('html').addClass('ie7'); });
+    <![endif]-->
+    <!--[if IE 8]>
+    script(type="text/javascript").
+      $(document).ready(function(){ $('html').addClass('ie8'); });
+    <![endif]-->
+    <!--[if IE 9]>
+    script(type="text/javascript").
+      $(document).ready(function(){ $('html').addClass('ie9'); });
+    <![endif]-->
+    <!--[if IE 10]>
+    script(type="text/javascript").
+      $(document).ready(function(){ $('html').addClass('ie10'); });
+    <![endif]-->
+    script(type="text/javascript").
+      $(document).ready(function(){
+        if ($('html').hasClass('ie8')) {
+          $('#browser-support').modal();
+        }
+      });
+
+    script(type='text/javascript', src='http://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.js')
     script(type='text/javascript', src='js/vendor.js')
+    script(type='text/javascript', src='http://fb.me/react-0.9.0.js')
+
+    //begin-static-app-config
+    script(type='text/javascript').
+      window.config={"api":{"prefix": ""}}
+    //end-static-app-config
+    //app-config
+      <script type="text/javascript">window.config={{{app-config}}}</script>
+
+    script.
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      if (window.config.ua && window.config.ua.code) {
+        ga('create', window.config.ua.code, 'auto');
+        ga('send', 'pageview');
+      }
 
   body
 
@@ -29,7 +87,7 @@ html(lang='en')
               li.view-register: a(href="#") Register
 
             .company-search
-              input(type="text", placeholder="Company Search")
+              //- input(type="text", placeholder="Company Search")
 
       .grdr
         .grdc.intro#intro
@@ -46,15 +104,16 @@ html(lang='en')
 
       .grdr
         .grdc
-          .filter-settings
-            .filter-buttons
-              button(type="button").btn.btn-primary#filter-toggle Open Filter
-              button(type="button").btn.btn-default#filter-reset Reset
+          #filter-description-component
+            .filter-settings
+              .filter-buttons
+                button(type="button").btn.btn-primary#filter-toggle Open Filter
+                button(type="button").btn.btn-default#filter-reset Reset
 
-            ul.filter-selected-items
-              li
-                span Filter item name
-                button(type="button").close &times;
+            //-   ul.filter-selected-items
+            //-     li
+            //-       span Filter item name
+            //-       button(type="button").close &times;
 
       .grdr
         .grdc.grdh
@@ -71,65 +130,65 @@ html(lang='en')
                   .grdr
                     .grdc.grdh
                       .grdp.grdh#filter-col
-                        .grdh.grdw.grda
+                        #filter-component.grdh.grdw.grda
 
-                          .filter-group.active
-                            .filter-header
-                              i.icon-toggle-filter
-                              span Filter header
+                          //- .filter-group.active
+                          //-   .filter-header
+                          //-     i.icon-toggle-filter
+                          //-     span Filter header
 
-                            ul.filter-items
-                              li
-                                label
-                                  div
-                                    span.label
-                                      input(type="checkbox")
-                                      | Filter item name
-                                  div
-                                    span.badge 123
-                              li
-                                label
-                                  div
-                                    span.label
-                                      input(type="checkbox")
-                                      | Filter item name
-                                  div
-                                    span.badge 123
-                              li
-                                label
-                                  div
-                                    span.label
-                                      input(type="checkbox")
-                                      | Filter item name
-                                  div
-                                    span.badge 123
-                              li
-                                label
-                                  div
-                                    span.label
-                                      input(type="checkbox")
-                                      | Filter item name
-                                  div
-                                    span.badge 123
+                          //-   ul.filter-items
+                          //-     li
+                          //-       label
+                          //-         div
+                          //-           span.label
+                          //-             input(type="checkbox")
+                          //-             | Filter item name
+                          //-         div
+                          //-           span.badge 123
+                          //-     li
+                          //-       label
+                          //-         div
+                          //-           span.label
+                          //-             input(type="checkbox")
+                          //-             | Filter item name
+                          //-         div
+                          //-           span.badge 123
+                          //-     li
+                          //-       label
+                          //-         div
+                          //-           span.label
+                          //-             input(type="checkbox")
+                          //-             | Filter item name
+                          //-         div
+                          //-           span.badge 123
+                          //-     li
+                          //-       label
+                          //-         div
+                          //-           span.label
+                          //-             input(type="checkbox")
+                          //-             | Filter item name
+                          //-         div
+                          //-           span.badge 123
 
-                          - for (var i = 0; i < 5; ++i) {
-                            .filter-group
-                              .filter-header
-                                i.icon-toggle-filter
-                                span Filter header
+                          //- - for (var i = 0; i < 5; ++i) {
+                          //-   .filter-group
+                          //-     .filter-header
+                          //-       i.icon-toggle-filter
+                          //-       span Filter header
 
-                              ul.filter-items
-                                - for (var j = 0; j < 5; ++j) {
-                                  li
-                                    label
-                                      div
-                                        span.label
-                                          input(type="checkbox")
-                                          | Filter item name
-                                      div
-                                        span.badge 123
-                                - }
-                          - }
+                          //-     ul.filter-items
+                          //-       - for (var j = 0; j < 5; ++j) {
+                          //-         li
+                          //-           label
+                          //-             div
+                          //-               span.label
+                          //-                 input(type="checkbox")
+                          //-                 | Filter item name
+                          //-             div
+                          //-               span.badge 123
+                          //-       - }
+                          //- - }
 
 
               .grdc.grdh
@@ -152,56 +211,58 @@ html(lang='en')
                           .main-content#data-details
 
                             section.section.section-headlines#headlines
-                              h3 At a glance
-                              .row.headline-stats
-                                .col-md-6
-                                  .row
-                                    .col-sm-6
-                                      h4.stat-title Companies
-                                      .stat-amount 43,367
-                                      .stat-change
-                                        i.icon-positive
-                                        span 32,369
-                                    .col-sm-6
-                                      h4.stat-title Total Turnover
-                                      .stat-amount 
-                                        | 43.3M
-                                        small  GBP
-                                      .stat-change
-                                        i.icon-positive
-                                        span 15.6%
-                                .col-md-6
-                                  .row
-                                    .col-sm-6
-                                      h4.stat-title Total Employees
-                                      .stat-amount 2,345
-                                      .stat-change
-                                        i.icon-negative
-                                        span 12.3%
-                                    .col-sm-6
-                                      h4.stat-title Mean Tunrover
-                                        small  per Employee
-                                      .stat-amount
-                                        | 4.3K
-                                        small  GBP
+                              h3 Headlines
+                              #headline-stats-component
+                                //- .row.headline-stats
+                                //-   .col-md-6
+                                //-     .row
+                                //-       .col-sm-6
+                                //-         h4.stat-title Companies
+                                //-         .stat-amount 43,367
+                                //-         .stat-change
+                                //-           i.icon-positive
+                                //-           span 32,369
+                                //-       .col-sm-6
+                                //-         h4.stat-title Total Turnover
+                                //-         .stat-amount 
+                                //-           | 43.3M
+                                //-           small  GBP
+                                //-         .stat-change
+                                //-           i.icon-positive
+                                //-           span 15.6%
+                                //-   .col-md-6
+                                //-     .row
+                                //-       .col-sm-6
+                                //-         h4.stat-title Total Employees
+                                //-         .stat-amount 2,345
+                                //-         .stat-change
+                                //-           i.icon-negative
+                                //-           span 12.3%
+                                //-       .col-sm-6
+                                //-         h4.stat-title Mean Tunrover
+                                //-           small  per Employee
+                                //-         .stat-amount
+                                //-           | 4.3K
+                                //-           small  GBP
 
                             section.section.section-map#map
                               header
-                                h3 Cluster Map
+                                h3 Map
                                 p Intro text...
 
                               .panel.panel-default
                                 .panel-heading
                                   .heat-map-key
-                                    table.table-key
-                                      tbody
-                                        tr
-                                          td.hm-1 25
-                                          td.hm-2 25
-                                          td.hm-3 25
-                                          td.hm-4 25
-                                          td.hm-5 25
-                                          td.hm-6 25
+                                    #color-scale-component
+                                      table.table-key
+                                        tbody
+                                          tr
+                                            td.hm-1 25
+                                            td.hm-2 25
+                                            td.hm-3 25
+                                            td.hm-4 25
+                                            td.hm-5 25
+                                            td.hm-6 25
                                     p Companies appear once fewer than 200 on the map
 
                                   .panel-settings
@@ -221,7 +282,7 @@ html(lang='en')
 
 
                                 .panel-body
-                                  #map-container
+                                  #map-component
 
 
                             section.section.section-charts#charts
@@ -386,48 +447,49 @@ html(lang='en')
 
                             section.section.section-index#index
                               header
-                                h3 The Cambridge Index
+                                h3 Index
                                 p Intro text...
 
-                              .table-responsive
-                                table.table.table-outlined
-                                  thead
-                                    tr
-                                      th.sort-asc 
-                                        a(href="#") Company
-                                          i
-                                      th 
-                                        a(href="#") Sector
-                                          i
-                                      th.text-right 
-                                        a(href="#") Turnover
-                                          small  (2014)
-                                          i
-                                      th.text-right.sort-desc 
-                                        a(href="#") % Turnover growth
-                                          i
-                                      th.text-right 
-                                        a(href="#") Employees
-                                          small  (2014)
-                                            i
-                                      th.text-right
-                                        a(href="#") % Employee growth
-                                          i
-                                  tbody
-                                    - for (var i = 0; i < 8; ++i) {
+                              #table-component  
+                                .table-responsive
+                                  table.table.table-outlined
+                                    thead
                                       tr
-                                        td
-                                          a(href="#") Company Name
-                                        td Sectors, sectors 
-                                          small: a(href="#") More
-                                        td.text-right 9.87M 
-                                          small GBP
-                                        td.text-right 29 
-                                          i.icon-positive
-                                        td.text-right 1,996
-                                        td.text-right 32 
-                                          i.icon-positive
-                                    - }
+                                        th.sort-asc 
+                                          a(href="#") Company
+                                            i
+                                        th 
+                                          a(href="#") Sector
+                                            i
+                                        th.text-right 
+                                          a(href="#") Turnover
+                                            small  (2014)
+                                            i
+                                        th.text-right.sort-desc 
+                                          a(href="#") % Turnover growth
+                                            i
+                                        th.text-right 
+                                          a(href="#") Employees
+                                            small  (2014)
+                                              i
+                                        th.text-right
+                                          a(href="#") % Employee growth
+                                            i
+                                    tbody
+                                      - for (var i = 0; i < 8; ++i) {
+                                        tr
+                                          td
+                                            a(href="#") Company Name
+                                          td Sectors, sectors 
+                                            small: a(href="#") More
+                                          td.text-right 9.87M 
+                                            small GBP
+                                          td.text-right 29 
+                                            i.icon-positive
+                                          td.text-right 1,996
+                                          td.text-right 32 
+                                            i.icon-positive
+                                      - }
 
                               .table-nav
                                 .record-count
@@ -451,6 +513,22 @@ html(lang='en')
                             div.report-issue
                               a(href='mailto:clustermap-issues@trampolinesystems.com?subject=Startup Hubs EU issue report') Report issue
 
+    //begin-static-base-js
+    script(type="text/javascript", src="cljs/goog/base.js")
+    //end-static-base-js
+    //base-js
+      {{{base-js}}}
+
+    //begin-static-dynamic-js
+    <script type="text/javascript" src="clustermap.js"></script><script type="text/javascript">goog.require("clustermap.core");</script>
+    //end-static-dynamic-js
+    //dynamic-js
+      <script type="text/javascript" src="clustermap.js"></script><script type="text/javascript">goog.require("clustermap.core");</script>
+
+    //begin-static-repl-js
+    //end-static-repl-js
+    //repl-js
+      <script type="text/javascript">{{{repl-js}}}</script>
 
 
     script(type="text/javascript").
@@ -501,11 +579,11 @@ html(lang='en')
         });
 
 
-        $('#filter-toggle').on('click', function(){
+        $(document).on('click', '#filter-toggle', function(){
           $('#data-container').toggleClass('show-filters');
         });
 
-        $('.filter-header').on('click', function(){
+        $(document).on('click', '.filter-header', function(){
           var $t = $(this), $o = $t.next('.filter-items'), $p = $t.parent('.filter-group'), active = $p.hasClass('active') ? true : false;
 
           if (active) {
