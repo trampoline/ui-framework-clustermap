@@ -1,17 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
   <head style="margin-bottom:-300px;">
+    <!--begin-static-app-name-->
     <title>clustermap</title>
+    <!--end-static-app-name-->
+    <!--app-name
+    <title>{{{app-name}}}</title>
+    
+    -->
     <meta charset="utf-8">
     <!--if IEmeta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
     -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <!--begin-static-app-name-->
     <meta name="description" content="clustermap">
+    <!--end-static-app-name-->
+    <!--app-name
+    <meta name="description" content="{{{app-name}}}"/>
+    
+    -->
     <meta name="author" content="Trampoline Systems Ltd">
+    <link type="text/css" rel="stylesheet" href="http://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.css">
     <link type="text/css" rel="stylesheet" href="css/app.css">
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
     <script type="text/javascript" src="js/polyfills.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.2.min.js"></script><!--[if lte IE 7]>
+    <script type="text/javascript">$(document).ready(function(){ $('html').addClass('ie7'); });</script><![endif]-->
+    <!--[if IE 8]>
+    <script type="text/javascript">$(document).ready(function(){ $('html').addClass('ie8'); });</script><![endif]-->
+    <!--[if IE 9]>
+    <script type="text/javascript">$(document).ready(function(){ $('html').addClass('ie9'); });</script><![endif]-->
+    <!--[if IE 10]>
+    <script type="text/javascript">$(document).ready(function(){ $('html').addClass('ie10'); });</script><![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function(){
+        if ($('html').hasClass('ie8')) {
+          $('#browser-support').modal();
+        }
+      });
+      
+    </script>
+    <script type="text/javascript" src="http://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.js"></script>
     <script type="text/javascript" src="js/vendor.js"></script>
+    <script type="text/javascript" src="http://fb.me/react-0.9.0.js"></script>
+    <!--begin-static-app-config-->
+    <script type="text/javascript">window.config={"api":{"prefix": ""}}</script>
+    <!--end-static-app-config-->
+    <!--app-config
+    <script type="text/javascript">window.config={{{app-config}}}</script>
+    
+    -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      
+      if (window.config.ua && window.config.ua.code) {
+        ga('create', window.config.ua.code, 'auto');
+        ga('send', 'pageview');
+      }
+      
+    </script>
   </head>
   <body>
     <div class="grd grdh">
@@ -20,13 +69,12 @@
           <header class="page-header">
             <h1 class="logo">EC</h1>
             <ul class="nav-links">
-              <li class="view-intro"><a href="#">Introduction</a></li>
-              <li class="view-about"><a href="#">About</a></li>
-              <li class="view-login"><a href="#">Login</a></li>
-              <li class="view-register"><a href="#">Register</a></li>
+              <li class="link-intro"><a href="#">Introduction</a></li>
+              <li class="link-about"><a href="#">About</a></li>
+              <li class="link-login"><a href="#">Login</a></li>
+              <li class="link-register"><a href="#">Register</a></li>
             </ul>
             <div class="company-search">
-              <input type="text" placeholder="Company Search">
             </div>
           </header>
         </div>
@@ -42,16 +90,27 @@
       </div>
       <div class="grdr">
         <div class="grdc">
-          <div class="filter-settings">
-            <div class="filter-buttons">
-              <button type="button" id="filter-toggle" class="btn btn-primary">Open Filter</button>
-              <button type="button" id="filter-reset" class="btn btn-default">Reset</button>
+          <div class="view view-main">
+            <div id="filter-description-component">
+              <div class="filter-settings">
+                <div class="filter-buttons">
+                  <button type="button" id="filter-toggle" class="btn btn-primary">Open Filter</button>
+                  <button type="button" id="filter-reset" class="btn btn-default">Reset</button>
+                </div>
+              </div>
             </div>
-            <ul class="filter-selected-items">
-              <li><span>Filter item name</span>
-                <button type="button" class="close">&times;</button>
-              </li>
-            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="grdr">
+        <div class="grdc">
+          <div class="view view-company">
+            <div class="company-header">
+              <h3>Company Name</h3>
+              <div class="company-buttons"><span id="company-close">
+                  <button type="button" class="btn btn-primary">Close</button></span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -59,7 +118,7 @@
         <div class="grdc grdh">
           <div id="data-container" class="grd">
             <div class="grdr">
-              <div id="filters" class="grdc grdh filters">
+              <div id="filters" class="grdc grdh filters view view-main">
                 <div class="grd">
                   <div class="grdr">
                     <div class="grdc">
@@ -69,240 +128,8 @@
                   <div class="grdr">
                     <div class="grdc grdh">
                       <div id="filter-col" class="grdp grdh">
-                        <div class="grdh grdw grda">
-                          <div class="filter-group active">
-                            <div class="filter-header"><i class="icon-toggle-filter"></i><span>Filter header</span></div>
-                            <ul class="filter-items">
-                              <li>
-                                <label>
-                                  <div><span class="label">
-                                      <input type="checkbox">Filter item name</span></div>
-                                  <div><span class="badge">123</span></div>
-                                </label>
-                              </li>
-                              <li>
-                                <label>
-                                  <div><span class="label">
-                                      <input type="checkbox">Filter item name</span></div>
-                                  <div><span class="badge">123</span></div>
-                                </label>
-                              </li>
-                              <li>
-                                <label>
-                                  <div><span class="label">
-                                      <input type="checkbox">Filter item name</span></div>
-                                  <div><span class="badge">123</span></div>
-                                </label>
-                              </li>
-                              <li>
-                                <label>
-                                  <div><span class="label">
-                                      <input type="checkbox">Filter item name</span></div>
-                                  <div><span class="badge">123</span></div>
-                                </label>
-                              </li>
-                            </ul>
-                          </div>
-                          <div class="filter-group">
-                            <div class="filter-header"><i class="icon-toggle-filter"></i><span>Filter header</span></div>
-                            <ul class="filter-items">
-                              <li>
-                                <label>
-                                  <div><span class="label">
-                                      <input type="checkbox">Filter item name</span></div>
-                                  <div><span class="badge">123</span></div>
-                                </label>
-                              </li>
-                              <li>
-                                <label>
-                                  <div><span class="label">
-                                      <input type="checkbox">Filter item name</span></div>
-                                  <div><span class="badge">123</span></div>
-                                </label>
-                              </li>
-                              <li>
-                                <label>
-                                  <div><span class="label">
-                                      <input type="checkbox">Filter item name</span></div>
-                                  <div><span class="badge">123</span></div>
-                                </label>
-                              </li>
-                              <li>
-                                <label>
-                                  <div><span class="label">
-                                      <input type="checkbox">Filter item name</span></div>
-                                  <div><span class="badge">123</span></div>
-                                </label>
-                              </li>
-                              <li>
-                                <label>
-                                  <div><span class="label">
-                                      <input type="checkbox">Filter item name</span></div>
-                                  <div><span class="badge">123</span></div>
-                                </label>
-                              </li>
-                            </ul>
-                          </div>
-                          <div class="filter-group">
-                            <div class="filter-header"><i class="icon-toggle-filter"></i><span>Filter header</span></div>
-                            <ul class="filter-items">
-                              <li>
-                                <label>
-                                  <div><span class="label">
-                                      <input type="checkbox">Filter item name</span></div>
-                                  <div><span class="badge">123</span></div>
-                                </label>
-                              </li>
-                              <li>
-                                <label>
-                                  <div><span class="label">
-                                      <input type="checkbox">Filter item name</span></div>
-                                  <div><span class="badge">123</span></div>
-                                </label>
-                              </li>
-                              <li>
-                                <label>
-                                  <div><span class="label">
-                                      <input type="checkbox">Filter item name</span></div>
-                                  <div><span class="badge">123</span></div>
-                                </label>
-                              </li>
-                              <li>
-                                <label>
-                                  <div><span class="label">
-                                      <input type="checkbox">Filter item name</span></div>
-                                  <div><span class="badge">123</span></div>
-                                </label>
-                              </li>
-                              <li>
-                                <label>
-                                  <div><span class="label">
-                                      <input type="checkbox">Filter item name</span></div>
-                                  <div><span class="badge">123</span></div>
-                                </label>
-                              </li>
-                            </ul>
-                          </div>
-                          <div class="filter-group">
-                            <div class="filter-header"><i class="icon-toggle-filter"></i><span>Filter header</span></div>
-                            <ul class="filter-items">
-                              <li>
-                                <label>
-                                  <div><span class="label">
-                                      <input type="checkbox">Filter item name</span></div>
-                                  <div><span class="badge">123</span></div>
-                                </label>
-                              </li>
-                              <li>
-                                <label>
-                                  <div><span class="label">
-                                      <input type="checkbox">Filter item name</span></div>
-                                  <div><span class="badge">123</span></div>
-                                </label>
-                              </li>
-                              <li>
-                                <label>
-                                  <div><span class="label">
-                                      <input type="checkbox">Filter item name</span></div>
-                                  <div><span class="badge">123</span></div>
-                                </label>
-                              </li>
-                              <li>
-                                <label>
-                                  <div><span class="label">
-                                      <input type="checkbox">Filter item name</span></div>
-                                  <div><span class="badge">123</span></div>
-                                </label>
-                              </li>
-                              <li>
-                                <label>
-                                  <div><span class="label">
-                                      <input type="checkbox">Filter item name</span></div>
-                                  <div><span class="badge">123</span></div>
-                                </label>
-                              </li>
-                            </ul>
-                          </div>
-                          <div class="filter-group">
-                            <div class="filter-header"><i class="icon-toggle-filter"></i><span>Filter header</span></div>
-                            <ul class="filter-items">
-                              <li>
-                                <label>
-                                  <div><span class="label">
-                                      <input type="checkbox">Filter item name</span></div>
-                                  <div><span class="badge">123</span></div>
-                                </label>
-                              </li>
-                              <li>
-                                <label>
-                                  <div><span class="label">
-                                      <input type="checkbox">Filter item name</span></div>
-                                  <div><span class="badge">123</span></div>
-                                </label>
-                              </li>
-                              <li>
-                                <label>
-                                  <div><span class="label">
-                                      <input type="checkbox">Filter item name</span></div>
-                                  <div><span class="badge">123</span></div>
-                                </label>
-                              </li>
-                              <li>
-                                <label>
-                                  <div><span class="label">
-                                      <input type="checkbox">Filter item name</span></div>
-                                  <div><span class="badge">123</span></div>
-                                </label>
-                              </li>
-                              <li>
-                                <label>
-                                  <div><span class="label">
-                                      <input type="checkbox">Filter item name</span></div>
-                                  <div><span class="badge">123</span></div>
-                                </label>
-                              </li>
-                            </ul>
-                          </div>
-                          <div class="filter-group">
-                            <div class="filter-header"><i class="icon-toggle-filter"></i><span>Filter header</span></div>
-                            <ul class="filter-items">
-                              <li>
-                                <label>
-                                  <div><span class="label">
-                                      <input type="checkbox">Filter item name</span></div>
-                                  <div><span class="badge">123</span></div>
-                                </label>
-                              </li>
-                              <li>
-                                <label>
-                                  <div><span class="label">
-                                      <input type="checkbox">Filter item name</span></div>
-                                  <div><span class="badge">123</span></div>
-                                </label>
-                              </li>
-                              <li>
-                                <label>
-                                  <div><span class="label">
-                                      <input type="checkbox">Filter item name</span></div>
-                                  <div><span class="badge">123</span></div>
-                                </label>
-                              </li>
-                              <li>
-                                <label>
-                                  <div><span class="label">
-                                      <input type="checkbox">Filter item name</span></div>
-                                  <div><span class="badge">123</span></div>
-                                </label>
-                              </li>
-                              <li>
-                                <label>
-                                  <div><span class="label">
-                                      <input type="checkbox">Filter item name</span></div>
-                                  <div><span class="badge">123</span></div>
-                                </label>
-                              </li>
-                            </ul>
-                          </div>
+                        <div id="filter-component" class="grdh grdw grda">
+                          
                         </div>
                       </div>
                     </div>
@@ -311,7 +138,7 @@
               </div>
               <div class="grdc grdh">
                 <div class="grd">
-                  <div class="grdr">
+                  <div class="grdr view view-main">
                     <div class="grdc">
                       <ul id="section-nav" class="section-nav nav">
                         <li><a href="#headlines">Headlines</a></li>
@@ -326,61 +153,33 @@
                       <div id="data-col" data-spy="scroll" data-target="#section-nav" class="grdp grdh">
                         <div class="grdh grdw grda">
                           <div id="data-details" class="main-content">
-                            <section id="headlines" class="section section-headlines">
-                              <h3>At a glance</h3>
-                              <div class="row headline-stats">
-                                <div class="col-md-6">
-                                  <div class="row">
-                                    <div class="col-sm-6">
-                                      <h4 class="stat-title">Companies</h4>
-                                      <div class="stat-amount">43,367</div>
-                                      <div class="stat-change"><i class="icon-positive"></i><span>32,369</span></div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                      <h4 class="stat-title">Total Turnover</h4>
-                                      <div class="stat-amount">
-                                         
-                                        43.3M<small> GBP</small>
-                                      </div>
-                                      <div class="stat-change"><i class="icon-positive"></i><span>15.6%</span></div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-md-6">
-                                  <div class="row">
-                                    <div class="col-sm-6">
-                                      <h4 class="stat-title">Total Employees</h4>
-                                      <div class="stat-amount">2,345</div>
-                                      <div class="stat-change"><i class="icon-negative"></i><span>12.3%</span></div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                      <h4 class="stat-title">Mean Tunrover<small> per Employee</small></h4>
-                                      <div class="stat-amount">4.3K<small> GBP</small></div>
-                                    </div>
-                                  </div>
-                                </div>
+                            <section id="headlines" class="section section-headlines view view-main">
+                              <h3>Headlines</h3>
+                              <div id="headline-stats-component">
                               </div>
                             </section>
-                            <section id="map" class="section section-map">
+                            <section id="map" class="section section-map view view-main">
                               <header>
-                                <h3>Cluster Map</h3>
+                                <h3>Map</h3>
                                 <p>Intro text...</p>
                               </header>
                               <div class="panel panel-default">
                                 <div class="panel-heading">
                                   <div class="heat-map-key">
-                                    <table class="table-key">
-                                      <tbody>
-                                        <tr>
-                                          <td class="hm-1">25</td>
-                                          <td class="hm-2">25</td>
-                                          <td class="hm-3">25</td>
-                                          <td class="hm-4">25</td>
-                                          <td class="hm-5">25</td>
-                                          <td class="hm-6">25</td>
-                                        </tr>
-                                      </tbody>
-                                    </table>
+                                    <div id="color-scale-component">
+                                      <table class="table-key">
+                                        <tbody>
+                                          <tr>
+                                            <td class="hm-1">25</td>
+                                            <td class="hm-2">25</td>
+                                            <td class="hm-3">25</td>
+                                            <td class="hm-4">25</td>
+                                            <td class="hm-5">25</td>
+                                            <td class="hm-6">25</td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </div>
                                     <p>Companies appear once fewer than 200 on the map</p>
                                   </div>
                                   <div class="panel-settings">
@@ -398,11 +197,11 @@
                                   </div>
                                 </div>
                                 <div class="panel-body">
-                                  <div id="map-container"></div>
+                                  <div id="map-component"></div>
                                 </div>
                               </div>
                             </section>
-                            <section id="charts" class="section section-charts">
+                            <section id="charts" class="section section-charts view view-main">
                               <header>
                                 <h3>Charts</h3>
                                 <p>Intro text...</p>
@@ -578,90 +377,92 @@
                                 </div>
                               </div>
                             </section>
-                            <section id="index" class="section section-index">
+                            <section id="index" class="section section-index view view-main">
                               <header>
-                                <h3>The Cambridge Index</h3>
+                                <h3>Index</h3>
                                 <p>Intro text...</p>
                               </header>
-                              <div class="table-responsive">
-                                <table class="table table-outlined">
-                                  <thead>
-                                    <tr>
-                                      <th class="sort-asc"> <a href="#">Company<i></i></a></th>
-                                      <th> <a href="#">Sector<i></i></a></th>
-                                      <th class="text-right"> <a href="#">Turnover<small> (2014)</small><i></i></a></th>
-                                      <th class="text-right sort-desc"> <a href="#">% Turnover growth<i></i></a></th>
-                                      <th class="text-right"> <a href="#">Employees<small> (2014)<i></i></small></a></th>
-                                      <th class="text-right"><a href="#">% Employee growth<i></i></a></th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <tr>
-                                      <td><a href="#">Company Name</a></td>
-                                      <td>Sectors, sectors <small><a href="#">More</a></small></td>
-                                      <td class="text-right">9.87M <small>GBP</small></td>
-                                      <td class="text-right">29 <i class="icon-positive"></i></td>
-                                      <td class="text-right">1,996</td>
-                                      <td class="text-right">32 <i class="icon-positive"></i></td>
-                                    </tr>
-                                    <tr>
-                                      <td><a href="#">Company Name</a></td>
-                                      <td>Sectors, sectors <small><a href="#">More</a></small></td>
-                                      <td class="text-right">9.87M <small>GBP</small></td>
-                                      <td class="text-right">29 <i class="icon-positive"></i></td>
-                                      <td class="text-right">1,996</td>
-                                      <td class="text-right">32 <i class="icon-positive"></i></td>
-                                    </tr>
-                                    <tr>
-                                      <td><a href="#">Company Name</a></td>
-                                      <td>Sectors, sectors <small><a href="#">More</a></small></td>
-                                      <td class="text-right">9.87M <small>GBP</small></td>
-                                      <td class="text-right">29 <i class="icon-positive"></i></td>
-                                      <td class="text-right">1,996</td>
-                                      <td class="text-right">32 <i class="icon-positive"></i></td>
-                                    </tr>
-                                    <tr>
-                                      <td><a href="#">Company Name</a></td>
-                                      <td>Sectors, sectors <small><a href="#">More</a></small></td>
-                                      <td class="text-right">9.87M <small>GBP</small></td>
-                                      <td class="text-right">29 <i class="icon-positive"></i></td>
-                                      <td class="text-right">1,996</td>
-                                      <td class="text-right">32 <i class="icon-positive"></i></td>
-                                    </tr>
-                                    <tr>
-                                      <td><a href="#">Company Name</a></td>
-                                      <td>Sectors, sectors <small><a href="#">More</a></small></td>
-                                      <td class="text-right">9.87M <small>GBP</small></td>
-                                      <td class="text-right">29 <i class="icon-positive"></i></td>
-                                      <td class="text-right">1,996</td>
-                                      <td class="text-right">32 <i class="icon-positive"></i></td>
-                                    </tr>
-                                    <tr>
-                                      <td><a href="#">Company Name</a></td>
-                                      <td>Sectors, sectors <small><a href="#">More</a></small></td>
-                                      <td class="text-right">9.87M <small>GBP</small></td>
-                                      <td class="text-right">29 <i class="icon-positive"></i></td>
-                                      <td class="text-right">1,996</td>
-                                      <td class="text-right">32 <i class="icon-positive"></i></td>
-                                    </tr>
-                                    <tr>
-                                      <td><a href="#">Company Name</a></td>
-                                      <td>Sectors, sectors <small><a href="#">More</a></small></td>
-                                      <td class="text-right">9.87M <small>GBP</small></td>
-                                      <td class="text-right">29 <i class="icon-positive"></i></td>
-                                      <td class="text-right">1,996</td>
-                                      <td class="text-right">32 <i class="icon-positive"></i></td>
-                                    </tr>
-                                    <tr>
-                                      <td><a href="#">Company Name</a></td>
-                                      <td>Sectors, sectors <small><a href="#">More</a></small></td>
-                                      <td class="text-right">9.87M <small>GBP</small></td>
-                                      <td class="text-right">29 <i class="icon-positive"></i></td>
-                                      <td class="text-right">1,996</td>
-                                      <td class="text-right">32 <i class="icon-positive"></i></td>
-                                    </tr>
-                                  </tbody>
-                                </table>
+                              <div id="table-component"> 
+                                <div class="table-responsive">
+                                  <table class="table table-outlined">
+                                    <thead>
+                                      <tr>
+                                        <th class="sort-asc"> <a href="#">Company<i></i></a></th>
+                                        <th> <a href="#">Sector<i></i></a></th>
+                                        <th class="text-right"> <a href="#">Turnover<small> (2014)</small><i></i></a></th>
+                                        <th class="text-right sort-desc"> <a href="#">% Turnover growth<i></i></a></th>
+                                        <th class="text-right"> <a href="#">Employees<small> (2014)<i></i></small></a></th>
+                                        <th class="text-right"><a href="#">% Employee growth<i></i></a></th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td><a href="#">Company Name</a></td>
+                                        <td>Sectors, sectors <small><a href="#">More</a></small></td>
+                                        <td class="text-right">9.87M <small>GBP</small></td>
+                                        <td class="text-right">29 <i class="icon-positive"></i></td>
+                                        <td class="text-right">1,996</td>
+                                        <td class="text-right">32 <i class="icon-positive"></i></td>
+                                      </tr>
+                                      <tr>
+                                        <td><a href="#">Company Name</a></td>
+                                        <td>Sectors, sectors <small><a href="#">More</a></small></td>
+                                        <td class="text-right">9.87M <small>GBP</small></td>
+                                        <td class="text-right">29 <i class="icon-positive"></i></td>
+                                        <td class="text-right">1,996</td>
+                                        <td class="text-right">32 <i class="icon-positive"></i></td>
+                                      </tr>
+                                      <tr>
+                                        <td><a href="#">Company Name</a></td>
+                                        <td>Sectors, sectors <small><a href="#">More</a></small></td>
+                                        <td class="text-right">9.87M <small>GBP</small></td>
+                                        <td class="text-right">29 <i class="icon-positive"></i></td>
+                                        <td class="text-right">1,996</td>
+                                        <td class="text-right">32 <i class="icon-positive"></i></td>
+                                      </tr>
+                                      <tr>
+                                        <td><a href="#">Company Name</a></td>
+                                        <td>Sectors, sectors <small><a href="#">More</a></small></td>
+                                        <td class="text-right">9.87M <small>GBP</small></td>
+                                        <td class="text-right">29 <i class="icon-positive"></i></td>
+                                        <td class="text-right">1,996</td>
+                                        <td class="text-right">32 <i class="icon-positive"></i></td>
+                                      </tr>
+                                      <tr>
+                                        <td><a href="#">Company Name</a></td>
+                                        <td>Sectors, sectors <small><a href="#">More</a></small></td>
+                                        <td class="text-right">9.87M <small>GBP</small></td>
+                                        <td class="text-right">29 <i class="icon-positive"></i></td>
+                                        <td class="text-right">1,996</td>
+                                        <td class="text-right">32 <i class="icon-positive"></i></td>
+                                      </tr>
+                                      <tr>
+                                        <td><a href="#">Company Name</a></td>
+                                        <td>Sectors, sectors <small><a href="#">More</a></small></td>
+                                        <td class="text-right">9.87M <small>GBP</small></td>
+                                        <td class="text-right">29 <i class="icon-positive"></i></td>
+                                        <td class="text-right">1,996</td>
+                                        <td class="text-right">32 <i class="icon-positive"></i></td>
+                                      </tr>
+                                      <tr>
+                                        <td><a href="#">Company Name</a></td>
+                                        <td>Sectors, sectors <small><a href="#">More</a></small></td>
+                                        <td class="text-right">9.87M <small>GBP</small></td>
+                                        <td class="text-right">29 <i class="icon-positive"></i></td>
+                                        <td class="text-right">1,996</td>
+                                        <td class="text-right">32 <i class="icon-positive"></i></td>
+                                      </tr>
+                                      <tr>
+                                        <td><a href="#">Company Name</a></td>
+                                        <td>Sectors, sectors <small><a href="#">More</a></small></td>
+                                        <td class="text-right">9.87M <small>GBP</small></td>
+                                        <td class="text-right">29 <i class="icon-positive"></i></td>
+                                        <td class="text-right">1,996</td>
+                                        <td class="text-right">32 <i class="icon-positive"></i></td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
                               </div>
                               <div class="table-nav">
                                 <div class="record-count"><b>1</b> to<b> 6</b> of<b> 26</b></div>
@@ -669,6 +470,132 @@
                                   <button type="button" class="btn btn-default btn-sm">Next</button>
                                   <button type="button" class="btn btn-default btn-sm">Last</button>
                                 </nav>
+                              </div>
+                            </section>
+                            <section id="company-info" class="section section-company-info view view-company">
+                              <div class="panel-grid-container">
+                                <div class="panel-grid">
+                                  <div class="panel-row">
+                                    <div class="panel">
+                                      <div class="panel-body">
+                                        <div class="company-logo"></div>
+                                        <div class="company-details">
+                                          <ul>
+                                            <li>
+                                              <h4>Description</h4>
+                                              <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum distinctio aliquid voluptatum temporibus suscipit at, quae ea facilis nobis! Facilis quia, repellendus sunt numquam, aut distinctio placeat commodi quisquam eius.</p>
+                                            </li>
+                                            <li>
+                                              <h4>Sector</h4>
+                                              <p><a href="#">Other service activities</a></p>
+                                              <p>SIC 1234 5678 - Other Business Activities</p>
+                                              <p>SIC 1234 5678 - Other Business Activities</p>
+                                            </li>
+                                            <li>
+                                              <h4>Registration Number</h4>
+                                              <p>0123456789</p>
+                                            </li>
+                                            <li>
+                                              <h4>Website</h4>
+                                              <p><a href="#">abcdefghijk.com</a></p>
+                                            </li>
+                                            <li>
+                                              <p><a href="#"><i class="icon-twitter"></i></a>&nbsp;<a href="#"><i class="icon-linkedin"></i></a>&nbsp;<a href="#"><i class="icon-crunch"></i></a>&nbsp;<a href="#"><i class="icon-angel"></i></a></p>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="panel">
+                                      <div class="panel-body">
+                                        <div class="company-address">
+                                          <div class="row">
+                                            <div class="col-sm-6">
+                                              <address>
+                                                <h4>Registered Address</h4>
+                                                <div>110 Fulbourn Rd</div>
+                                                <div>Cambridge</div>
+                                                <div>Cambridgeshire</div>
+                                                <div>CB1 9NJ</div>
+                                                <div>UK</div>
+                                              </address>
+                                            </div>
+                                            <div class="col-sm-6">
+                                              <address>
+                                                <h4>Second Address</h4>
+                                                <div>110 Fulbourn Rd</div>
+                                                <div>Cambridge</div>
+                                                <div>Cambridgeshire</div>
+                                                <div>CB1 9NJ</div>
+                                                <div>UK</div>
+                                              </address>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="company-map">
+                                          <div class="map-container"></div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="panel-row">
+                                    <div class="panel">
+                                      <div class="panel-body">
+                                        <div class="chart-heading">
+                                          <h4 class="stat-title">Turnover (2013)</h4>
+                                          <div class="stat-amount">43.3M<small>GBP</small></div>
+                                          <div class="stat-change"> <i class="icon-positive"></i><span>15.6%</span></div>
+                                        </div>
+                                        <div class="chart-container-lg"></div>
+                                      </div>
+                                    </div>
+                                    <div class="panel">
+                                      <div class="panel-body">
+                                        <div class="chart-heading">
+                                          <h4 class="stat-title">Employees (2013)</h4>
+                                          <div class="stat-amount">43,367</div>
+                                          <div class="stat-change"><i class="icon-positive"></i><span>15.6%</span></div>
+                                        </div>
+                                        <div class="chart-container-lg"></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="panel-row">
+                                    <div class="panel">
+                                      <div class="panel-body">
+                                        <h3>Directors</h3>
+                                        <div class="table-responsive">
+                                          <table class="table">
+                                            <thead>
+                                              <tr>
+                                                <th>Name</th>
+                                                <th>Start Date</th>
+                                                <th>ZZZ</th>
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              <tr>
+                                                <td>Mr Joe Blogs</td>
+                                                <td>19<sup>th</sup> May 1998</td>
+                                                <td>--</td>
+                                              </tr>
+                                              <tr>
+                                                <td>Ms Mary Smith</td>
+                                                <td>3<sup>rd</sup> Jan 1999</td>
+                                                <td>--</td>
+                                              </tr>
+                                              <tr>
+                                                <td>Mr Alan Robertson</td>
+                                                <td>21<sup>st</sup> Aug 2001</td>
+                                                <td>--</td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
                             </section>
                           </div>
@@ -687,6 +614,26 @@
         </div>
       </div>
     </div>
+    <!--begin-static-base-js-->
+    <script type="text/javascript" src="cljs/goog/base.js"></script>
+    <!--end-static-base-js-->
+    <!--base-js
+    {{{base-js}}}
+    
+    -->
+    <!--begin-static-dynamic-js--><script type="text/javascript" src="clustermap.js"></script><script type="text/javascript">goog.require("clustermap.core");</script>
+    <!--end-static-dynamic-js-->
+    <!--dynamic-js
+    <script type="text/javascript" src="clustermap.js"></script><script type="text/javascript">goog.require("clustermap.core");</script>
+    
+    -->
+    <!--begin-static-repl-js-->
+    <!--end-static-repl-js-->
+    <!--repl-js
+    <script type="text/javascript">{{{repl-js}}}</script>
+    
+    
+    -->
     <script type="text/javascript">
       $(function(){
       
@@ -725,7 +672,7 @@
         });
       
       
-        $('.view-intro').on('click', function(e){
+        $('.link-intro').on('click', function(e){
           e.preventDefault();
       
           $('body').removeClass('page-condensed');
@@ -735,11 +682,11 @@
         });
       
       
-        $('#filter-toggle').on('click', function(){
+        $(document).on('click', '#filter-toggle', function(){
           $('#data-container').toggleClass('show-filters');
         });
       
-        $('.filter-header').on('click', function(){
+        $(document).on('click', '.filter-header', function(){
           var $t = $(this), $o = $t.next('.filter-items'), $p = $t.parent('.filter-group'), active = $p.hasClass('active') ? true : false;
       
           if (active) {
