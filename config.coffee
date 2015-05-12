@@ -25,7 +25,8 @@ exports.config =
           'vendor/scripts/bootstrap.js',
           'vendor/scripts/geojson-utils.js',
           'vendor/scripts/rtree.js',
-          'vendor/scripts/highcharts.js'
+          'vendor/scripts/highcharts.js',
+          'vendor/scripts/leaflet.markercluster-src.js'
         ]
 
     stylesheets:
