@@ -535,6 +535,16 @@ h1.logo {
   }
 }
 
+.editable {
+  position: relative;
+  &:after {
+    .icon-edit();
+    content: "";
+    position: absolute;
+    top: 3px;
+    right: 3px;
+  }
+}
 
 .section-headlines {
   background: @gray-dark;
