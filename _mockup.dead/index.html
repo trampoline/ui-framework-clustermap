@@ -398,7 +398,9 @@
                                   </div>
                                 </div>
                                 <div class="panel-body">
-                                  <div id="map-container"></div>
+                                  <div id="map-container">
+                                    <button type="button" data-toggle="popover" data-placement="top" data-html="true" data-content="&lt;div class='popover-description'&gt;Other service activities&lt;/div&gt;&lt;div class='row'&gt;&lt;div class='col-xs-6'&gt;&lt;div class='stat-title'&gt;Turnover&lt;/div&gt;&lt;div class='stat-amount'&gt;43.3M &lt;small&gt;GBP&lt;/small&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class='col-xs-6'&gt;&lt;div class='stat-title'&gt;Employees&lt;/div&gt;&lt;div class='stat-amount'&gt;123,456&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" title="Arms Holdings PLC" class="btn btn-primary btn-pop">Popover example</button>
+                                  </div>
                                 </div>
                               </div>
                             </section>
@@ -752,6 +754,27 @@
               $p.addClass('active');
             });
           }
+        });
+        
+        $('.btn-pop').each(function(){
+          var $el = $(this);
+          
+          $el.popover({
+            template: '<div class="popover" role="tooltip"><div class="arrow"></div><a href="#" class="popover-close"><i class="icon-close-secondary"></i></a><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
+          });
+          
+          $el.on('shown.bs.popover', function (e) {
+            var popover = $el.data('bs.popover');
+            
+            if (typeof popover !== "undefined") {
+              var $tip = popover.tip();
+              
+              $tip.find('.popover-close').on('click', function (e) {
+                e.preventDefault();
+                $el.popover('hide');
+              });
+            }
+          });
         });
         
       });
