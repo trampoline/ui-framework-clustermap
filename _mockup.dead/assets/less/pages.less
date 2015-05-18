@@ -743,3 +743,28 @@ h1.logo {
 .chart-heading {
   margin-bottom: 20px;
 }
+
+// Leaflet popups
+.leaflet-popup-content-wrapper {
+  background: @popover-bg;
+}
+
+.leaflet-popup-content {
+  padding: 15px;
+  *, a, a:hover {
+    color: #fff;
+  }
+}
+
+.leaflet-popup-tip {
+  border-top-color: @popover-bg;
+}
+
+.leaflet-popup-close-button {
+  color: #fff;
+  &:hover {
+    background: transparent;
+    color: #fff;
+    text-decoration: none;
+  }
+}
