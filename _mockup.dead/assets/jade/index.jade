@@ -221,6 +221,7 @@ html(lang='en')(style="margin-bottom:-300px;")
 
                                 .panel-body
                                   #map-container
+                                    button(type="button", data-toggle="popover", data-placement="top", data-html="true", data-content="<div class='popover-description'>Other service activities</div><div class='row'><div class='col-xs-6'><div class='stat-title'>Turnover</div><div class='stat-amount'>43.3M <small>GBP</small></div></div><div class='col-xs-6'><div class='stat-title'>Employees</div><div class='stat-amount'>123,456</div></div></div>", title="Arms Holdings PLC").btn.btn-primary.btn-pop Popover example
 
 
                             section.section.section-charts#charts
@@ -517,6 +518,27 @@ html(lang='en')(style="margin-bottom:-300px;")
               $p.addClass('active');
             });
           }
+        });
+
+        $('.btn-pop').each(function(){
+          var $el = $(this);
+
+          $el.popover({
+            template: '<div class="popover" role="tooltip"><div class="arrow"></div><a href="#" class="popover-close"><i class="icon-close-secondary"></i></a><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
+          });
+
+          $el.on('shown.bs.popover', function (e) {
+            var popover = $el.data('bs.popover');
+
+            if (typeof popover !== "undefined") {
+              var $tip = popover.tip();
+
+              $tip.find('.popover-close').on('click', function (e) {
+                e.preventDefault();
+                $el.popover('hide');
+              });
+            }
+          });
         });
 
       });

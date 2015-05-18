@@ -9,7 +9,8 @@
   left: 0;
   z-index: @zindex-popover;
   display: none;
-  max-width: @popover-max-width;
+  min-width: @popover-max-width;
+  max-width: (@popover-max-width*1.5);
   padding: 1px;
   // Reset font and text properties given new insertion method
   font-family: @font-family-base;
@@ -19,13 +20,20 @@
   text-align: left;
   background-color: @popover-bg;
   background-clip: padding-box;
-  border: 1px solid @popover-fallback-border-color;
+  // border: 1px solid @popover-fallback-border-color;
   border: 1px solid @popover-border-color;
-  border-radius: @border-radius-large;
+  border-radius: @border-radius-small;
   .box-shadow(0 5px 10px rgba(0,0,0,.2));
+
+  color: #fff;
 
   // Overrides for proper insertion
   white-space: normal;
+
+  * {
+    color: #fff;
+    font-size: @font-size-base;
+  }
 
   // Offset the popover to account for the popover arrow
   &.top     { margin-top: -@popover-arrow-width; }
@@ -36,15 +44,29 @@
 
 .popover-title {
   margin: 0; // reset heading margin
-  padding: 8px 14px;
-  font-size: @font-size-base;
-  background-color: @popover-title-bg;
-  border-bottom: 1px solid darken(@popover-title-bg, 5%);
-  border-radius: (@border-radius-large - 1) (@border-radius-large - 1) 0 0;
+  padding: 14px 30px 4px 14px;
+  font-size: @font-size-medium;
+  font-weight: bold;
+  // background-color: @popover-title-bg;
+  // border-bottom: 1px solid darken(@popover-title-bg, 5%);
+  border-radius: (@border-radius-small - 1) (@border-radius-small - 1) 0 0;
+}
+
+.popover-close {
+  position: absolute;
+  right: 5px;
+  top: 5px;
 }
 
 .popover-content {
   padding: 9px 14px;
+}
+
+.popover-description {
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  padding: 6px 0;
+  margin-bottom: 8px;
 }
 
 // Arrows

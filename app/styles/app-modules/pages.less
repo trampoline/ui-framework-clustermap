@@ -110,23 +110,23 @@
 }
 
 .icon-twitter {
-  background-position: 0 -56px;
+  background-position: 0 -68px;
   a:hover & {
-    background-position: -36px -56px;
+    background-position: -36px -68px;
   }
 }
 
 .icon-linkedin {
-  background-position: 0 -96px;
+  background-position: 0 -104px;
   a:hover & {
-    background-position: -36px -96px;
+    background-position: -36px -104px;
   }
 }
 
 .icon-crunch {
-  background-position: 0 -136px;
+  background-position: 0 -140px;
   a:hover & {
-    background-position: -36px -136px;
+    background-position: -36px -140px;
   }
 }
 
@@ -151,19 +151,45 @@
 }
 
 .icon-negative, .icon-positive {
-  .square(0px);
-  background: transparent;
-  border: 6px solid transparent;
-  margin: 3px 5px 0 0;
+  width: 11px;
+  height: 10px;
+  margin-right: 5px;
 }
+
 .icon-negative {
-  border-top-color: #E13322;
-  border-bottom-width: 0;
+  background-position: -56px -54px
 }
+
 .icon-positive {
-  border-bottom-color: #0A8905;
-  border-top-width: 0;
+  background-position: -44px -54px
 }
+
+.icon-edit {
+  .square(18px);
+  background-position: -48px 0;
+}
+
+.icon-search {
+  .square(18px);
+  background-position: -48px -22px;
+}
+
+.icon-close-primary, .icon-close-secondary {
+  .square(10px);
+}
+
+.icon-close-primary { // Blue cross
+  background-position: 0 -56px;
+  &:hover, a:hover &, button:hover & {
+    background-position: -12px -56px;
+  }
+}
+
+.icon-close-secondary { // White cross
+  background-position: -26px -56px;
+}
+
+
 
 
 // Page Styles
@@ -509,16 +535,18 @@ h1.logo {
   }
 }
 
-
-.section-headlines {
-  background: @gray-dark;
-  color: #fff;
-  .stat-title, .stat-change {
-    color: #999;
-  }
-  .stat-amount, .stat-change {
-    display: block;
-    margin-left: 0;
+.editable {
+  position: relative;
+  &:after {
+    display: inline-block;
+    background: url(@sprite-png) 0 0 no-repeat;
+    background-image: @sprite-svg, none;
+    content: "";
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    .text-hide();
+    .icon-edit();
   }
 }
 
@@ -549,6 +577,31 @@ h1.logo {
   margin-left: 5px;
 }
 
+
+.section-headlines {
+  background: @gray-dark;
+  color: #fff;
+  .stat-title, .stat-change {
+    color: #999;
+  }
+  .stat-amount, .stat-change {
+    display: block;
+    margin-left: 0;
+  }
+}
+
+.popover {
+  .stat-title, .stat-change, .stat-amount {
+    margin: 1px 0;
+  }
+  .stat-amount {
+    font-size: @font-size-large;
+    small {
+      display: block;
+      font-size: @font-size-base;
+    }
+  }
+}
 
 .section-map {
   .panel-body {
@@ -596,11 +649,11 @@ h1.logo {
 }
 
 .chart-container {
-  height: 230px;
+  min-height: 230px;
 }
 
 .chart-container-lg {
-  height: 280px;
+  min-height: 280px;
 }
 
 
