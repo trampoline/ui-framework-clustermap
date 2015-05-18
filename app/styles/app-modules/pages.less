@@ -590,19 +590,6 @@ h1.logo {
   }
 }
 
-.popover {
-  .stat-title, .stat-change, .stat-amount {
-    margin: 1px 0;
-  }
-  .stat-amount {
-    font-size: @font-size-large;
-    small {
-      display: block;
-      font-size: @font-size-base;
-    }
-  }
-}
-
 .section-map {
   .panel-body {
     padding: 0;
@@ -739,3 +726,43 @@ h1.logo {
 .chart-heading {
   margin-bottom: 20px;
 }
+
+// Leaflet popups
+.leaflet-popup-content-wrapper {
+  background: @popover-bg;
+}
+
+.leaflet-popup-content {
+  padding: 15px;
+  *, a, a:hover {
+    color: #fff;
+  }
+  .stat-title, .stat-change, .stat-amount {
+    margin: 1px 0;
+  }
+  .stat-title {
+    font-size: @font-size-medium;
+  }
+  .stat-amount {
+    font-size: 24px;
+    small {
+      display: block;
+      font-size: @font-size-base;
+      padding-top: 2px;
+    }
+  }
+}
+
+.leaflet-popup-tip {
+  border-top-color: @popover-bg;
+}
+
+.leaflet-popup-close-button {
+  color: #fff;
+  &:hover {
+    background: transparent;
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
