@@ -178,15 +178,15 @@ html(lang='en')
                                 .panel-heading
                                   .heat-map-key
                                     #color-scale-component
-                                      table.table-key
-                                        tbody
-                                          tr
-                                            td.hm-1 25
-                                            td.hm-2 25
-                                            td.hm-3 25
-                                            td.hm-4 25
-                                            td.hm-5 25
-                                            td.hm-6 25
+                                      //- table.table-key
+                                      //-   tbody
+                                      //-     tr
+                                      //-       td.hm-1 25
+                                      //-       td.hm-2 25
+                                      //-       td.hm-3 25
+                                      //-       td.hm-4 25
+                                      //-       td.hm-5 25
+                                      //-       td.hm-6 25
                                     p Companies appear when fewer than 1000 on the map
 
                                   .panel-settings
@@ -227,55 +227,6 @@ html(lang='en')
 
                                 .panel-body
                                   #region-investment-histogram
-                                    //- table.table.table-stats.table-filtered
-                                    //-   tr.active-row
-                                    //-     th.title
-                                    //-       span Cambridge Ahead
-                                    //-     td.amount
-                                    //-       span 560
-                                    //-     td.bar
-                                    //-       .bar-chart-container
-                                    //-         .bar-chart(style="width:75%")
-                                    //-   tr
-                                    //-     th.title
-                                    //-       span City of Cambridge
-                                    //-     td.amount
-                                    //-       span 460
-                                    //-     td.bar
-                                    //-       .bar-chart-container
-                                    //-         .bar-chart(style="width:65%")
-                                    //-   tr
-                                    //-     th.title
-                                    //-       span East Cambridge
-                                    //-     td.amount
-                                    //-       span 360
-                                    //-     td.bar
-                                    //-       .bar-chart-container
-                                    //-         .bar-chart(style="width:55%")
-                                    //-   tr
-                                    //-     th.title
-                                    //-       span Fenland
-                                    //-     td.amount
-                                    //-       span 260
-                                    //-     td.bar
-                                    //-       .bar-chart-container
-                                    //-         .bar-chart(style="width:45%")
-                                    //-   tr
-                                    //-     th.title
-                                    //-       span Huntingdonshire
-                                    //-     td.amount
-                                    //-       span 160
-                                    //-     td.bar
-                                    //-       .bar-chart-container
-                                    //-         .bar-chart(style="width:35%")
-                                    //-   tr
-                                    //-     th.title
-                                    //-       span South Cambridge
-                                    //-     td.amount
-                                    //-       span 60
-                                    //-     td.bar
-                                    //-       .bar-chart-container
-                                    //-         .bar-chart(style="width:25%")
 
                               //- .panel
                               //-   .panel-heading
@@ -290,55 +241,6 @@ html(lang='en')
 
                               //-   .panel-body
                               //-     #sector-histogram 
-                              //-       //- table.table.table-stats
-                              //-       //-   tr
-                              //-       //-     th.title
-                              //-       //-       span Cambridge Ahead
-                              //-       //-     td.amount
-                              //-       //-       span 560
-                              //-       //-     td.bar
-                              //-       //-       .bar-chart-container
-                              //-       //-         .bar-chart(style="width:75%")
-                              //-       //-   tr
-                              //-       //-     th.title
-                              //-       //-       span City of Cambridge
-                              //-       //-     td.amount
-                              //-       //-       span 460
-                              //-       //-     td.bar
-                              //-       //-       .bar-chart-container
-                              //-       //-         .bar-chart(style="width:65%")
-                              //-       //-   tr
-                              //-       //-     th.title
-                              //-       //-       span East Cambridge
-                              //-       //-     td.amount
-                              //-       //-       span 360
-                              //-       //-     td.bar
-                              //-       //-       .bar-chart-container
-                              //-       //-         .bar-chart(style="width:55%")
-                              //-       //-   tr
-                              //-       //-     th.title
-                              //-       //-       span Fenland
-                              //-       //-     td.amount
-                              //-       //-       span 260
-                              //-       //-     td.bar
-                              //-       //-       .bar-chart-container
-                              //-       //-         .bar-chart(style="width:45%")
-                              //-       //-   tr
-                              //-       //-     th.title
-                              //-       //-       span Huntingdonshire
-                              //-       //-     td.amount
-                              //-       //-       span 160
-                              //-       //-     td.bar
-                              //-       //-       .bar-chart-container
-                              //-       //-         .bar-chart(style="width:35%")
-                              //-       //-   tr
-                              //-       //-     th.title
-                              //-       //-       span South Cambridge
-                              //-       //-     td.amount
-                              //-       //-       span 60
-                              //-       //-     td.bar
-                              //-       //-       .bar-chart-container
-                              //-       //-         .bar-chart(style="width:25%")
 
                               //- .panel
                               //-   .panel-heading
@@ -368,65 +270,63 @@ html(lang='en')
                                 .panel-body
                                   .chart-container#funding-timeline-component
 
-
-
                             section.section.section-index.view.view-main#index
                               header
                                 h3 Index
                                 // p Intro text...
 
                               #table-component  
-                                .table-responsive
-                                  table.table.table-outlined
-                                    thead
-                                      tr
-                                        th.sort-asc 
-                                          a(href="#") Company
-                                            i
-                                        th 
-                                          a(href="#") Sector
-                                            i
-                                        th.text-right 
-                                          a(href="#") Turnover
-                                            small  (2014)
-                                            i
-                                        th.text-right.sort-desc 
-                                          a(href="#") % Turnover growth
-                                            i
-                                        th.text-right 
-                                          a(href="#") Employees
-                                            small  (2014)
-                                              i
-                                        th.text-right
-                                          a(href="#") % Employee growth
-                                            i
-                                    tbody
-                                      - for (var i = 0; i < 8; ++i) {
-                                        tr
-                                          td
-                                            a(href="#") Company Name
-                                          td Sectors, sectors 
-                                            small: a(href="#") More
-                                          td.text-right 9.87M 
-                                            small GBP
-                                          td.text-right 29 
-                                            i.icon-positive
-                                          td.text-right 1,996
-                                          td.text-right 32 
-                                            i.icon-positive
-                                      - }
+                                //- .table-responsive
+                                //-   table.table.table-outlined
+                                //-     thead
+                                //-       tr
+                                //-         th.sort-asc 
+                                //-           a(href="#") Company
+                                //-             i
+                                //-         th 
+                                //-           a(href="#") Sector
+                                //-             i
+                                //-         th.text-right 
+                                //-           a(href="#") Turnover
+                                //-             small  (2014)
+                                //-             i
+                                //-         th.text-right.sort-desc 
+                                //-           a(href="#") % Turnover growth
+                                //-             i
+                                //-         th.text-right 
+                                //-           a(href="#") Employees
+                                //-             small  (2014)
+                                //-               i
+                                //-         th.text-right
+                                //-           a(href="#") % Employee growth
+                                //-             i
+                                //-     tbody
+                                //-       - for (var i = 0; i < 8; ++i) {
+                                //-         tr
+                                //-           td
+                                //-             a(href="#") Company Name
+                                //-           td Sectors, sectors 
+                                //-             small: a(href="#") More
+                                //-           td.text-right 9.87M 
+                                //-             small GBP
+                                //-           td.text-right 29 
+                                //-             i.icon-positive
+                                //-           td.text-right 1,996
+                                //-           td.text-right 32 
+                                //-             i.icon-positive
+                                //-       - }
 
-                              .table-nav
-                                .record-count
-                                  b 1
-                                  |  to
-                                  b  6
-                                  |  of
-                                  b  26
+                                //- .table-nav
+                                //-   .record-count
+                                //-     b 1
+                                //-     |  to
+                                //-     b  6
+                                //-     |  of
+                                //-     b  26
 
-                                nav
-                                  button(type="button").btn.btn-default.btn-sm Next
-                                  button(type="button").btn.btn-default.btn-sm Last
+                                //-   nav
+                                //-     button(type="button").btn.btn-default.btn-sm Next
+                                //-     button(type="button").btn.btn-default.btn-sm Last
 
                             section.section.section-company-info.view.view-company.hide#company-info
 
