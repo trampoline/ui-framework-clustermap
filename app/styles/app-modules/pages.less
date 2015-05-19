@@ -8,8 +8,12 @@
 
 @filter-width: 250px;
 
-@sprite-png: '../img/sprite.png';
-@sprite-svg: '../img/sprite.svg';
+@sprite-png: '/img/sprite.png';
+@sprite-svg: '/img/sprite.svg';
+
+@map-sprite-png: '/img/map-sprite.png';
+@map-sprite-svg: '/img/map-sprite.svg';
+
 
 @company-logo-width: 120px;
 
@@ -94,6 +98,45 @@
   }
 }
 
+// ported Map markers
+
+.leaflet-container {
+  p, ul {
+    margin: 0;
+  }
+  ul {
+    padding-left: 16px;
+  }
+  a {
+    color: #fff;
+    text-decoration: underline;
+  }
+}
+
+[class^="map-marker-"],
+[class*=" map-marker-"] {
+  width: 24px;
+  height: 28px;
+  // background: url(@map-sprite-png) 0 0 no-repeat;
+  background-image: url(@map-sprite-svg), none;
+  color: #fff;
+  p {
+    text-align: center;
+    font-size: 12px!important;
+    margin: 4px 0 0 0;
+  }
+}
+
+.map-marker-1 {
+  background-position: 0 0;
+}
+.map-marker-2 {
+  background-position: 24px 0;
+}
+.map-marker-3 {
+  background-position: 48px 0;
+}
+
 
 // Icons
 // ----------------------------------
@@ -101,7 +144,7 @@
 [class*=" icon-"] {
   display: inline-block;
   background: url(@sprite-png) 0 0 no-repeat;
-  background-image: @sprite-svg, none;
+  background-image: url(@sprite-svg), none;
   .text-hide();
 }
 
@@ -765,4 +808,3 @@ h1.logo {
     text-decoration: none;
   }
 }
-
