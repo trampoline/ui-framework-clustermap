@@ -796,11 +796,13 @@ h1.logo {
   border-top-color: @popover-bg;
 }
 
-.leaflet-popup-close-button {
+.leaflet-popup-close-button, .leaflet-popup-close-button:hover {
+  background-image: none;
   color: #fff;
-  &:hover {
-    background: transparent;
-    color: #fff;
-    text-decoration: none;
-  }
+  font-size: 17px;
+  text-indent: 0;
+}
+
+.leaflet-popup-close-button:hover {
+  opacity: 1;
 }
