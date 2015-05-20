@@ -86,8 +86,8 @@
         <div id="intro" class="grdc intro">
           <h2>Mapping Europe&#8217;s startup ecosystem</h2>
           <p>This platform is being developed as part of&nbsp;<a href="http://ec.europa.eu/digital-agenda/about-startup-europe" target="_blank">Startup Europe</a>&nbsp;to provide a detailed and consistent analysis of the startup ecosystem across Europe.
-            New functionality and data sources are being introduced progressively through 2015 and 2016.
-            The current beta release contains only partial data and some known inconsistencies.
+            The project is integrating data from national company registries with Angel List, Crunchbase and Seed DB. 
+            Further data sources will be added during 2015 and 2016.
           </p>
         </div>
       </div>
@@ -109,7 +109,7 @@
         <div class="grdc">
           <div class="view view-company hide">
             <div class="company-header">
-              <h3>Company Name</h3>
+              <h3 id="company-name-component">Company Name</h3>
               <div class="company-buttons"><span id="company-close">
                   <button type="button" class="btn btn-primary">Close</button></span>
               </div>
@@ -131,9 +131,7 @@
                   <div class="grdr">
                     <div class="grdc grdh">
                       <div id="filter-col" class="grdp grdh">
-                        <div id="filter-component" class="grdh grdw grda">
-                          
-                        </div>
+                        <div id="filter-component" class="grdh grdw grda"></div>
                       </div>
                     </div>
                   </div>
@@ -158,8 +156,7 @@
                           <div id="data-details" class="main-content">
                             <section id="headlines" class="section section-headlines view view-main">
                               <h3>Headlines</h3>
-                              <div id="headline-stats-component">
-                              </div>
+                              <div id="headline-stats-component"></div>
                             </section>
                             <section id="map" class="section section-map view view-main">
                               <header>
@@ -170,33 +167,17 @@
                                 <div class="panel-heading">
                                   <div class="heat-map-key">
                                     <div id="color-scale-component">
-                                      <table class="table-key">
-                                        <tbody>
-                                          <tr>
-                                            <td class="hm-1">25</td>
-                                            <td class="hm-2">25</td>
-                                            <td class="hm-3">25</td>
-                                            <td class="hm-4">25</td>
-                                            <td class="hm-5">25</td>
-                                            <td class="hm-6">25</td>
-                                          </tr>
-                                        </tbody>
-                                      </table>
                                     </div>
                                     <p>Companies appear when fewer than 1000 on the map</p>
                                   </div>
                                   <div class="panel-settings">
-                                    <div><span class="custom-select">
-                                        <select>
-                                          <option>Number of companies</option>
-                                          <option>Number of companies</option>
-                                          <option>Number of companies</option>
-                                          <option>Number of companies</option>
-                                        </select></span></div>
-                                    <div><a data-toggle="collapse" href="#advanced-options" aria-expanded="false" aria-controls="advanced-options" class="btn btn-link">Advanced options</a></div>
+                                    <div>
+                                    </div>
+                                    <div>
+                                    </div>
                                   </div>
                                   <div id="advanced-options" class="panel-options collapse">
-                                    <p>Enter advanced optiuons here...</p>
+                                    
                                   </div>
                                 </div>
                                 <div class="panel-body">
@@ -211,26 +192,28 @@
                               </header>
                               <div class="panel">
                                 <div class="panel-heading">
-                                  <h4>Compare Areas</h4>
+                                  <h4>Compare Cities</h4>
+                                  <div id="city-barchart-var-select-component"></div>
                                 </div>
                                 <div class="panel-body">
-                                  <div id="region-investment-histogram">
-                                  </div>
+                                  <div id="city-barchart-component"></div>
                                 </div>
                               </div>
                               <div class="panel">
                                 <div class="panel-heading">
-                                  <h4>Trends</h4>
-                                  <div><span class="custom-select">
-                                      <select>
-                                        <option>Number of companies</option>
-                                        <option>Number of companies</option>
-                                        <option>Number of companies</option>
-                                        <option>Number of companies</option>
-                                      </select></span></div>
+                                  <h4>Investment</h4>
+                                  <div><span id="investment-timeline-var-select-component" class="custom-select"></span></div>
                                 </div>
                                 <div class="panel-body">
-                                  <div id="turnover-timeline" class="chart-container"></div>
+                                  <div id="investment-timeline-component" class="chart-container"></div>
+                                </div>
+                              </div>
+                              <div class="panel">
+                                <div class="panel-heading">
+                                  <h4>Company size - turnover</h4>
+                                </div>
+                                <div class="panel-body">
+                                  <div id="revenue-bands-table-component"></div>
                                 </div>
                               </div>
                             </section>
@@ -240,157 +223,72 @@
                                 <!-- p Intro text...-->
                               </header>
                               <div id="table-component"> 
-                                <div class="table-responsive">
-                                  <table class="table table-outlined">
-                                    <thead>
-                                      <tr>
-                                        <th class="sort-asc"> <a href="#">Company<i></i></a></th>
-                                        <th> <a href="#">Sector<i></i></a></th>
-                                        <th class="text-right"> <a href="#">Turnover<small> (2014)</small><i></i></a></th>
-                                        <th class="text-right sort-desc"> <a href="#">% Turnover growth<i></i></a></th>
-                                        <th class="text-right"> <a href="#">Employees<small> (2014)<i></i></small></a></th>
-                                        <th class="text-right"><a href="#">% Employee growth<i></i></a></th>
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                      <tr>
-                                        <td><a href="#">Company Name</a></td>
-                                        <td>Sectors, sectors <small><a href="#">More</a></small></td>
-                                        <td class="text-right">9.87M <small>GBP</small></td>
-                                        <td class="text-right">29 <i class="icon-positive"></i></td>
-                                        <td class="text-right">1,996</td>
-                                        <td class="text-right">32 <i class="icon-positive"></i></td>
-                                      </tr>
-                                      <tr>
-                                        <td><a href="#">Company Name</a></td>
-                                        <td>Sectors, sectors <small><a href="#">More</a></small></td>
-                                        <td class="text-right">9.87M <small>GBP</small></td>
-                                        <td class="text-right">29 <i class="icon-positive"></i></td>
-                                        <td class="text-right">1,996</td>
-                                        <td class="text-right">32 <i class="icon-positive"></i></td>
-                                      </tr>
-                                      <tr>
-                                        <td><a href="#">Company Name</a></td>
-                                        <td>Sectors, sectors <small><a href="#">More</a></small></td>
-                                        <td class="text-right">9.87M <small>GBP</small></td>
-                                        <td class="text-right">29 <i class="icon-positive"></i></td>
-                                        <td class="text-right">1,996</td>
-                                        <td class="text-right">32 <i class="icon-positive"></i></td>
-                                      </tr>
-                                      <tr>
-                                        <td><a href="#">Company Name</a></td>
-                                        <td>Sectors, sectors <small><a href="#">More</a></small></td>
-                                        <td class="text-right">9.87M <small>GBP</small></td>
-                                        <td class="text-right">29 <i class="icon-positive"></i></td>
-                                        <td class="text-right">1,996</td>
-                                        <td class="text-right">32 <i class="icon-positive"></i></td>
-                                      </tr>
-                                      <tr>
-                                        <td><a href="#">Company Name</a></td>
-                                        <td>Sectors, sectors <small><a href="#">More</a></small></td>
-                                        <td class="text-right">9.87M <small>GBP</small></td>
-                                        <td class="text-right">29 <i class="icon-positive"></i></td>
-                                        <td class="text-right">1,996</td>
-                                        <td class="text-right">32 <i class="icon-positive"></i></td>
-                                      </tr>
-                                      <tr>
-                                        <td><a href="#">Company Name</a></td>
-                                        <td>Sectors, sectors <small><a href="#">More</a></small></td>
-                                        <td class="text-right">9.87M <small>GBP</small></td>
-                                        <td class="text-right">29 <i class="icon-positive"></i></td>
-                                        <td class="text-right">1,996</td>
-                                        <td class="text-right">32 <i class="icon-positive"></i></td>
-                                      </tr>
-                                      <tr>
-                                        <td><a href="#">Company Name</a></td>
-                                        <td>Sectors, sectors <small><a href="#">More</a></small></td>
-                                        <td class="text-right">9.87M <small>GBP</small></td>
-                                        <td class="text-right">29 <i class="icon-positive"></i></td>
-                                        <td class="text-right">1,996</td>
-                                        <td class="text-right">32 <i class="icon-positive"></i></td>
-                                      </tr>
-                                      <tr>
-                                        <td><a href="#">Company Name</a></td>
-                                        <td>Sectors, sectors <small><a href="#">More</a></small></td>
-                                        <td class="text-right">9.87M <small>GBP</small></td>
-                                        <td class="text-right">29 <i class="icon-positive"></i></td>
-                                        <td class="text-right">1,996</td>
-                                        <td class="text-right">32 <i class="icon-positive"></i></td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                </div>
-                              </div>
-                              <div class="table-nav">
-                                <div class="record-count"><b>1</b> to<b> 6</b> of<b> 26</b></div>
-                                <nav>
-                                  <button type="button" class="btn btn-default btn-sm">Next</button>
-                                  <button type="button" class="btn btn-default btn-sm">Last</button>
-                                </nav>
                               </div>
                             </section>
                             <section id="company-info" class="section section-company-info view view-company hide">
-                              <div class="panel-grid-container">
-                                <div class="panel-grid">
-                                  <div class="panel-row">
-                                    <div class="panel">
-                                      <div class="panel-body">
-                                        <div class="company-logo"></div>
-                                        <div class="company-details">
-                                          <ul>
-                                            <li>
-                                              <h4>Description</h4>
-                                              <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum distinctio aliquid voluptatum temporibus suscipit at, quae ea facilis nobis! Facilis quia, repellendus sunt numquam, aut distinctio placeat commodi quisquam eius.</p>
-                                            </li>
-                                            <li>
-                                              <h4>Sector</h4>
-                                              <p><a href="#">Other service activities</a></p>
-                                              <p>SIC 1234 5678 - Other Business Activities</p>
-                                              <p>SIC 1234 5678 - Other Business Activities</p>
-                                            </li>
-                                            <li>
-                                              <h4>Registration Number</h4>
-                                              <p>0123456789</p>
-                                            </li>
-                                            <li>
-                                              <h4>Website</h4>
-                                              <p><a href="#">abcdefghijk.com</a></p>
-                                            </li>
-                                            <li>
-                                              <p><a href="#"><i class="icon-twitter"></i></a>&nbsp;<a href="#"><i class="icon-linkedin"></i></a>&nbsp;<a href="#"><i class="icon-crunch"></i></a>&nbsp;<a href="#"><i class="icon-angel"></i></a></p>
-                                            </li>
-                                          </ul>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="panel">
-                                      <div class="panel-body">
-                                        <div class="company-address">
-                                          <div class="row">
-                                            <div class="col-sm-6">
-                                              <address>
-                                                <h4>Registered Address</h4>
-                                                <div>110 Fulbourn Rd</div>
-                                                <div>Cambridge</div>
-                                                <div>Cambridgeshire</div>
-                                                <div>CB1 9NJ</div>
-                                                <div>UK</div>
-                                              </address>
-                                            </div>
-                                            <div class="col-sm-6">
-                                              <address>
-                                                <h4>Second Address</h4>
-                                                <div>110 Fulbourn Rd</div>
-                                                <div>Cambridge</div>
-                                                <div>Cambridgeshire</div>
-                                                <div>CB1 9NJ</div>
-                                                <div>UK</div>
-                                              </address>
-                                            </div>
+                              <div id="company-info-component">
+                                <div class="panel-grid-container">
+                                  <div class="panel-grid">
+                                    <div class="panel-row">
+                                      <div class="panel">
+                                        <div class="panel-body">
+                                          <div class="company-logo"></div>
+                                          <div class="company-details">
+                                            <ul>
+                                              <li>
+                                                <h4>Description</h4>
+                                                <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum distinctio aliquid voluptatum temporibus suscipit at, quae ea facilis nobis! Facilis quia, repellendus sunt numquam, aut distinctio placeat commodi quisquam eius.</p>
+                                              </li>
+                                              <li>
+                                                <h4>Sector</h4>
+                                                <p><a href="#">Other service activities</a></p>
+                                                <p>SIC 1234 5678 - Other Business Activities</p>
+                                                <p>SIC 1234 5678 - Other Business Activities</p>
+                                              </li>
+                                              <li>
+                                                <h4>Registration Number</h4>
+                                                <p>0123456789</p>
+                                              </li>
+                                              <li>
+                                                <h4>Website</h4>
+                                                <p><a href="#">abcdefghijk.com</a></p>
+                                              </li>
+                                              <li>
+                                                <p><a href="#"><i class="icon-twitter"></i></a>&nbsp;<a href="#"><i class="icon-linkedin"></i></a>&nbsp;<a href="#"><i class="icon-crunch"></i></a>&nbsp;<a href="#"><i class="icon-angel"></i></a></p>
+                                              </li>
+                                            </ul>
                                           </div>
                                         </div>
-                                        <div class="company-map">
-                                          <div class="map-container"></div>
+                                      </div>
+                                      <div class="panel">
+                                        <div class="panel-body">
+                                          <div class="company-address">
+                                            <div class="row">
+                                              <div class="col-sm-6">
+                                                <address>
+                                                  <h4>Registered Address</h4>
+                                                  <div>110 Fulbourn Rd</div>
+                                                  <div>Cambridge</div>
+                                                  <div>Cambridgeshire</div>
+                                                  <div>CB1 9NJ</div>
+                                                  <div>UK</div>
+                                                </address>
+                                              </div>
+                                              <div class="col-sm-6">
+                                                <address>
+                                                  <h4>Second Address</h4>
+                                                  <div>110 Fulbourn Rd</div>
+                                                  <div>Cambridge</div>
+                                                  <div>Cambridgeshire</div>
+                                                  <div>CB1 9NJ</div>
+                                                  <div>UK</div>
+                                                </address>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="company-map">
+                                            <div class="map-container"></div>
+                                          </div>
                                         </div>
                                       </div>
                                     </div>
