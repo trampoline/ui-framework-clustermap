@@ -14,8 +14,9 @@
 @map-sprite-png: '/img/map-sprite.png';
 @map-sprite-svg: '/img/map-sprite.svg';
 
-
 @company-logo-width: 120px;
+
+@leaflet-popup-bg: fade(@gray-darker, 80%);
 
 
 // DIV Table layouts
@@ -768,7 +769,7 @@ h1.logo {
 
 // Leaflet popups
 .leaflet-popup-content-wrapper {
-  background: @popover-bg;
+  background: @leaflet-popup-bg;
 }
 
 .leaflet-popup-content {
@@ -793,7 +794,7 @@ h1.logo {
 }
 
 .leaflet-popup-tip {
-  border-top-color: @popover-bg;
+  border-top-color: @leaflet-popup-bg;
 }
 
 .leaflet-popup-close-button, .leaflet-popup-close-button:hover {
