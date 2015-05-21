@@ -14,8 +14,9 @@
 @map-sprite-png: '/img/map-sprite.png';
 @map-sprite-svg: '/img/map-sprite.svg';
 
-
 @company-logo-width: 120px;
+
+@leaflet-popup-bg: fade(@gray-darker, 80%);
 
 
 // DIV Table layouts
@@ -177,17 +178,16 @@
   }
 }
 
-.icon-marker-single, .icon-marker-multiple {
+.icon-marker-single {
   width: 20px;
   height: 32px;
-}
-
-.icon-marker-single {
   background-position: 0 0;
 }
 
 .icon-marker-multiple {
-  background-position: -24px 0;
+  width: 24px;
+  height: 32px;
+  background-position: -22px 0;
 }
 
 .icon-negative, .icon-positive {
@@ -769,7 +769,7 @@ h1.logo {
 
 // Leaflet popups
 .leaflet-popup-content-wrapper {
-  background: @popover-bg;
+  background: @leaflet-popup-bg;
 }
 
 .leaflet-popup-content {
@@ -794,14 +794,16 @@ h1.logo {
 }
 
 .leaflet-popup-tip {
-  border-top-color: @popover-bg;
+  border-top-color: @leaflet-popup-bg;
 }
 
-.leaflet-popup-close-button {
+.leaflet-popup-close-button, .leaflet-popup-close-button:hover {
+  background-image: none;
   color: #fff;
-  &:hover {
-    background: transparent;
-    color: #fff;
-    text-decoration: none;
-  }
+  font-size: 17px;
+  text-indent: 0;
+}
+
+.leaflet-popup-close-button:hover {
+  opacity: 1;
 }
