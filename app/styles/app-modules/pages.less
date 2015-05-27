@@ -296,6 +296,7 @@ h1.logo {
   border-top: 1px solid @header-border-color;
   clear: both;
   padding: 0 (@spacing/2);
+  position: relative;
 
   input {
     background-color: @gray-darker;
@@ -315,6 +316,41 @@ h1.logo {
     .transition(~"background ease-in-out .15s");
     &:focus {
       background: @header-border-color;
+    }
+  }
+}
+
+.search-results {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: @gray-darker;
+  padding: 10px;
+  z-index: 10;
+  max-height: 400px;
+  overflow-y: auto;
+  ul {
+    .tbl();
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    display: table-row-group;
+    &.header {
+      .tbl-row();
+      color: @grey-light;
+    }
+    a {
+      .tbl-row();
+      .active &, &:hover {
+        background: @brand-primary;
+        text-decoration: none;
+      }
+    }
+    div {
+      .tbl-cell();
+      padding: 2px 5px;
     }
   }
 }
