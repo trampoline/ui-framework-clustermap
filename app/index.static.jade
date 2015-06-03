@@ -156,11 +156,11 @@ html(lang='en')
                     .grdc
 
                       ul.section-nav.nav#section-nav
-                        li: a(href="#headlines") Headlines
+                        li: a(href="#headlines") At a glance
                         li: a(href="#map") Map
                         li: a(href="#charts") Charts
                         li: a(href="#index") Companies
-                        li: a(href="#credits") Credits
+                        li: a(href="#credits") Supporters
 
                   .grdr
                     .grdc.grdh.grdw
@@ -171,7 +171,7 @@ html(lang='en')
                           .main-content#data-details
 
                             section.section.section-headlines.view.view-main#headlines
-                              h3 Headlines
+                              h3 At a glance
                               #headline-stats-component
 
                             section.section.section-map.view.view-main#map
@@ -343,6 +343,15 @@ html(lang='en')
                                 //-     button(type="button").btn.btn-default.btn-sm Next
                                 //-     button(type="button").btn.btn-default.btn-sm Last
 
+
+                            section.section.section-credits.view.view-main#credits
+                              header
+                                h3 Supporters
+                                h4 Thanks to the following organisations
+                                img.center(src='/img/supporter_logos.png')
+                                
+                                  
+                              
                             section.section.section-company-info.view.view-company.hide#company-info
 
                               #company-info-component
@@ -458,7 +467,7 @@ html(lang='en')
 
                                   
                                   
-                          footer.page-footer#credits
+                          footer.page-footer
                             div
                               | Platform and analytics by &nbsp;
                               a(href='http://www.trampolinesystems.com/' target="_blank") Trampoline Systems
