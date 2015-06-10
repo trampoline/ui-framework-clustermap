@@ -22,6 +22,7 @@ exports.config =
           'vendor/polyfill_scripts/console-polyfill.js',
           'vendor/polyfill_scripts/android-xpath.js',
           'vendor/polyfill_scripts/javascript-xpath.js',
+          'vendor/scripts/placeholders.jquery.js',
           'vendor/scripts/bootstrap.js',
           'vendor/scripts/geojson-utils.js',
           'vendor/scripts/rtree.js',
