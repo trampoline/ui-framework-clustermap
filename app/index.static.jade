@@ -205,10 +205,15 @@ html(lang='en')
                                       //-     option Number of companies
 
                                     div
-                                      //- a.btn.btn-link(data-toggle="collapse", href="#advanced-options", aria-expanded="false", aria-controls="advanced-options") Advanced options
+                                      a.btn.btn-link(data-toggle="collapse", href="#advanced-options", aria-expanded="false", aria-controls="advanced-options") Advanced options
 
                                   .panel-options.collapse#advanced-options
-                                    //- p Enter advanced optiuons here...
+                                    div
+                                      p Show (by location):
+                                      label Turnover
+                                        #display-minichart-turnover-component
+                                      label Employment
+                                        #display-minichart-employee-count-component
 
 
                                 .panel-body
