@@ -862,15 +862,56 @@ h1.logo {
   border-top-color: @leaflet-popup-bg;
 }
 
+.leaflet-popup-close-button {
+  opacity: 0.6!important;
+}
+
 .leaflet-popup-close-button, .leaflet-popup-close-button:hover {
+  background-color: transparent;
   background-image: none;
-  color: #fff;
+  color: #fff!important;
   font-size: 17px;
   text-indent: 0;
+  text-decoration: none;
 }
 
 .leaflet-popup-close-button:hover {
-  opacity: 1;
+  opacity: 1!important;
+}
+
+.location-marker-popup-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  max-height: 200px;
+  overflow-y: auto;
+  a {
+    display: block;
+  }
+  .item {
+    margin-top: 10px;
+    &:first-child {
+      margin-top: 0;
+    }
+    > .name {
+      font-weight: bold;
+    }
+  }
+  .metrics {
+    overflow: hidden;
+  }
+  .metric {
+    float: left;
+    margin-left: 10px;
+    &:first-child {
+      margin-left: 0;
+    }
+    > .name {
+      opacity: .8;
+      font-size: 90%;
+      padding-right: 5px;
+    }
+  }
 }
 
 // marker cluster markers, reused by other cluster markers
