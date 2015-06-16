@@ -533,7 +533,7 @@ html(lang='en')
         });
 
         $(document).on('click', '.filter-header', function(){
-          var $t = $(this), $o = $t.next('.filter-items'), $p = $t.parent('.filter-group'), active = $p.hasClass('active') ? true : false;
+          var $t = $(this), $o = $t.next('.filter-body'), $p = $t.parent('.filter-group'), active = $p.hasClass('active') ? true : false;
 
           if (active) {
             $o.slideUp(function(){
