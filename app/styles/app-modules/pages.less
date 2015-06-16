@@ -862,16 +862,19 @@ h1.logo {
   margin: 10px 0 0;
   max-height: 200px;
   overflow-y: auto;
-  a {
-    display: block;
-  }
-  .item {
+  li {
     margin-top: 10px;
     &:first-child {
       margin-top: 0;
     }
+  }
+  a {
+    display: block;
+  }
+  .item {
     > .name {
       font-weight: bold;
+      line-height: 1.25;
     }
   }
   .metrics {
