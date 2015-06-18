@@ -79,7 +79,8 @@ html(lang='en')
       .grdr
         .grdc
           header.page-header
-            h1.logo EC
+            #reset-all-component
+              h1.logo Cambridge
             ul.nav-links
               li.link-intro: a(href="#") Introduction
               //- li.link-about: a(href="#") About
@@ -197,6 +198,14 @@ html(lang='en')
                                   .panel-settings
                                     #reset-map-view-button-component
                                     div
+                                      p Show (by location):
+                                      label Turnover
+                                        #display-minichart-turnover-component
+                                      label Employment
+                                        #display-minichart-employee-count-component
+                                      label Principal name
+                                        #display-principal-name-component
+                                    div
                                       //- span.custom-select
                                       //-   select
                                       //-     option Number of companies
@@ -204,16 +213,16 @@ html(lang='en')
                                       //-     option Number of companies
                                       //-     option Number of companies
 
-                                    div
-                                      a.btn.btn-link(data-toggle="collapse", href="#advanced-options", aria-expanded="false", aria-controls="advanced-options") Advanced options
+                                    //- div
+                                    //-   a.btn.btn-link(data-toggle="collapse", href="#advanced-options", aria-expanded="false", aria-controls="advanced-options") Advanced options
 
-                                  .panel-options.collapse#advanced-options
-                                    div
-                                      p Show (by location):
-                                      label Turnover
-                                        #display-minichart-turnover-component
-                                      label Employment
-                                        #display-minichart-employee-count-component
+                                  //- .panel-options.collapse#advanced-options
+                                  //-   div
+                                  //-     p Show (by location):
+                                  //-     label Turnover
+                                  //-       #display-minichart-turnover-component
+                                  //-     label Employment
+                                  //-       #display-minichart-employee-count-component
 
 
                                 .panel-body
