@@ -197,15 +197,18 @@ html(lang='en')
                                     p Individual companies appear when fewer than 1000 on the map
 
                                   .panel-settings
-                                    #reset-map-view-button-component
+                                    p#reset-map-view-button-component
                                     div
-                                      p Show (by location):
-                                      label Turnover
-                                        #display-minichart-turnover-component
-                                      label Employment
-                                        #display-minichart-employee-count-component
-                                      label Principal name
-                                        #display-principal-name-component
+                                      span Show (by location):
+                                      label.checkbox-inline 
+                                        span#display-minichart-turnover-component
+                                        | Turnover
+                                      label.checkbox-inline 
+                                        span#display-minichart-employee-count-component
+                                        | Employment
+                                      label.checkbox-inline 
+                                        span#display-principal-name-component
+                                        Principal name
                                     div
                                       //- span.custom-select
                                       //-   select
