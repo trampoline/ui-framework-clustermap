@@ -79,7 +79,8 @@ html(lang='en')
       .grdr
         .grdc
           header.page-header
-            h1.logo EC
+            #reset-all-component
+              h1.logo EC
             ul.nav-links
               li.link-intro: a(href="#") Introduction
               //- li.link-about: a(href="#") About
@@ -187,16 +188,22 @@ html(lang='en')
                                       //-       td.hm-4 25
                                       //-       td.hm-5 25
                                       //-       td.hm-6 25
-                                    p Companies appear when fewer than 1000 on the map
+                                    p Individual company locations appear when fewer than 1000 on the map
 
                                   .panel-settings
+                                    p#reset-map-view-button-component
                                     div
-                                      //- span.custom-select
-                                      //-   select
-                                      //-     option Number of companies
-                                      //-     option Number of companies
-                                      //-     option Number of companies
-                                      //-     option Number of companies
+                                      label.checkbox-inline 
+                                        span#display-minichart-funding-component.minichart-key.metric-1
+                                        | Funding
+                                      label.checkbox-inline 
+                                        span#display-minichart-turnover-component.minichart-key.metric-2
+                                        | Turnover
+                                      label.checkbox-inline 
+                                        span#display-principal-name-component
+                                        | Principal company name
+                                    div
+                                      span Select to show details under each company location marker
 
                                     div
                                       //- a.btn.btn-link(data-toggle="collapse", href="#advanced-options", aria-expanded="false", aria-controls="advanced-options") Advanced options
