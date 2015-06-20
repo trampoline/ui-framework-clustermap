@@ -959,7 +959,7 @@ h1.logo {
 }
 
 // Panel settings key/checkboxes
-#display-minichart-turnover-component::after, #display-minichart-employee-count-component::after {
+.minichart-key::after {
     content: " ";
     display: inline-block;
     height: 3px;
@@ -968,11 +968,11 @@ h1.logo {
     width: 10px;
 }
 
-#display-minichart-turnover-component::after {
+.minichart-key.metric-1::after {
   background-color: @brand-tertiary;
 }
 
-#display-minichart-employee-count-component::after {
+.minichart-key.metric-2::after {
   background-color: @brand-secondary;
 }
 
@@ -1057,4 +1057,3 @@ h1.logo {
 .agg-cluster .marker-cluster div {
 
 }
-
