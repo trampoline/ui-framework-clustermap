@@ -115,7 +115,7 @@ html(lang='en')
             #filter-description-component
               .filter-settings
                 .filter-buttons
-                  button(type="button").btn.btn-primary#filter-toggle Open Filter
+                  button(type="button").btn.btn-primary#filter-toggle Close Filter
                   button(type="button").btn.btn-default#filter-reset Reset
 
               //-   ul.filter-selected-items
@@ -137,7 +137,7 @@ html(lang='en')
       .grdr
         .grdc.grdh
 
-          .grd#data-container
+          .grd#data-container.show-filters
             .grdr
               .grdc.grdh#filters.filters.view.view-main
                 .grd
@@ -193,7 +193,8 @@ html(lang='en')
                                       //-       td.hm-4 25
                                       //-       td.hm-5 25
                                       //-       td.hm-6 25
-                                    p Colour shows company count. Individual companies appear when fewer than 1000 on the map
+                                    // p Colour shows company count. Individual companies appear when fewer than 1000 on the map
+                                    p Individual companies appear when fewer than 1000 on the map
 
                                   .panel-settings
                                     #reset-map-view-button-component
