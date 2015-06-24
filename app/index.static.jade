@@ -56,7 +56,7 @@ html(lang='en')
 
     //begin-static-app-config
     script(type='text/javascript').
-      window.config={"api":{"prefix": "camclustermap"}}
+      window.config={"api":{"prefix": "medcity"}}
     //end-static-app-config
     //app-config
       <script type="text/javascript">window.config={{{app-config}}}</script>
@@ -80,7 +80,7 @@ html(lang='en')
         .grdc
           header.page-header
             #reset-all-component
-              h1.logo Cambridge
+              h1.logo MedCity
             ul.nav-links
               li.link-intro: a(href="#") Introduction
               //- li.link-about: a(href="#") About
@@ -96,18 +96,21 @@ html(lang='en')
         .grdc.intro#intro
 
           h2
-            | Cambridge Cluster Map
+            | MedCity Cluster Map
 
-          p
-            | Cambridge Cluster Map is a big data resource highlighting the cluster of businesses located 
-            | within 25 miles of Cambridge UK. Underlying research by&nbsp;
-            a(href="http://www.cbr.cam.ac.uk/home/" target="_blank") Cambridge University Centre for Business Research
-            | &nbsp;on behalf of&nbsp;
-            a(href="http://www.cambridgeahead.co.uk" target="_blank") Cambridge Ahead
-            | . Business data sourced from Companies House. Platform and mapping analytics created by&nbsp;
-            a(href="http://trampolinesystems.com" target="_blank") Trampoline Systems
-            |. Thanks to our supporters.
-
+          p.
+            Established by the Mayor of London with the capital's three Academic Health Science Centres - 
+            Imperial College Academic Health Centre, King's Health Partners, and UCL Partners - 
+            MedCity is a unique collaboration that brings together the outstanding life sciences 
+            strengths of London and the greater south east.
+            
+            
+          p.
+            Over the next 20 years, MedCity will position the region as a world-leading, 
+            interconnected hub for research, development, manufacturing and commercialisation 
+            by championing collaboration and entrepreneurship, promoting a joined up and 
+            globally distinct life sciences offer, and providing a visible ‘go-to’ point for
+            industry and investors.
 
       .grdr
         .grdc
@@ -375,11 +378,11 @@ html(lang='en')
                                 //-     button(type="button").btn.btn-default.btn-sm Last
 
 
-                            section.section.section-credits.view.view-main#credits
-                              header
-                                h3 Supporters
-                                h4 Thanks to the following organisations
-                                img.center(src='/img/supporter_logos.png')
+                            //- section.section.section-credits.view.view-main#credits
+                            //-   header
+                            //-     h3 Supporters
+                            //-     h4 Thanks to the following organisations
+                            //-     img.center(src='/img/supporter_logos.png')
                                 
                                   
                               
@@ -503,7 +506,7 @@ html(lang='en')
                               | Platform and analytics by &nbsp;
                               a(href='http://www.trampolinesystems.com/' target="_blank") Trampoline Systems
                             div.report-issue
-                              a(href='mailto:clustermap-issues@trampolinesystems.com?subject=Cambridge Cluster Map issue report') Report issue
+                              a(href='mailto:clustermap-issues@trampolinesystems.com?subject=MedCity Cluster Map issue report') Report issue
 
     //begin-static-base-js
     script(type="text/javascript", src="cljs/goog/base.js")
