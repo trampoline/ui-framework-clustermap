@@ -198,7 +198,7 @@ html(lang='en')
                                         | Funding
                                       label.checkbox-inline 
                                         span#display-minichart-turnover-component.minichart-key.metric-2
-                                        | Turnover
+                                        | Revenue
                                       label.checkbox-inline 
                                         span#display-principal-name-component
                                         | Principal company name
@@ -278,14 +278,26 @@ html(lang='en')
                                 .panel-body
                                   .chart-container#investment-timeline-component
 
-                              .panel
-                                .panel-heading
-                                  h4 Company size - turnover
-                                  //- div
-                                  //-   span.custom-select#revenue-bands-var-select-component
+                              .panel-grid-container
+                                .panel-grid
+                                  .panel-row
+                                    .panel
+                                      .panel-heading
+                                        h4 Company size - revenue
+                                        //- div
+                                        //-   span.custom-select#revenue-bands-var-select-component
 
-                                .panel-body
-                                  #revenue-bands-table-component
+                                      .panel-body
+                                        .chart-container#revenue-bands-chart-component
+
+                                    .panel
+                                      .panel-heading
+                                        h4 Company size - employees
+                                        //- div
+                                        //-   span.custom-select#revenue-bands-var-select-component
+
+                                      .panel-body
+                                        .chart-container#employment-bands-chart-component
 
                             section.section.section-index.view.view-main#index
                               header
@@ -304,7 +316,7 @@ html(lang='en')
                                 //-           a(href="#") Sector
                                 //-             i
                                 //-         th.text-right 
-                                //-           a(href="#") Turnover
+                                //-           a(href="#") Revenue
                                 //-             small  (2014)
                                 //-             i
                                 //-         th.text-right.sort-desc 
@@ -412,7 +424,7 @@ html(lang='en')
                                     .panel
                                       .panel-body
                                         .chart-heading
-                                          h4.stat-title Turnover (2013)
+                                          h4.stat-title Revenue (2013)
                                           .stat-amount 43.3M
                                             small GBP
                                           .stat-change 
