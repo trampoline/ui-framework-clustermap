@@ -883,6 +883,7 @@ h1.logo {
   list-style: none;
   padding: 0;
   margin: 10px 0 0;
+  min-width: 180px;
   max-height: 200px;
   overflow-y: auto;
   li {
@@ -956,6 +957,9 @@ h1.logo {
   .metric-2 {
     background-color: @brand-secondary; // colour from theme
   }
+  .metric-3 {
+    background-color: @brand-quaternary; // colour from theme
+  }
 }
 
 // Panel settings key/checkboxes
@@ -974,6 +978,10 @@ h1.logo {
 
 .minichart-key.metric-2::after {
   background-color: @brand-secondary;
+}
+
+.minichart-key.metric-3::after {
+  background-color: @brand-quaternary;
 }
 
 // marker cluster markers, reused by other cluster markers
