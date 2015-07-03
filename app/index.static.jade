@@ -284,6 +284,7 @@ html(lang='en')
                               .panel
                                 .panel-heading
                                   h4 Trends
+                                    small (grouped by reported year)
                                   div
                                     span.custom-select#trends-timeline-var-select-component
                                       //- select
@@ -300,7 +301,8 @@ html(lang='en')
                                   .panel-row
                                     .panel
                                       .panel-heading
-                                        h4 Company size - turnover
+                                        h4 Company size - latest turnover
+                                          small (UK-wide)
                                         //- div
                                         //-   span.custom-select#revenue-bands-var-select-component
 
@@ -309,7 +311,8 @@ html(lang='en')
 
                                     .panel
                                       .panel-heading
-                                        h4 Company size - employees
+                                        h4 Company size - latest employees
+                                          small (UK-wide)
                                         //- div
                                         //-   span.custom-select#revenue-bands-var-select-component
 
@@ -575,20 +578,20 @@ html(lang='en')
           $('#data-container').toggleClass('show-filters');
         });
 
-        $(document).on('click', '.filter-header', function(){
-          var $t = $(this), $o = $t.next('.filter-body'), $p = $t.parent('.filter-group'), active = $p.hasClass('active') ? true : false;
+        //- $(document).on('click', '.filter-header', function(){
+        //-   var $t = $(this), $o = $t.next('.filter-body'), $p = $t.parent('.filter-group'), active = $p.hasClass('active') ? true : false;
 
-          if (active) {
-            $o.slideUp(function(){
-              $p.removeClass('active');
-            });
-          }
-          else {
-            $o.slideDown(function(){
-              $p.addClass('active');
-            });
-          }
-        });
+        //-   if (active) {
+        //-     $o.slideUp(function(){
+        //-       $p.removeClass('active');
+        //-     });
+        //-   }
+        //-   else {
+        //-     $o.slideDown(function(){
+        //-       $p.addClass('active');
+        //-     });
+        //-   }
+        //- });
 
       });
 

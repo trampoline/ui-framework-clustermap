@@ -215,7 +215,7 @@
                               </div>
                               <div class="panel">
                                 <div class="panel-heading">
-                                  <h4>Trends</h4>
+                                  <h4>Trends<small>(grouped by reported year)</small></h4>
                                   <div><span id="trends-timeline-var-select-component" class="custom-select"></span></div>
                                 </div>
                                 <div class="panel-body">
@@ -227,7 +227,7 @@
                                   <div class="panel-row">
                                     <div class="panel">
                                       <div class="panel-heading">
-                                        <h4>Company size - turnover</h4>
+                                        <h4>Company size - latest turnover<small>(UK-wide)</small></h4>
                                       </div>
                                       <div class="panel-body">
                                         <div id="revenue-bands-chart-component" class="chart-container"></div>
@@ -235,7 +235,7 @@
                                     </div>
                                     <div class="panel">
                                       <div class="panel-heading">
-                                        <h4>Company size - employees</h4>
+                                        <h4>Company size - latest employees<small>(UK-wide)</small></h4>
                                       </div>
                                       <div class="panel-body">
                                         <div id="employment-bands-chart-component" class="chart-container"></div>
@@ -472,20 +472,20 @@
           $('#data-container').toggleClass('show-filters');
         });
       
-        $(document).on('click', '.filter-header', function(){
-          var $t = $(this), $o = $t.next('.filter-body'), $p = $t.parent('.filter-group'), active = $p.hasClass('active') ? true : false;
+        //- $(document).on('click', '.filter-header', function(){
+        //-   var $t = $(this), $o = $t.next('.filter-body'), $p = $t.parent('.filter-group'), active = $p.hasClass('active') ? true : false;
       
-          if (active) {
-            $o.slideUp(function(){
-              $p.removeClass('active');
-            });
-          }
-          else {
-            $o.slideDown(function(){
-              $p.addClass('active');
-            });
-          }
-        });
+        //-   if (active) {
+        //-     $o.slideUp(function(){
+        //-       $p.removeClass('active');
+        //-     });
+        //-   }
+        //-   else {
+        //-     $o.slideDown(function(){
+        //-       $p.addClass('active');
+        //-     });
+        //-   }
+        //- });
       
       });
     </script>
