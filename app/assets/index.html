@@ -41,7 +41,7 @@
     </script>
     <script type="text/javascript" src="http://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.js"></script>
     <script type="text/javascript" src="js/vendor.js"></script>
-    <script type="text/javascript" src="http://fb.me/react-0.9.0.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/0.9.0/react.js"></script>
     <!--begin-static-app-config-->
     <script type="text/javascript">window.config={"api":{"prefix": "medcity"}}</script>
     <!--end-static-app-config-->
@@ -68,7 +68,7 @@
         <div class="grdc">
           <header class="page-header">
             <div id="reset-all-component">
-              <h1 class="logo">MedCity</h1>
+              <h1 class="logo">Trampoline Pro (beta): Greater London</h1>
             </div>
             <ul class="nav-links">
               <li class="link-intro"><a href="#">Introduction</a></li>
@@ -87,17 +87,9 @@
       </div>
       <div class="grdr">
         <div id="intro" class="grdc intro">
-          <h2>MedCity Map</h2>
+          <h2>Trampoline Pro (beta): Greater London</h2>
           <p>
-            Established by the Mayor of London with the capital's three Academic Health Science Centres - 
-            Imperial College Academic Health Centre, King's Health Partners, and UCL Partners - 
-            MedCity is a unique collaboration that brings together the outstanding life sciences 
-            strengths of London and the greater south east.
-            Over the next 20 years, MedCity will position the region as a world-leading, 
-            interconnected hub for research, development, manufacturing and commercialisation 
-            by championing collaboration and entrepreneurship, promoting a joined up and 
-            globally distinct life sciences offer, and providing a visible "go-to" point for
-            industry and investors.
+            This is a functional beta of Trampoline Pro, a cloud business information solution for analysts and policy-makers. The platform provides a range of data feeds and analytic tools focusing on business activity and trends.
             
           </p>
         </div>
@@ -191,8 +183,15 @@
                                     </div>
                                     <div><span>Select to show details under each company location marker</span>
                                     </div>
+                                    <div><a data-toggle="collapse" href="#advanced-options" aria-expanded="false" aria-controls="advanced-options" class="btn btn-link">Advanced options</a></div>
                                   </div>
-                                  
+                                  <div id="advanced-options" class="panel-options collapse">
+                                    <p>Shading&nbsp;<span id="map-shading-var-select-component" class="custom-select"></span></p>
+                                    <p>Statistic&nbsp;<span id="map-shading-stat-select-component" class="custom-select"></span></p>
+                                    <p>Scale&nbsp;<span id="map-shading-scale-select-component" class="custom-select"></span></p>
+                                    <p>Colors&nbsp;<span id="map-shading-color-scheme-select-component" class="custom-select"></span></p>
+                                    <p>Colors&nbsp;<span id="map-shading-color-count-select-component" class="custom-select"></span></p>
+                                  </div>
                                 </div>
                                 <div class="panel-body">
                                   <div id="map-component"></div>

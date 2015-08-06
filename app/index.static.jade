@@ -52,7 +52,7 @@ html(lang='en')
 
     script(type='text/javascript', src='http://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.js')
     script(type='text/javascript', src='js/vendor.js')
-    script(type='text/javascript', src='http://fb.me/react-0.9.0.js')
+    script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/react/0.9.0/react.js')
 
     //begin-static-app-config
     script(type='text/javascript').
@@ -80,7 +80,7 @@ html(lang='en')
         .grdc
           header.page-header
             #reset-all-component
-              h1.logo MedCity
+              h1.logo Trampoline Pro (beta): Greater London
             ul.nav-links
               li.link-intro: a(href="#") Introduction
               //- li.link-about: a(href="#") About
@@ -96,18 +96,10 @@ html(lang='en')
         .grdc.intro#intro
 
           h2
-            | MedCity Map
+            | Trampoline Pro (beta): Greater London
 
           p.
-            Established by the Mayor of London with the capital's three Academic Health Science Centres - 
-            Imperial College Academic Health Centre, King's Health Partners, and UCL Partners - 
-            MedCity is a unique collaboration that brings together the outstanding life sciences 
-            strengths of London and the greater south east.
-            Over the next 20 years, MedCity will position the region as a world-leading, 
-            interconnected hub for research, development, manufacturing and commercialisation 
-            by championing collaboration and entrepreneurship, promoting a joined up and 
-            globally distinct life sciences offer, and providing a visible "go-to" point for
-            industry and investors.
+            This is a functional beta of Trampoline Pro, a cloud business information solution for analysts and policy-makers. The platform provides a range of data feeds and analytic tools focusing on business activity and trends.
 
       .grdr
         .grdc
@@ -217,17 +209,25 @@ html(lang='en')
                                       //-     option Number of companies
                                       //-     option Number of companies
 
-                                    //- div
-                                    //-   a.btn.btn-link(data-toggle="collapse", href="#advanced-options", aria-expanded="false", aria-controls="advanced-options") Advanced options
+                                    div
+                                      a.btn.btn-link(data-toggle="collapse", href="#advanced-options", aria-expanded="false", aria-controls="advanced-options") Advanced options
 
-                                  //- .panel-options.collapse#advanced-options
-                                  //-   div
-                                  //-     p Show (by location):
-                                  //-     label Turnover
-                                  //-       #display-minichart-turnover-component
-                                  //-     label Employment
-                                  //-       #display-minichart-employee-count-component
-
+                                  .panel-options.collapse#advanced-options
+                                    p
+                                      | Shading&nbsp;
+                                      span.custom-select#map-shading-var-select-component
+                                    p
+                                      | Statistic&nbsp;
+                                      span.custom-select#map-shading-stat-select-component
+                                    p
+                                      | Scale&nbsp;
+                                      span.custom-select#map-shading-scale-select-component
+                                    p
+                                      | Colors&nbsp;
+                                      span.custom-select#map-shading-color-scheme-select-component
+                                    p
+                                      | Colors&nbsp;
+                                      span.custom-select#map-shading-color-count-select-component
 
                                 .panel-body
                                   #map-component
