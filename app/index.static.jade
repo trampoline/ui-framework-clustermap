@@ -82,7 +82,10 @@ html(lang='en')
             #reset-all-component
               h1.logo EC
             ul.nav-links
-              li.link-intro: a(href="#") Introduction
+              li.link-add#new-company-edit
+                a(href="#") Add company
+              li.link-intro
+                a(href="#") Introduction
               //- li.link-about: a(href="#") About
               li.link-login
                 // a(href="#") Login
@@ -125,8 +128,21 @@ html(lang='en')
             .company-header
               h3#company-name-component Company Name
               .company-buttons
+                span#company-edit
+                  button(type="button").btn.btn-primary Edit
                 span#company-close
                   button(type="button").btn.btn-primary Close
+                //- span#company-edit
+                //-   button(type="button").btn.btn-default Edit
+              
+      .grdr
+        .grdc
+          .view.view-edit-company.hide
+            .company-header
+              h3#edit-company-name-component Company Name
+              .company-buttons
+                //- span#edit-company-close
+                //-   button(type="button").btn.btn-primary Close
                 //- span#company-edit
                 //-   button(type="button").btn.btn-default Edit
               
@@ -365,6 +381,10 @@ html(lang='en')
                                 h3 Supporters
                                 h4 Thanks to the following organisations
                                 img.center(src='/img/supporter_logos.png')
+                                
+                                
+                            section.section.section-company-info.view.view-edit-company.hide#edit-company
+                              #edit-company-component
                                 
                             section.section.section-company-info.view.view-company.hide#company-info
 

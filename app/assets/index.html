@@ -71,6 +71,7 @@
               <h1 class="logo">EC</h1>
             </div>
             <ul class="nav-links">
+              <li id="new-company-edit" class="link-add"><a href="#">Add company</a></li>
               <li class="link-intro"><a href="#">Introduction</a></li>
               <li class="link-login">
                 <!-- a(href="#") Login-->
@@ -113,8 +114,20 @@
           <div class="view view-company hide">
             <div class="company-header">
               <h3 id="company-name-component">Company Name</h3>
-              <div class="company-buttons"><span id="company-close">
+              <div class="company-buttons"><span id="company-edit">
+                  <button type="button" class="btn btn-primary">Edit</button></span><span id="company-close">
                   <button type="button" class="btn btn-primary">Close</button></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="grdr">
+        <div class="grdc">
+          <div class="view view-edit-company hide">
+            <div class="company-header">
+              <h3 id="edit-company-name-component">Company Name</h3>
+              <div class="company-buttons">
               </div>
             </div>
           </div>
@@ -253,6 +266,9 @@
                                 <h3>Supporters</h3>
                                 <h4>Thanks to the following organisations</h4><img src="/img/supporter_logos.png" class="center">
                               </header>
+                            </section>
+                            <section id="edit-company" class="section section-company-info view view-edit-company hide">
+                              <div id="edit-company-component"></div>
                             </section>
                             <section id="company-info" class="section section-company-info view view-company hide">
                               <div id="company-info-component">
