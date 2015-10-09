@@ -83,7 +83,7 @@ html(lang='en')
               h1.logo MedCity
             ul.nav-links
               li.link-intro: a(href="#") Introduction
-              //- li.link-about: a(href="#") About
+              li.link-about#about: a(href="#" onclick="$('#page-about').modal()") About
               li.link-login
                 // a(href="#") Login
               li.link-register
@@ -497,6 +497,31 @@ html(lang='en')
                               a(href='http://www.trampolinesystems.com/' target="_blank") Trampoline Systems
                             div.report-issue
                               a(href='mailto:clustermap-issues@trampolinesystems.com?subject=MedCity Cluster Map issue report') Report issue
+
+    #page-about.modal.fade
+      .modal-dialog
+        .modal-content
+          .modal-header
+            button.close(type='button' data-dismiss='modal' aria-hidden='true') &times;
+            h4.
+              About
+          #page-about-content.modal-body
+            p.
+              High Tech London provides data and analysis covering every science and technology businesses in Greater London.
+              This is the first time a major city has mapped an entire industry sector in this way.
+              All business information is sourced from Companies House filings.
+              Mapping and boundary data are provided by Ordnance Survey.
+              All information will be updated annually. Methodological notes follow:
+
+            ul
+              li
+                | Companies with fewer than 50 employees are not required to report how many people they employ. In these cases an estimate is made based on the ratio between turnover and employees for other companies in the same sector.
+              li
+                | Where a company reports its balance sheet but not turnover, the turnover is estimated based on the ratio between balance sheet and turnover for other companies in the same sector.
+              li
+                | If a company has its registered office in Greater London but data is available on branches elsewhere in the UK, turnover and employment are divided equally between the offices.
+              li
+                | Mapping Partner Geovation Lab
 
     //begin-static-base-js
     script(type="text/javascript", src="cljs/goog/base.js")
