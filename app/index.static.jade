@@ -1,7 +1,7 @@
 doctype html
 html(lang='en')
   head(style="margin-bottom:-300px;")
-  
+
     //begin-static-app-name
     title clustermap
     //end-static-app-name
@@ -12,18 +12,18 @@ html(lang='en')
     //if IE
       meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
     meta(name='viewport', content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0')
-    
+
     //begin-static-app-name
     meta(name='description', content='clustermap')
     //end-static-app-name
     //app-name
       <meta name="description" content="{{{app-name}}}"/>
-    
+
     meta(name='author', content='Trampoline Systems Ltd')
 
     link(type='text/css', rel='stylesheet', href="http://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.css")
     link(type='text/css', rel='stylesheet', href='css/app.css')
-    
+
     script(type='text/javascript', src='js/polyfills.js')
     script(type='text/javascript', src='http://code.jquery.com/jquery-1.11.2.min.js')
 
@@ -83,7 +83,7 @@ html(lang='en')
               h1.logo MedCity
             ul.nav-links
               li.link-intro: a(href="#") Introduction
-              li.link-about#about: a(href="#" onclick="$('#page-about').modal()") About
+              li.link-about#about: a(href="#" onclick="$('#page-about').modal()") Methodology
               li.link-login
                 // a(href="#") Login
               li.link-register
@@ -96,11 +96,27 @@ html(lang='en')
         .grdc.intro#intro
 
           h2
-            a(href="http://hightech.london/" target="_blank") High Tech London
+            a(href="//techmaplondon.com/" target="_blank") Tech Map London
 
           p
-            | Intro text here
-            
+            | Commissioned by the Mayor of London, the platform
+            |  provides an unprecedentedly detailed picture of London&#8217;s
+            |  vibrant science and technology sector. Through a combination
+            |  of map visualisations, charts and tabular data the platform
+            |  reveals the massive contribution the sector makes to
+            |  London&#8217;s economy. The platform showcases the sector&#8217;s
+            |  impressive growth highlighting where businesses are based,
+            |  where sectoral clusters are emerging and how fast firms are
+            |  expanding. Filter controls narrow the focus to individual
+            |  boroughs or sectors. A selection of charts provides analysis
+            |  and tracks trends over the past 10 years. A profile for each
+            |  company reports its turnover, employee numbers and board
+            |  members. The underlying data is sourced from official
+            |  Companies House records and will be updated quarterly. Tech
+            |  Map London cements the city&#8217;s status as a global centre for
+            |  science and technology businesses. Tech Map London was
+            |  funded by the London Enterprise Panel.
+
       .grdr
         .grdc
           .view.view-main
@@ -125,7 +141,7 @@ html(lang='en')
                   button(type="button").btn.btn-primary Close
                 //- span#company-edit
                 //-   button(type="button").btn.btn-default Edit
-              
+
       .grdr
         .grdc.grdh
 
@@ -191,13 +207,13 @@ html(lang='en')
                                   .panel-settings
                                     p#reset-map-view-button-component
                                     div
-                                      label.checkbox-inline 
+                                      label.checkbox-inline
                                         span#display-minichart-turnover-component.minichart-key.metric-1
                                         | Turnover
-                                      label.checkbox-inline 
+                                      label.checkbox-inline
                                         span#display-minichart-employee-count-component.minichart-key.metric-2
                                         | Employees
-                                      label.checkbox-inline 
+                                      label.checkbox-inline
                                         span#display-principal-name-component
                                         | Principal company name
                                     div
@@ -247,6 +263,14 @@ html(lang='en')
 
                               .panel
                                 .panel-heading
+                                  h4 Boroughs
+                                  div
+                                    span.custom-select#borough-histogram-var-select-component
+                                .panel-body
+                                  #borough-histogram-component
+
+                              .panel
+                                .panel-heading
                                   h4 Sectors
                                   div
                                     span.custom-select#sector-histogram-var-select-component
@@ -258,6 +282,7 @@ html(lang='en')
 
                                 .panel-body
                                   #sector-histogram-component
+
 
                               //- .panel
                               //-   .panel-heading
@@ -276,7 +301,7 @@ html(lang='en')
                               .panel
                                 .panel-heading
                                   h4 Trends
-                                    small (grouped by reported year)
+                                    //small (grouped by reported year)
                                   div
                                     span.custom-select#trends-timeline-var-select-component
                                       //- select
@@ -287,14 +312,14 @@ html(lang='en')
 
                                 .panel-body
                                   .chart-container#trends-timeline-component
-                                  
+
                               .panel-grid-container
                                 .panel-grid
                                   .panel-row
                                     .panel
                                       .panel-heading
-                                        h4 Company size - latest turnover
-                                          small (UK-wide, companies with data available)
+                                        h4 Company size by latest turnover
+                                          small (where data is available)
                                         //- div
                                         //-   span.custom-select#revenue-bands-var-select-component
 
@@ -303,8 +328,8 @@ html(lang='en')
 
                                     .panel
                                       .panel-heading
-                                        h4 Company size - latest employees
-                                          small (UK-wide, companies with data available)
+                                        h4 Company size by latest employees
+                                          small (where data is available)
                                         //- div
                                         //-   span.custom-select#revenue-bands-var-select-component
 
@@ -316,25 +341,25 @@ html(lang='en')
                                 h3 Companies
                                 // p Intro text...
 
-                              #table-component  
+                              #table-component
                                 //- .table-responsive
                                 //-   table.table.table-outlined
                                 //-     thead
                                 //-       tr
-                                //-         th.sort-asc 
+                                //-         th.sort-asc
                                 //-           a(href="#") Company
                                 //-             i
-                                //-         th 
+                                //-         th
                                 //-           a(href="#") Sector
                                 //-             i
-                                //-         th.text-right 
+                                //-         th.text-right
                                 //-           a(href="#") Turnover
                                 //-             small  (2014)
                                 //-             i
-                                //-         th.text-right.sort-desc 
+                                //-         th.text-right.sort-desc
                                 //-           a(href="#") % Turnover growth
                                 //-             i
-                                //-         th.text-right 
+                                //-         th.text-right
                                 //-           a(href="#") Employees
                                 //-             small  (2014)
                                 //-               i
@@ -346,14 +371,14 @@ html(lang='en')
                                 //-         tr
                                 //-           td
                                 //-             a(href="#") Company Name
-                                //-           td Sectors, sectors 
+                                //-           td Sectors, sectors
                                 //-             small: a(href="#") More
-                                //-           td.text-right 9.87M 
+                                //-           td.text-right 9.87M
                                 //-             small GBP
-                                //-           td.text-right 29 
+                                //-           td.text-right 29
                                 //-             i.icon-positive
                                 //-           td.text-right 1,996
-                                //-           td.text-right 32 
+                                //-           td.text-right 32
                                 //-             i.icon-positive
                                 //-       - }
 
@@ -446,7 +471,7 @@ html(lang='en')
                                           h4.stat-title Turnover (2013)
                                           .stat-amount 43.3M
                                             small GBP
-                                          .stat-change 
+                                          .stat-change
                                             i.icon-positive
                                             span 15.6%
 
@@ -489,8 +514,8 @@ html(lang='en')
                                                 td 21<sup>st</sup> Aug 2001
                                                 td --
 
-                                  
-                                  
+
+
                           footer.page-footer
                             div
                               | Platform and analytics by &nbsp;
@@ -504,24 +529,35 @@ html(lang='en')
           .modal-header
             button.close(type='button' data-dismiss='modal' aria-hidden='true') &times;
             h4.
-              About
+              Methodology
           #page-about-content.modal-body
-            p.
-              High Tech London provides data and analysis covering every science and technology businesses in Greater London.
-              This is the first time a major city has mapped an entire industry sector in this way.
-              All business information is sourced from Companies House filings.
-              Mapping and boundary data are provided by Ordnance Survey.
-              All information will be updated annually. Methodological notes follow:
 
             ul
               li
+                | Tech Map London provides data and analysis covering every science and technology businesses in Greater London.
+              li
+                | This is the first time a major city has mapped an entire industry sector in this way.
+              li
+                | All business information is sourced from Companies House filings.
+              li
+                | Sectoral boundaries conform to the UK Office of National Statistics definition of the Science and Technology sector
+              li
                 | Companies with fewer than 50 employees are not required to report how many people they employ. In these cases an estimate is made based on the ratio between turnover and employees for other companies in the same sector.
+
               li
                 | Where a company reports its balance sheet but not turnover, the turnover is estimated based on the ratio between balance sheet and turnover for other companies in the same sector.
               li
                 | If a company has its registered office in Greater London but data is available on branches elsewhere in the UK, turnover and employment are divided equally between the offices.
-              li
-                | Mapping Partner Geovation Lab
+
+
+            div.centre
+                img.centre(src='/img/geovation.png' style='display: block; margin: 0 auto; padding: 5px;')
+            div(style='text-align: center')
+                 |  Mapping Partner
+
+
+
+
 
     //begin-static-base-js
     script(type="text/javascript", src="cljs/goog/base.js")
@@ -554,7 +590,7 @@ html(lang='en')
             if ($win.scrollTop() > height) {
 
               $('body').addClass('page-condensed');
-              
+
             }
           }
         });
@@ -609,4 +645,3 @@ html(lang='en')
         //- });
 
       });
-
