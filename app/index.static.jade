@@ -21,6 +21,9 @@ html(lang='en')
 
     meta(name='author', content='Trampoline Systems Ltd')
 
+    //- link(type='image/x-icon', rel='shortcut icon', href='/favicon.ico')
+    //- link(type='image/x-icon', rel='icon', href='/favicon.ico')
+    link(type='image/png', rel='icon', sizes='32x32', href='/favicon-32x32.2.png')
     link(type='text/css', rel='stylesheet', href="http://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.css")
     link(type='text/css', rel='stylesheet', href='css/app.css')
 
@@ -74,41 +77,56 @@ html(lang='en')
   body
 
     .grd.grdh
-
       .grdr
         .grdc
           header.page-header
             #reset-all-component
               h1.logo Cambridge
+            .company-search#company-search-component
+              input(type="search", placeholder="Company or postcode search")
             ul.nav-links
-              li.link-about: a(href="#") About
-              li.link-supporters: a(href="#") Supporters
-              li.link-contact: a(href="#") Contact
-              li.link-help: a(href="#") Help
-              li.link-intro: a(href="#") Intro
-              li.link-ahead.centre
-                div(style='text-align: center')
-                 |  created by
+              li.link-about#about: a(href="#", onclick="$('#page-about').modal()") About
+              //- li.link-supporters: a(href="#", onClick='document.getElementById("credits").scrollIntoView()') Supporters
+              li.link-supporters#supporters: a(href="#", onClick="$('#page-supporters').modal()") Supporters
+              li.link-contact#contact: a(href="#", onClick="$('#page-contact').modal()") Contact
+              li.link-help#help: a(href="#", onClick="$('#page-help').modal()") Help
 
-                img.centre(src='/img/camb-ahead.jpeg' alt='Cambridge Ahead Logo' style='display: block; margin: 0 auto; padding: 0px; height:26px')
-              li.link-camb.centre
-                div(style='text-align: center')
-                 |  data by
+              //- li.link-intro: a(href="#") Intro // no room
+            ul.nav-links
+              li.link-ahead.centre.flex-logos
+                div.flex-child
+                  div(style='text-align: center')
+                   |  created by
 
-                img.centre(src='/img/camb-uni.png' alt='Cambridge University Logo' style='display: block; margin: 0 auto; padding: 0px; height:26px')
+                  a.logo-link(href="http://www.cambridgeahead.co.uk", target="_blank")
+                    img.centre(src='/img/camb-ahead.jpeg' alt='Cambridge Ahead Logo' style='display: float; margin: 0 auto; padding: 0px; height:25px')
 
-              li.link-barclays.centre
-                div(style='text-align: center')
-                 |  sponsored  by
+              li(style='height: 50px')
+                span.flex-logos(style='height: 50px')
+                  div.vertical-line
+              li.link-camb.centre.flex-logos
+                div.flex-child
+                  div(style='text-align: center')
+                   |  data by
 
-                img.centre(src='/img/barclays_white_logo.png' alt='Barclays Logo' style='display: block; margin: 0 auto; padding: 0px; width:100px')
+                  a.logo-link(href="http://www.cbr.cam.ac.uk/home/", target="_blank")
+                    img.centre(src='/img/camb-uni.png' alt='Cambridge University Logo' style='display: float; margin: 0 auto; padding: 0px; height:16px')
+              li(style='height: 50px')
+                span.flex-logos(style='height: 50px')
+                  div.vertical-line
+              li.link-barclays.centre.flex-logos
+                div.flex-child
+                  div(style='text-align: center')
+                   |  sponsored by
+
+                  a.logo-link(href="#", target="_blank")
+                    img.centre(src='/img/blanklogo.png' alt='Logo' style='display: float; margin: 0 auto; padding: 0px; height:16px')
               li.link-login
                 // a(href="#") Login
               li.link-register
                 // a(href="#") Register
 
-            .company-search#company-search-component
-              input(type="text", placeholder="Company Search")
+
 
       .grdr
         .grdc.intro#intro
@@ -179,7 +197,7 @@ html(lang='en')
                         li: a(href="#map") Map
                         li: a(href="#charts") Charts
                         li: a(href="#index") Companies
-                        li: a(href="#credits") Supporters
+                        //- li: a(href="#credits") Supporters
 
                   .grdr
                     .grdc.grdh.grdw
@@ -395,9 +413,9 @@ html(lang='en')
 
                             section.section.section-credits.view.view-main#credits
                               header
-                                h3 Supporters
-                                h4 Thanks to the following organisations
-                                img.center(src='/img/supporter_logos.png')
+                                //- h3 Supporters
+                                h4 Data provided by Dr Andy Cosh of The Centre for Business Research at the University of Cambridge
+                                img.center(src='img/CentreforBusinessResearchlogo.grey.jpg')
 
 
 
@@ -523,17 +541,196 @@ html(lang='en')
                             div.report-issue
                               a(href='mailto:clustermap-issues@trampolinesystems.com?subject=Cambridge Cluster Map issue report') Report issue
 
+    #page-about.modal.fade
+      .modal-dialog
+        .modal-content
+          .modal-header
+            button.close(type='button' data-dismiss='modal' aria-hidden='true') &times;
+            h4.
+              About the Cambridge Clustermap
+          #page-about-content.modal-body
+            img.centre(src='/img/banner-cambridge.jpg' alt='AZ' style='display: block; margin: 0 auto; padding: 15px; max-width:100%;')
+
+            span.image-credit
+              p.
+                Image: AstraZeneca
+
+            p.abstract
+                |The Cambridge Cluster Map is a big data resource highlighting the data on the cluster of businesses located within 20 miles of Cambridge, UK. It is a free-to-access online resource created by Cambridge Ahead and shows the vibrancy of the Cambridge technology and life science cluster. The underlying research has been provided by the Centre for Business Research of the University of Cambridge and business data has been sourced from the FAME database produced by Bureau Van Dijk. Platform and mapping analytics have been created by Trampoline Systems. We would like to thank our sponsor, #[a(href="#", target="_blank") xxxxx Company] and our #[a(href="#", onClick="$('#page-about').modal('hide'); $('#page-supporters').modal()") supporters].
+
+            p
+              //- |The Cluster Map is an improvement on a previous version from the Cambridge 2 You initiative and&nbsp;
+
+              //- a(href="http://www.cambridgeahead.co.uk", target="_blank") Cambridge Ahead
+              |Cambridge Ahead has created this clustermap because we have now been able to draw together accurate financial data covering the full range of Cambridge companies, both those based in Cambridge, and those trading in it. The map is also different from previous versions because the data and the map presentation of it is not just for the Tech sector, but for all the other economic sectors too.
+
+            p
+              |We cannot yet claim that the data covers the entire economy of Cambridge, because the company employment data is for the Cambridge companies&rsquo; global employment and we do not have data for sole traders, some elements of the public sector, and for employees of national and international companies with trading and research offices in Cambridge. Nevertheless, the growth trends over several years are strong indicators of the whole sub-regional economy&rsquo;s growth and we expect to add further data later that may enable this claim to be made. The data will be updated at least annually.
+
+            p.
+              The data means that we can show the growth and economic health of the sub-region over time much better than before. We now have real and detailed evidence that Cambridge companies have grown very rapidly in the past 4 years. Importantly, this growth does not include data on &lsquo;incomers&rsquo; to the city, such as AstraZeneca.
+
+            p.
+              The source, #[a(href='http://www.cambridgeahead.co.uk/wp-content/uploads/2016/02/CBR-Database-Methodology-Feb-2016.pdf', target="_blank") methodology] and granular nature of the data means that the map will be of interest to a wide audience, from individual companies in Cambridge, to economics researchers, through to international organisations which might be doing a global search for new locations or acquisitions. There are 5 years of data, for which we are showing 4 years of growth.
+
+            p.
+              The map enables the data to be shown in sectoral, geographic, chart and other formats. The data for individual companies includes postcode, business sector, turnover, employment level, and directors.
+
+            h5.
+              Researchers
+
+            p.
+              Academic, economic, business and other researchers who wish to delve deeper into the data can do so by gaining accreditation from The Centre for Business Research (CBR). You will be able to access and download the data for further interrogation. In order to gain accreditation, please contact Dr Andy Cosh by completing this #[a(href='http://www.cambridgeahead.co.uk/camclustermap/contact', target="_blank") form].
+
+
+    #page-supporters.modal.fade
+      .modal-dialog
+        .modal-content
+          .modal-header
+            button.close(type='button' data-dismiss='modal' aria-hidden='true') &times;
+            h4.
+              Supporters
+          #page-about-content.modal-body
+            img.centre(src='/img/Lentbumps72157629491899729.png' alt='Lent Bumps' style='display: block; margin: 0 auto; padding: 15px; width:100%;')
+
+            span.image-credit
+              p.
+                Image: University of Cambridge
+
+            div
+              p.
+                Thanks to the following organisations for supporting this initiatve:
+
+              img.centre(src='/img/supporters.matrix.png' alt='supporters matrix' style='display: block; margin: 0 auto; padding: 15px; width:100%;')
+
+    #page-contact.modal.fade
+      .modal-dialog
+        .modal-content
+          .modal-header
+            button.close(type='button' data-dismiss='modal' aria-hidden='true') &times;
+            h4.
+              Contact Us
+          #page-contact-content.modal-body
+
+            h5.
+              Media enquiries
+
+            p.
+              For media enquiries please contact Richard Fullerton: #[a(href='mailto:richard@mcs-organisation.com?subject=Cambridge Cluster Map') richard@mcs-organisation.com], #[span(style="white-space: nowrap") Tel: +44 (0)7976 728051]
+
+
+            h5.
+              Report an issue about the Clustermap
+
+            p.
+              If you have identified a technical issue about the Map, please #[a(href='mailto:clustermap-issues@trampolinesystems.com?subject=Cambridge Cluster Map issue report') contact Trampoline]
+
+
+            h5.
+              Incorrect Data
+
+            p.
+              If you believe that there is incorrect data within the Map, please contact Dr Andy Cosh of The Centre for Business Research by completing this #[a(href='http://www.cambridgeahead.co.uk/camclustermap/contact', target="_blank") form]
+
+            h5.
+              Other issues
+
+            p.
+              If you would like to contact Cambridge Ahead directly about the Cluster Map, or for any other issue, please #[a(href='http://www.cambridgeahead.co.uk/contact-us/', target="_blank") contact us].
+
+            h5.
+              Accreditation for Research purposes
+
+            p.
+              If you would like to become an accredited researcher and gain access to the complete data, please contact Dr Andy Cosh of The Centre for Business Research by completing this #[a(href='http://www.cambridgeahead.co.uk/camclustermap/contact', target="_blank") form].
+
+    #page-help.modal.fade
+      .modal-dialog
+        .modal-content
+          .modal-header
+            button.close(type='button' data-dismiss='modal' aria-hidden='true') &times;
+            h4.
+              Help & FAQs
+          #page-help-content.modal-body
+
+            img.centre(src='/img/AZ1390MarcoBetti.jpg' alt='Molecule Logo' style='display: block; margin: 0 auto; padding: 15px; width:100%;')
+            p.
+              Please view this short video [LINK TO COME] which is a tour of the Cluster Map work and how it works.
+
+            p.
+              If you still require help or more information about the Map, please see our &lsquo;FAQs&rsquo; below or visit our #[a(href="#", onClick="$('#page-help').modal('hide') ;$('#page-contact').modal()") Contact] page.
+
+            h5.
+              FAQs
+
+
+            p.question
+              |Why has Cambridge Ahead produced this Cluster Map and how does it differ from the previous version?
+            p.answer
+              |It is only now (Feb 2016) that it has been possible to draw together accurate financial data covering the full range of Cambridge companies, both those based in Cambridge, and those trading in it. The map is also different from earlier versions because the data and the map presentation of it is not just for the Tech sector, but for all the other economic sectors too.
+
+            p.question
+              |What is the source of the data that has been analysed to produce the Cluster Map?
+
+            p.answer
+              |The source of the data is the FAME database produced by Bureau Van Dijk which includes over 3 million active UK-based companies and a further 6 million that are dormant or who have died.
+
+            p.question
+              |What is the definition of a Knowledge-Intensive (KI) company?
+            p.answer
+              |We classify KI sectors as Information technology and communications; Life science and healthcare; High-tech Manufacturing; and Knowledge intensive services.
+
+            p.question
+              |What is a &lsquo;scale-up&rsquo; company?
+            p.answer
+              |A &lsquo;scale-up&rsquo; is an enterprise with average annualised growth in employees or turnover greater than 20 per cent per annum over a three year period, and with more than 10 employees at the beginning of the observation period. (See the #[a(href='http://www.scaleupreport.org/', target="_blank") Scale-up Report], November 2014)
+
+            p.question
+              |What methodology has been used to create the map?
+            p.answer
+              |Please see the CBR database methodology #[a(href='http://www.cambridgeahead.co.uk/wp-content/uploads/2016/02/CBR-Database-Methodology-Feb-2016.pdf', target="_blank") here].
+
+            p.question
+              |My company entry has an incorrect entry. How do I get it fixed?
+            p.answer
+              |Please complete this #[a(href='http://www.cambridgeahead.co.uk/camclustermap/contact', target="_blank") form]. The correction will be made in the next planned upload of data.
+
+            p.question
+              |My company isn&rsquo;t listed. Why not?
+            p.answer
+              |If a company is registered outside Cambridge but has not provided its trading address i.e. postcode in Cambridge, then it is likely that it will not be feature within the Cluster Map. There are some non-Cambridge registered companies included on the database, despite not showing their Cambridge operation, because we know they are here. However, to justify the effort of doing that our present policy is that the company has to qualify as being both KI and have ten or more employees.
+
+            p.question
+              |Why don&rsquo;t you publish the full addresses of companies?
+            p.answer
+              |It is not necessary &ndash; this map is not a postal directory but an analysis of performance data. By limiting the address to postal code we ensure that we have a good location indicator.
+
+            p.question
+              |How often is the data updated?
+            p.answer
+              |Typically we intend of refresh the data, including corrections, every three months.
+
+            p.question
+              |I am a researcher and want access to the full dataset so that I can make my own analysis. How can I get this?
+            p.answer
+              |You have to become an accredited researcher. To do this, please complete this #[a(href='http://www.cambridgeahead.co.uk/camclustermap/contact', target="_blank") form]. Dr Andy Cosh of the CBR will be in touch.
+
+            p.question
+              |Where can I find out more background about the Cluster Map?
+            p.answer
+              |Please visit #[a(href="http://www.cambridgeahead.co.uk/camclustermap", target="_blank") www.cambridgeahead.co.uk/camclustermap]
+
     //begin-static-base-js
-    script(type="text/javascript", src="cljs/goog/base.js")
+    //- script(type="text/javascript", src="cljs/goog/base.js")
     //end-static-base-js
     //base-js
-      {{{base-js}}}
+    //- {{{base-js}}}
 
     //begin-static-dynamic-js
-    <script type="text/javascript" src="clustermap.js"></script><script type="text/javascript">goog.require("clustermap.core");</script>
+    <script type="text/javascript" src="clustermap.js">
     //end-static-dynamic-js
     //dynamic-js
-      <script type="text/javascript" src="clustermap.js"></script><script type="text/javascript">goog.require("clustermap.core");</script>
+      <script type="text/javascript" src="clustermap.js">
 
     //begin-static-repl-js
     //end-static-repl-js
