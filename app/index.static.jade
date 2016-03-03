@@ -116,7 +116,7 @@ html(lang='en')
                   div.vertical-line
               li.link-barclays.centre.flex-logos
                 div.flex-child
-                  div(style='text-align: center')
+                  div(style='text-align: center; display: none')
                    |  sponsored by
 
                   a.logo-link(href="#", target="_blank")
@@ -131,20 +131,35 @@ html(lang='en')
       .grdr
         .grdc.intro#intro
 
-          h2
-            | Cambridge Cluster Map
+          h3
+            | Welcome to the Cambridge Cluster Map
 
+          h4
+            | What companies feature on the Cluster Map?
           p
-            | Cambridge Cluster Map is a big data resource highlighting the cluster of businesses located
-            | within 25 miles of Cambridge UK. Underlying research by&nbsp;
-            a(href="http://www.cbr.cam.ac.uk/home/" target="_blank") Cambridge University Centre for Business Research
-            | &nbsp;on behalf of&nbsp;
-            a(href="http://www.cambridgeahead.co.uk" target="_blank") Cambridge Ahead
-            | . Business data sourced from Companies House. Platform and mapping analytics created by&nbsp;
-            a(href="http://trampolinesystems.com" target="_blank") Trampoline Systems
-            |. Thanks to our supporters.
 
+            | The Cluster Map identifies and locates companies that are active within a 20-mile radius of the centre of Cambridge. It shows two groups of companies: Cambridge-based and Cambridge-active companies. Cambridge-based companies are those with their primary trading address within this area, or those that do not give a primary trading address but have a registered office in this area. We capture all companies that have filed accounts (newly registered companies will generally not appear until a year after being set up), which gives over 20,000 companies.  #[a(href="#", onClick="$('#intromore').show(); $(this).hide()") [more&hellip;]]
 
+          .more#intromore
+            p
+              | Cambridge-active companies are those who have neither their registered office, nor primary trading address in the Cambridge area but do have a trading address in the area that we have identified. In general these companies have provided an address within the area as one of their trading addresses, but others have been added once they are identified. Membership of this group is generally restricted to those with ten, or more, employees.
+
+            h4
+              | What company data is provided?
+
+            p
+              | Data is drawn from filings at Companies House. For Cambridge-based companies the map shows employment and turnover over the period from fiscal years 2010/11 to 2014/15. These figures give the total employment and turnover of these companies, not just what is taking place in the Cambridge area. It is hoped that we will be able to provide estimates of the Cambridge content of employment in future versions of the Cluster Map.
+
+            p
+              | Most companies with fewer than 50 employees submit abbreviated accounts without employment, or turnover figures. The employment and turnover figures for these companies have been estimated using a variety of methods, straying on the side of caution over any exaggeration. As new information is received these estimates will be revised. Despite this caution, the Cluster Map reveals a vibrant Cambridge economy with exceptional corporate growth.
+
+            p
+              | No employment, or turnover data is provided for Cambridge-active companies but it is hoped that we can provide their Cambridge employment figures in future versions of the Cluster Map.
+
+            p(style="text-align: right")
+              | #[a(href="#", onClick="$('body').addClass('page-condensed');") [close intro]]
+
+            //- button(type="button").btn.btn-default#close-intro Close Introduction
       .grdr
         .grdc
           .view.view-main
@@ -547,22 +562,23 @@ html(lang='en')
           .modal-header
             button.close(type='button' data-dismiss='modal' aria-hidden='true') &times;
             h4.
-              About the Cambridge Clustermap
+              About the Cambridge Cluster Map
           #page-about-content.modal-body
-            img.centre(src='/img/banner-cambridge.jpg' alt='AZ' style='display: block; margin: 0 auto; padding: 15px; max-width:100%;')
+            img.centre(src='/img/AstraZeneca-scientist-for-About-modal.jpg' alt='AZ' style='display: block; margin: 0 auto; padding: 15px; max-width:100%;')
 
             span.image-credit
               p.
                 Image: AstraZeneca
 
             p.abstract
-                |The Cambridge Cluster Map is a big data resource highlighting the data on the cluster of businesses located within 20 miles of Cambridge, UK. It is a free-to-access online resource created by Cambridge Ahead and shows the vibrancy of the Cambridge technology and life science cluster. The underlying research has been provided by the Centre for Business Research of the University of Cambridge and business data has been sourced from the FAME database produced by Bureau Van Dijk. Platform and mapping analytics have been created by Trampoline Systems. We would like to thank our sponsor, #[a(href="#", target="_blank") xxxxx Company] and our #[a(href="#", onClick="$('#page-about').modal('hide'); $('#page-supporters').modal()") supporters].
+                |The Cambridge Cluster Map is a big data resource highlighting the data on the cluster of businesses located within 20 miles of Cambridge, UK. It is a free-to-access online resource created by Cambridge Ahead and shows the vibrancy of the Cambridge technology and life science cluster. The underlying research has been provided by the Centre for Business Research of the University of Cambridge and business data has been sourced from the FAME database produced by Bureau Van Dijk. Platform and mapping analytics have been created by Trampoline Systems. We would like to thank our #[a(href="#", onClick="$('#page-about').modal('hide').one('hidden.bs.modal', function (e) { $('#page-supporters').modal()})") supporters].
 
+                //- sponsor, #[a(href="#", target="_blank") xxxxx Company] and
             p
               //- |The Cluster Map is an improvement on a previous version from the Cambridge 2 You initiative and&nbsp;
 
               //- a(href="http://www.cambridgeahead.co.uk", target="_blank") Cambridge Ahead
-              |Cambridge Ahead has created this clustermap because we have now been able to draw together accurate financial data covering the full range of Cambridge companies, both those based in Cambridge, and those trading in it. The map is also different from previous versions because the data and the map presentation of it is not just for the Tech sector, but for all the other economic sectors too.
+              |Cambridge Ahead has created this Cluster Map because we have now been able to draw together accurate financial data covering the full range of Cambridge companies, both those based in Cambridge, and those trading in it. Find out #[a(href="http://www.cambridgeahead.co.uk/wp-content/uploads/2016/03/About-Companies-Data-on-the-CCM.pdf", target="_blank") how we define them and the company data provided]. The map is also different from previous versions because the data and the map presentation of it is not just for the Tech sector, but for all the other economic sectors too.
 
             p
               |We cannot yet claim that the data covers the entire economy of Cambridge, because the company employment data is for the Cambridge companies&rsquo; global employment and we do not have data for sole traders, some elements of the public sector, and for employees of national and international companies with trading and research offices in Cambridge. Nevertheless, the growth trends over several years are strong indicators of the whole sub-regional economy&rsquo;s growth and we expect to add further data later that may enable this claim to be made. The data will be updated at least annually.
@@ -591,7 +607,7 @@ html(lang='en')
             h4.
               Supporters
           #page-about-content.modal-body
-            img.centre(src='/img/Lentbumps72157629491899729.png' alt='Lent Bumps' style='display: block; margin: 0 auto; padding: 15px; width:100%;')
+            img.centre(src='/img/Rowing-for-Supporters-modal.blue.jpg' alt='Lent Bumps' style='display: block; margin: 0 auto; padding: 15px; width:100%;')
 
             span.image-credit
               p.
@@ -612,33 +628,37 @@ html(lang='en')
               Contact Us
           #page-contact-content.modal-body
 
-            h5.
+            img.centre(src='/img/Napp-building-for-Contact-modal.blue.jpg' alt='Napp building' style='display: block; margin: 0 auto; padding: 15px; width:100%;')
+            span.image-credit
+              p.
+                Image: Napp Pharmaceuticals
+            h4.
               Media enquiries
 
             p.
               For media enquiries please contact Richard Fullerton: #[a(href='mailto:richard@mcs-organisation.com?subject=Cambridge Cluster Map') richard@mcs-organisation.com], #[span(style="white-space: nowrap") Tel: +44 (0)7976 728051]
 
 
-            h5.
+            h4.
               Report an issue about the Clustermap
 
             p.
               If you have identified a technical issue about the Map, please #[a(href='mailto:clustermap-issues@trampolinesystems.com?subject=Cambridge Cluster Map issue report') contact Trampoline]
 
 
-            h5.
+            h4.
               Incorrect Data
 
             p.
               If you believe that there is incorrect data within the Map, please contact Dr Andy Cosh of The Centre for Business Research by completing this #[a(href='http://www.cambridgeahead.co.uk/camclustermap/contact', target="_blank") form]
 
-            h5.
+            h4.
               Other issues
 
             p.
               If you would like to contact Cambridge Ahead directly about the Cluster Map, or for any other issue, please #[a(href='http://www.cambridgeahead.co.uk/contact-us/', target="_blank") contact us].
 
-            h5.
+            h4.
               Accreditation for Research purposes
 
             p.
@@ -653,21 +673,24 @@ html(lang='en')
               Help & FAQs
           #page-help-content.modal-body
 
-            img.centre(src='/img/AZ1390MarcoBetti.jpg' alt='Molecule Logo' style='display: block; margin: 0 auto; padding: 15px; width:100%;')
-            p.
-              Please view this short video [LINK TO COME] which is a tour of the Cluster Map work and how it works.
+            img.centre(src='/img/AstraZeneca-for-Help-modal.blue.jpg' alt='Molecule Logo' style='display: block; margin: 0 auto; padding: 15px; width:100%;')
+            span.image-credit
+              p.
+                Image: AstraZeneca/Marco Betti
+            //- p.
+            //-   Please view this short video [LINK TO COME] which is a tour of the Cluster Map work and how it works.
 
             p.
-              If you still require help or more information about the Map, please see our &lsquo;FAQs&rsquo; below or visit our #[a(href="#", onClick="$('#page-help').modal('hide') ;$('#page-contact').modal()") Contact] page.
+              If you require help or more information about the Cluster Map, please see our &lsquo;FAQs&rsquo; below or visit our #[a(href="#", onClick="$('#page-help').modal('hide') ;$('#page-contact').modal()") Contact] page.
 
-            h5.
+            h4.
               FAQs
 
 
             p.question
               |Why has Cambridge Ahead produced this Cluster Map and how does it differ from the previous version?
             p.answer
-              |It is only now (Feb 2016) that it has been possible to draw together accurate financial data covering the full range of Cambridge companies, both those based in Cambridge, and those trading in it. The map is also different from earlier versions because the data and the map presentation of it is not just for the Tech sector, but for all the other economic sectors too.
+              |It is only now (Feb 2016) that it has been possible to draw together accurate financial data covering the full range of Cambridge companies, both those based in Cambridge, and those trading in it. Find out #[a(href="http://www.cambridgeahead.co.uk/wp-content/uploads/2016/03/About-Companies-Data-on-the-CCM.pdf", target="_blank") how we define them and the company data provided]. The map is also different from earlier versions because the data and the map presentation of it is not just for the Tech sector, but for all the other economic sectors too.
 
             p.question
               |What is the source of the data that has been analysed to produce the Cluster Map?
