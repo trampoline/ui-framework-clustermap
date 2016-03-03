@@ -80,6 +80,9 @@
   padding: @modal-title-padding;
   border-bottom: 1px solid @modal-header-border-color;
   min-height: (@modal-title-padding + @modal-title-line-height);
+  h4 {
+      font-size: (@font-size-h4 + 2);
+  }
 }
 // Close icon
 .modal-header .close {
@@ -134,7 +137,7 @@
 @media (min-width: @screen-sm-min) {
   // Automatically set modal's width for larger viewports
   .modal-dialog {
-    width: @modal-md;
+    max-width: @modal-md;
     margin: 30px auto;
   }
   .modal-content {
