@@ -20,6 +20,7 @@
     
     -->
     <meta name="author" content="Trampoline Systems Ltd">
+    <link type="image/png" rel="icon" sizes="32x32" href="/favicon-32x32.2.png">
     <link type="text/css" rel="stylesheet" href="http://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.css">
     <link type="text/css" rel="stylesheet" href="css/app.css">
     <script type="text/javascript" src="js/polyfills.js"></script>
@@ -41,7 +42,6 @@
     </script>
     <script type="text/javascript" src="http://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.js"></script>
     <script type="text/javascript" src="js/vendor.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/0.9.0/react.js"></script>
     <!--begin-static-app-config-->
     <script type="text/javascript">window.config={"api":{"prefix": "camclustermap"}}</script>
     <!--end-static-app-config-->
@@ -70,28 +70,70 @@
             <div id="reset-all-component">
               <h1 class="logo">Cambridge</h1>
             </div>
+            <div id="company-search-component" class="company-search">
+              <input type="search" placeholder="Company or postcode search">
+            </div>
             <ul class="nav-links">
-              <li class="link-intro"><a href="#">Introduction</a></li>
+              <li id="about" class="link-about"><a href="#" onclick="$('#page-about').modal()">About</a></li>
+              <li id="supporters" class="link-supporters"><a href="#" onClick="$('#page-supporters').modal()">Supporters</a></li>
+              <li id="contact" class="link-contact"><a href="#" onClick="$('#page-contact').modal()">Contact</a></li>
+              <li id="help" class="link-help"><a href="#" onClick="$('#page-help').modal()">Demo/FAQs</a></li>
+            </ul>
+            <ul class="nav-links">
+              <li class="link-ahead centre flex-logos">
+                <div class="flex-child">
+                  <div style="text-align: center"> Created by</div><a href="http://www.cambridgeahead.co.uk" target="_blank" class="logo-link"><img src="/img/camb-ahead.jpeg" alt="Cambridge Ahead Logo" style="display: float; margin: 0 auto; padding: 0px; height:25px" class="centre"></a>
+                </div>
+              </li>
+              <li style="height: 50px"><span style="height: 50px" class="flex-logos">
+                  <div class="vertical-line"></div></span></li>
+              <li class="link-barclays centre flex-logos">
+                <div class="flex-child"><a href="http://www.barclays.com/corporatebanking" target="_blank" class="logo-link"><img src="/img/barclays_white.png" alt="Barclays Logo" style="display: float; margin: 0 auto; padding: 0px; height:42px" class="centre"></a>
+                </div>
+              </li>
+              <li style="height: 50px"><span style="height: 50px" class="flex-logos">
+                  <div class="vertical-line"></div></span></li>
+              <li class="link-camb centre flex-logos">
+                <div class="flex-child">
+                  <div style="text-align: center"> Data by</div><a href="http://www.cbr.cam.ac.uk/home/" target="_blank" class="logo-link"><img src="/img/camb-uni.png" alt="Cambridge University Logo" style="display: float; margin: 0 auto; padding: 0px; height:20px" class="centre"></a>
+                </div>
+              </li>
               <li class="link-login">
                 <!-- a(href="#") Login-->
               </li>
               <li class="link-register">
                 <!-- a(href="#") Register-->
+                
+                
               </li>
             </ul>
-            <div id="company-search-component" class="company-search">
-              <input type="text" placeholder="Company Search">
-            </div>
           </header>
         </div>
       </div>
       <div class="grdr">
         <div id="intro" class="grdc intro">
-          <h2>Cambridge Cluster Map</h2>
-          <p>
-            Cambridge Cluster Map is a big data resource highlighting the cluster of businesses located 
-            within 25 miles of Cambridge UK. Underlying research by&nbsp;<a href="http://www.cbr.cam.ac.uk/home/" target="_blank">Cambridge University Centre for Business Research</a>&nbsp;on behalf of&nbsp;<a href="http://www.cambridgeahead.co.uk" target="_blank">Cambridge Ahead</a>. Business data sourced from Companies House. Platform and mapping analytics created by&nbsp;<a href="http://trampolinesystems.com" target="_blank">Trampoline Systems</a>. Thanks to our supporters.
+          <h3>Welcome to the Cambridge Cluster Map<span style="font-size:16px">&nbsp;view <a href="http://youtube.com" target="_blank">demo</a></span></h3>
+          <h4>What is the purpose of the Cluster Map?</h4>
+          <p>The map is an accurate and accessible source of growth data that:
+            <ul>
+              <li>Shows the growth of the sub-region over time much better than before and reveal the true extent of the success of the 'Cambridge Phenomenon'.</li>
+              <li>Supports representations made to Government for increased investment.</li>
+              <li>Enables the city to highlight the attractiveness of Cambridge to potential international inward investors.</li>
+              <li>Allows businesses and individuals to examine individual company data as well as identify where growth is taking place around them.</li>
+            </ul>
           </p>
+          <h4>What companies feature on the Cluster Map?</h4>
+          <p>The Cluster Map identifies and locates companies that are active within a 20-mile radius of the centre of Cambridge. It shows three groups of organisations: Cambridge-based and Cambridge-active companies, and Non-corporate Knowledge-intensive (KI) organisations. Cambridge-based companies are those with their primary trading address within this area, or those that do not give a primary trading address but have a registered office in this area. We capture all companies that have filed accounts (newly registered companies will generally not appear until a year after being set up), which gives over 20,000 companies.  <a href="#" onClick="$('#intromore').show(); $(this).hide()">[more&hellip;]</a></p>
+          <div id="intromore" class="more">
+            <p><b>Cambridge-based companies</b> are those with their primary trading address within this area, or those that do not give a primary trading address but have a registered office in this area. We capture all companies that have filed accounts (newly registered companies will generally not appear until a year after being set up), which gives over 20,000 companies.</p>
+            <p><b>Cambridge-active companies</b> are those who have neither their registered office, nor primary trading address in the Cambridge area but do have a trading address in the area that we have identified. In general these companies have provided an address within the area as one of their trading addresses, but others have been added once they are identified. Membership of this group is generally restricted to those with ten, or more, employees.</p>
+            <p><b>Non-corporate knowledge-intensive (KI) organisations</b> are those research institutions that are located in the defined region which are neither companies, nor partnerships.</p>
+            <h4>What company data is provided?</h4>
+            <p>Data is drawn from filings at Companies House. For Cambridge-based companies the map shows employment and turnover over the period from fiscal years 2010/11 to 2014/15. These figures give the total employment and turnover of these companies, not just what is taking place in the Cambridge area. It is hoped that we will be able to provide estimates of the Cambridge content of employment in future versions of the Cluster Map.</p>
+            <p>Most companies with fewer than 50 employees submit abbreviated accounts without employment, or turnover figures. The employment and turnover figures for these companies have been estimated using a variety of methods, straying on the side of caution over any exaggeration. As new information is received these estimates will be revised. Despite this caution, the Cluster Map reveals a vibrant Cambridge economy with exceptional corporate growth.</p>
+            <p>No employment, or turnover data is provided for Cambridge-active companies but it is hoped that we can provide their Cambridge employment figures in future versions of the Cluster Map.</p>
+            <p style="text-align: right"><a href="#" onClick="$('body').addClass('page-condensed');">[close intro]</a></p>
+          </div>
         </div>
       </div>
       <div class="grdr">
@@ -149,7 +191,6 @@
                         <li><a href="#map">Map</a></li>
                         <li><a href="#charts">Charts</a></li>
                         <li><a href="#index">Companies</a></li>
-                        <li><a href="#credits">Supporters</a></li>
                       </ul>
                     </div>
                   </div>
@@ -160,7 +201,12 @@
                           <div id="data-details" class="main-content">
                             <section id="headlines" class="section section-headlines view view-main">
                               <h3>At a glance</h3>
-                              <div id="headline-stats-component"></div>
+                              <div class="row">
+                                <div class="col-md-9">
+                                  <div id="headline-stats-component"></div>
+                                </div>
+                                <div class="col-md-2">All data shown is for 2014-15. Last update: June 2016.</div>
+                              </div>
                             </section>
                             <section id="map" class="section section-map view view-main">
                               <header>
@@ -177,9 +223,9 @@
                                   <div class="panel-settings">
                                     <p id="reset-map-view-button-component"></p>
                                     <div>
-                                      <label class="checkbox-inline"> <span id="display-minichart-turnover-component" class="minichart-key metric-1"></span>Turnover</label>
-                                      <label class="checkbox-inline"> <span id="display-minichart-employee-count-component" class="minichart-key metric-2"></span>Employees</label>
-                                      <label class="checkbox-inline"> <span id="display-principal-name-component"></span>Principal company name</label>
+                                      <label class="checkbox-inline"><span id="display-minichart-turnover-component" class="minichart-key metric-1"></span>Turnover</label>
+                                      <label class="checkbox-inline"><span id="display-minichart-employee-count-component" class="minichart-key metric-2"></span>Employees</label>
+                                      <label class="checkbox-inline"><span id="display-principal-name-component"></span>Principal company name</label>
                                     </div>
                                     <div><span>Select to show details under each company location marker</span>
                                     </div>
@@ -242,14 +288,13 @@
                                 <h3>Companies</h3>
                                 <!-- p Intro text...-->
                               </header>
-                              <div id="table-component"> 
+                              <div id="table-component">
                                 
                               </div>
                             </section>
                             <section id="credits" class="section section-credits view view-main">
                               <header>
-                                <h3>Supporters</h3>
-                                <h4>Thanks to the following organisations</h4><img src="/img/supporter_logos.png" class="center">
+                                <h4>Data provided by Dr Andy Cosh of The Centre for Business Research at the University of Cambridge</h4><img src="img/CentreforBusinessResearchlogo.grey.jpg" class="center">
                               </header>
                             </section>
                             <section id="company-info" class="section section-company-info view view-company hide">
@@ -326,7 +371,7 @@
                                         <div class="chart-heading">
                                           <h4 class="stat-title">Turnover (2013)</h4>
                                           <div class="stat-amount">43.3M<small>GBP</small></div>
-                                          <div class="stat-change"> <i class="icon-positive"></i><span>15.6%</span></div>
+                                          <div class="stat-change"><i class="icon-positive"></i><span>15.6%</span></div>
                                         </div>
                                         <div class="chart-container-lg"></div>
                                       </div>
@@ -396,17 +441,197 @@
         </div>
       </div>
     </div>
+    <div id="page-about" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" data-dismiss="modal" aria-hidden="true" class="close">&times;</button>
+            <h4>About the Cambridge Cluster Map</h4>
+          </div>
+          <div id="page-about-content" class="modal-body"><img src="/img/AstraZeneca-scientist-for-About-modal.jpg" alt="AZ" style="display: block; margin: 0 auto; padding: 15px; max-width:100%;" class="centre"><span class="image-credit">
+              <p>
+                Image: AstraZeneca
+                
+              </p></span>
+            <p class="abstract">The Cambridge Cluster Map is a big data resource highlighting the data on the cluster of businesses located within 20 miles of Cambridge, UK. It is a free-to-access online resource created by Cambridge Ahead and shows the vibrancy of the Cambridge technology and life science cluster. The underlying research has been provided by the Centre for Business Research of the University of Cambridge and business data has been sourced from the FAME database produced by Bureau Van Dijk. We would like to thank our Partner, <a href="http://www.barclays.com/corporatebanking" target="_blank">Barclays</a>, and our <a href="#" onClick="$('#page-about').modal('hide').one('hidden.bs.modal', function (e) { $('#page-supporters').modal()})">supporters</a>.
+            </p>
+            <p>The purpose of the map is to provide an accurate and accessible source of growth data that:
+              <ul>
+                <li>Shows the growth of the sub-region over time much better than before and reveals the true extent of the success of the ‘Cambridge Phenomenon’.</li>
+                <li>Supports representations made to Government for increased investment.</li>
+                <li>Enables the city to highlight the attractiveness of Cambridge to potential international inward investors.</li>
+                <li>Allows businesses and individuals to examine individual company data as well as identify where growth is taking place around them.</li>
+              </ul>
+            </p>
+            <p>Cambridge Ahead has created this Cluster Map because we have now been able to draw together accurate financial data covering the full range of Cambridge companies, both those based in Cambridge, and those trading in it. Find out <a href="http://www.cambridgeahead.co.uk/wp-content/uploads/2016/03/About-Companies-Data-on-the-CCM.pdf" target="_blank">how we define them and the company data provided</a>. The map is also different from previous versions because the data and the map presentation of it is not just for the Tech sector, but for all the other economic sectors too.
+            </p>
+            <p>We cannot yet claim that the data covers the entire economy of Cambridge, because the company employment data is for the Cambridge companies&rsquo; global employment and we do not have data for sole traders, some elements of the public sector, and for employees of national and international companies with trading and research offices in Cambridge. Nevertheless, the growth trends over several years are strong indicators of the whole sub-regional economy&rsquo;s growth and we expect to add further data later that may enable this claim to be made. The data will be updated at least annually.</p>
+            <p>
+              The data means that we can show the growth and economic health of the sub-region over time much better than before. We now have real and detailed evidence that Cambridge companies have grown very rapidly in the past 4 years. Importantly, this growth does not include data on &lsquo;incomers&rsquo; to the city, such as AstraZeneca.
+              
+            </p>
+            <p>The source, <a href="http://www.cambridgeahead.co.uk/wp-content/uploads/2016/02/CBR-Database-Methodology-Feb-2016.pdf" target="_blank">methodology</a> and granular nature of the data means that the map will be of interest to a wide audience, from individual companies in Cambridge, to economics researchers, through to international organisations which might be doing a global search for new locations or acquisitions. There are 5 years of data, for which we are showing 4 years of growth.
+              
+            </p>
+            <p>
+              The map enables the data to be shown in sectoral, geographic, chart and other formats. The data for individual companies includes postcode, business sector, turnover, employment level, and directors.
+              
+            </p>
+            <h5>
+              Our Partner, Barclays
+              
+            </h5>
+            <p>
+              We have chosen to partner with Barclays on the Cluster Map as they have a longstanding history in Cambridge and a strong track record in supporting scale up businesses. Barclays are well placed to support ambitious businesses and their founders at all stages of growth.
+              
+            </p>
+            <p>
+              Barclays is a transatlantic consumer, corporate and investment bank offering products and services across personal, corporate and investment banking, credit cards and wealth management, with a strong presence in our two home markets of the UK and the US.
+              
+            </p>
+            <p>With over 325 years of history and expertise in banking, Barclays operates in over 40 countries and employs approximately 130,000 people. Barclays moves, lends, invests and protects money for customers and clients worldwide.</p>
+            <h5>
+              Academic Researchers
+              
+            </h5>
+            <p>Academic, economic, business and other researchers who wish to delve deeper into the data can do so by gaining accreditation from The Centre for Business Research (CBR). You will be able to access and download the data for further interrogation. In order to do this, you must gain accreditation, please contact Dr Andy Cosh by completing this <a href="http://www.cambridgeahead.co.uk/camclustermap/contact" target="_blank">form</a>.
+              
+              
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="page-supporters" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" data-dismiss="modal" aria-hidden="true" class="close">&times;</button>
+            <h4>Supporters</h4>
+          </div>
+          <div id="page-about-content" class="modal-body"><img src="/img/Rowing-for-Supporters-modal.blue.jpg" alt="Lent Bumps" style="display: block; margin: 0 auto; padding: 15px; width:100%;" class="centre"><span class="image-credit">
+              <p>
+                Image: University of Cambridge
+                
+              </p></span>
+            <div>
+              <p>
+                Thanks to the following organisations for supporting this initiatve:
+                
+              </p><img src="/img/supporters.matrix.png" alt="supporters matrix" style="display: block; margin: 0 auto; padding: 15px; width:100%;" class="centre">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="page-contact" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" data-dismiss="modal" aria-hidden="true" class="close">&times;</button>
+            <h4>Contact Us</h4>
+          </div>
+          <div id="page-contact-content" class="modal-body"><img src="/img/Napp-building-for-Contact-modal.blue.jpg" alt="Napp building" style="display: block; margin: 0 auto; padding: 15px; width:100%;" class="centre"><span class="image-credit">
+              <p>Image: Napp Pharmaceuticals</p></span>
+            <h4>
+              Media enquiries
+              
+            </h4>
+            <p>For media enquiries please contact Richard Fullerton: <a href="mailto:richard@mcs-organisation.com?subject=Cambridge Cluster Map">richard@mcs-organisation.com</a>, <span style="white-space: nowrap">Tel: +44 (0)7976 728051</span>
+              
+              
+            </p>
+            <h4>
+              Report an issue about the Clustermap
+              
+            </h4>
+            <p>If you have identified a technical issue about the Map, please <a href="mailto:clustermap-issues@trampolinesystems.com?subject=Cambridge Cluster Map issue report">contact Trampoline</a>
+              
+              
+            </p>
+            <h4>
+              Incorrect Data
+              
+            </h4>
+            <p>If you believe that there is incorrect data within the Map, please contact Dr Andy Cosh of The Centre for Business Research by completing this <a href="http://www.cambridgeahead.co.uk/camclustermap/contact" target="_blank">form</a>
+              
+            </p>
+            <h4>
+              Other issues
+              
+            </h4>
+            <p>If you would like to contact Cambridge Ahead directly about the Cluster Map, or for any other issue, please <a href="http://www.cambridgeahead.co.uk/contact-us/" target="_blank">contact us</a>.
+              
+            </p>
+            <h4>
+              Accreditation for Research purposes
+              
+            </h4>
+            <p>If you would like to become an accredited researcher and gain access to the complete data, please contact Dr Andy Cosh of The Centre for Business Research by completing this <a href="http://www.cambridgeahead.co.uk/camclustermap/contact" target="_blank">form</a>.
+              
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="page-help" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" data-dismiss="modal" aria-hidden="true" class="close">&times;</button>
+            <h4>Help & FAQs</h4>
+          </div>
+          <div id="page-help-content" class="modal-body"><img src="/img/AstraZeneca-for-Help-modal.blue.jpg" alt="Molecule Logo" style="display: block; margin: 0 auto; padding: 15px; width:100%;" class="centre"><span class="image-credit">
+              <p>Image: AstraZeneca/Marco Betti</p></span>
+            <h4>
+              How to use the Cluster Map
+              
+            </h4>
+            <p>See a <a href="fixme" target="_blank">video demo</a> of how to use the map. If you require help or more information about the Cluster Map, please see our &lsquo;FAQs&rsquo; below or visit our <a href="#" onClick="$('#page-help').modal('hide') ;$('#page-contact').modal()">Contact</a> page.
+              
+            </p>
+            <h4>
+              FAQs
+              
+              
+            </h4>
+            <p class="question">Why has Cambridge Ahead produced this Cluster Map and how does it differ from the previous version?</p>
+            <p class="answer">It is only now (Feb 2016) that it has been possible to draw together accurate financial data covering the full range of Cambridge companies, both those based in Cambridge, and those trading in it. Find out <a href="http://www.cambridgeahead.co.uk/wp-content/uploads/2016/03/About-Companies-Data-on-the-CCM.pdf" target="_blank">how we define them and the company data provided</a>. The map is also different from earlier versions because the data and the map presentation of it is not just for the Tech sector, but for all the other economic sectors too.</p>
+            <p class="question">What is the source of the data that has been analysed to produce the Cluster Map?</p>
+            <p class="answer">The source of the data is the FAME database produced by Bureau Van Dijk which includes over 3 million active UK-based companies and a further 6 million that are dormant or who have died.</p>
+            <p class="question">What is the definition of a Knowledge-Intensive (KI) company?</p>
+            <p class="answer">We classify KI sectors as Information technology and communications; Life science and healthcare; High-tech Manufacturing; and Knowledge intensive services.</p>
+            <p class="question">What is a &lsquo;scale-up&rsquo; company?</p>
+            <p class="answer">A &lsquo;scale-up&rsquo; is an enterprise with average annualised growth in employees or turnover greater than 20 per cent per annum over a three year period, and with more than 10 employees at the beginning of the observation period. (See the <a href="http://www.scaleupreport.org/" target="_blank">Scale-up Report</a>, November 2014)</p>
+            <p class="question">What methodology has been used to create the map?</p>
+            <p class="answer">Please see the CBR database methodology <a href="http://www.cambridgeahead.co.uk/wp-content/uploads/2016/02/CBR-Database-Methodology-Feb-2016.pdf" target="_blank">here</a>.</p>
+            <p class="question">What are the sector classifications, SIC codes and their counts as evidenced in the dataset?</p>
+            <p class="answer">You can find the document that describes these on the <a href="http://www.cambridgeahead.co.uk/camclustermap/researchers/" target="_blank">page for Academic researchers</a> on the Cambridge Ahead website.</p>
+            <p class="question">My company entry has an incorrect entry. How do I get it fixed?</p>
+            <p class="answer">Please complete this <a href="http://www.cambridgeahead.co.uk/camclustermap/contact" target="_blank">form</a>. The correction will be made in the next planned upload of data.</p>
+            <p class="question">My company isn&rsquo;t listed. Why not?</p>
+            <p class="answer">If a company is registered outside Cambridge but has not provided its trading address i.e. postcode in Cambridge, then it is likely that it will not be feature within the Cluster Map. There are some non-Cambridge registered companies included on the database, despite not showing their Cambridge operation, because we know they are here. However, to justify the effort of doing that our present policy is that the company has to qualify as being both KI and have ten or more employees.</p>
+            <p class="question">Why don&rsquo;t you publish the full addresses of companies?</p>
+            <p class="answer">It is not necessary &ndash; this map is not a postal directory but an analysis of performance data. By limiting the address to postal code we ensure that we have a good location indicator.</p>
+            <p class="question">How often is the data updated?</p>
+            <p class="answer">Typically, we intend to refresh the data, including corrections, every three months.</p>
+            <p class="question">I am a researcher and want access to the full dataset so that I can make my own analysis. How can I get this?</p>
+            <p class="answer">You have to become an accredited researcher. To do this, please complete this <a href="http://www.cambridgeahead.co.uk/camclustermap/contact" target="_blank">form</a>. Dr Andy Cosh of the CBR will be in touch.</p>
+            <p class="question">Why doesn’t the Cluster Map work when I use it on my smartphone?</p>
+            <p class="answer">The map is designed to function optimally across desktop, laptop and tablet but not smartphones. Depending on demand, we may create a smartphone-compatible solution in due course.</p>
+            <p class="question">Where can I find out more background about the Cluster Map?</p>
+            <p class="answer">Please visit <a href="http://www.cambridgeahead.co.uk/camclustermap" target="_blank">www.cambridgeahead.co.uk/camclustermap</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
     <!--begin-static-base-js-->
-    <script type="text/javascript" src="cljs/goog/base.js"></script>
     <!--end-static-base-js-->
-    <!--base-js
-    {{{base-js}}}
-    
-    -->
-    <!--begin-static-dynamic-js--><script type="text/javascript" src="clustermap.js"></script><script type="text/javascript">goog.require("clustermap.core");</script>
+    <!--base-js-->
+    <!--begin-static-dynamic-js--><script type="text/javascript" src="clustermap.js">
     <!--end-static-dynamic-js-->
     <!--dynamic-js
-    <script type="text/javascript" src="clustermap.js"></script><script type="text/javascript">goog.require("clustermap.core");</script>
+    <script type="text/javascript" src="clustermap.js">
     
     -->
     <!--begin-static-repl-js-->
@@ -429,7 +654,7 @@
             if ($win.scrollTop() > height) {
       
               $('body').addClass('page-condensed');
-              
+      
             }
           }
         });
