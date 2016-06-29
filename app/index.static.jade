@@ -872,19 +872,20 @@ html(lang='en')
           $('#data-container').toggleClass('show-filters');
         });
 
-        $(document).on('click', '.filter-header', function(){
-          var $t = $(this), $o = $t.next('.filter-body'), $p = $t.parent('.filter-group'), active = $p.hasClass('active') ? true : false;
+        // commented out to fix cambridge "company type"
+        //- $(document).on('click', '.filter-header', function(){
+        //-   var $t = $(this), $o = $t.next('.filter-body'), $p = $t.parent('.filter-group'), active = $p.hasClass('active') ? true : false;
 
-          if (active) {
-            $o.slideUp(function(){
-              $p.removeClass('active');
-            });
-          }
-          else {
-            $o.slideDown(function(){
-              $p.addClass('active');
-            });
-          }
-        });
+        //-   if (active) {
+        //-     $o.slideUp(function(){
+        //-       $p.removeClass('active');
+        //-     });
+        //-   }
+        //-   else {
+        //-     $o.slideDown(function(){
+        //-       $p.addClass('active');
+        //-     });
+        //-   }
+        //- });
 
       });
