@@ -1,7 +1,7 @@
 doctype html
 html(lang='en')
   head(style="margin-bottom:-300px;")
-  
+
     //begin-static-app-name
     title clustermap
     //end-static-app-name
@@ -80,7 +80,7 @@ html(lang='en')
         .grdc
           header.page-header
             #reset-all-component
-              h1.logo Trampoline Pro (beta): Greater London
+              h1.logo Trampoline Pro / All UK businesses
             ul.nav-links
               li.link-intro: a(href="#") Introduction
               //- li.link-about: a(href="#") About
@@ -96,10 +96,10 @@ html(lang='en')
         .grdc.intro#intro
 
           h2
-            | Trampoline Pro (beta): Greater London
+            | Trampoline Pro / All UK businesses
 
           p.
-            This is a functional beta of Trampoline Pro, a cloud business information solution for analysts and policy-makers. The platform provides a range of data feeds and analytic tools focusing on business activity and trends.
+             Trampoline Pro analytics covering all limited companies in the UK.
 
       .grdr
         .grdc
@@ -125,7 +125,7 @@ html(lang='en')
                   button(type="button").btn.btn-primary Close
                 //- span#company-edit
                 //-   button(type="button").btn.btn-default Edit
-              
+
       .grdr
         .grdc.grdh
 
@@ -153,7 +153,7 @@ html(lang='en')
                         li: a(href="#map") Map
                         li: a(href="#charts") Charts
                         li: a(href="#index") Companies
-                        li: a(href="#credits") Supporters
+                        //li: a(href="#credits") Supporters
 
                   .grdr
                     .grdc.grdh.grdw
@@ -191,13 +191,13 @@ html(lang='en')
                                   .panel-settings
                                     p#reset-map-view-button-component
                                     div
-                                      label.checkbox-inline 
+                                      label.checkbox-inline
                                         span#display-minichart-turnover-component.minichart-key.metric-1
                                         | Turnover
-                                      label.checkbox-inline 
+                                      label.checkbox-inline
                                         span#display-minichart-employee-count-component.minichart-key.metric-2
                                         | Employees
-                                      label.checkbox-inline 
+                                      label.checkbox-inline
                                         span#display-principal-name-component
                                         | Principal company name
                                     div
@@ -255,6 +255,21 @@ html(lang='en')
 
                               .panel
                                 .panel-heading
+                                  h4 Trends
+                                    small (grouped by reported year)
+                                  div
+                                    span.custom-select#trends-timeline-var-select-component
+                                      //- select
+                                      //-   option Number of companies
+                                      //-   option Number of companies
+                                      //-   option Number of companies
+                                      //-   option Number of companies
+
+                                .panel-body
+                                  .chart-container#trends-timeline-component
+
+                              .panel
+                                .panel-heading
                                   h4 Sectors
                                   div
                                     span.custom-select#sector-histogram-var-select-component
@@ -281,21 +296,8 @@ html(lang='en')
                               //-   .panel-body
                               //-     .chart-container
 
-                              .panel
-                                .panel-heading
-                                  h4 Trends
-                                    small (grouped by reported year)
-                                  div
-                                    span.custom-select#trends-timeline-var-select-component
-                                      //- select
-                                      //-   option Number of companies
-                                      //-   option Number of companies
-                                      //-   option Number of companies
-                                      //-   option Number of companies
 
-                                .panel-body
-                                  .chart-container#trends-timeline-component
-                                  
+
                               .panel-grid-container
                                 .panel-grid
                                   .panel-row
@@ -324,25 +326,25 @@ html(lang='en')
                                 h3 Companies
                                 // p Intro text...
 
-                              #table-component  
+                              #table-component
                                 //- .table-responsive
                                 //-   table.table.table-outlined
                                 //-     thead
                                 //-       tr
-                                //-         th.sort-asc 
+                                //-         th.sort-asc
                                 //-           a(href="#") Company
                                 //-             i
-                                //-         th 
+                                //-         th
                                 //-           a(href="#") Sector
                                 //-             i
-                                //-         th.text-right 
+                                //-         th.text-right
                                 //-           a(href="#") Turnover
                                 //-             small  (2014)
                                 //-             i
-                                //-         th.text-right.sort-desc 
+                                //-         th.text-right.sort-desc
                                 //-           a(href="#") % Turnover growth
                                 //-             i
-                                //-         th.text-right 
+                                //-         th.text-right
                                 //-           a(href="#") Employees
                                 //-             small  (2014)
                                 //-               i
@@ -354,14 +356,14 @@ html(lang='en')
                                 //-         tr
                                 //-           td
                                 //-             a(href="#") Company Name
-                                //-           td Sectors, sectors 
+                                //-           td Sectors, sectors
                                 //-             small: a(href="#") More
-                                //-           td.text-right 9.87M 
+                                //-           td.text-right 9.87M
                                 //-             small GBP
-                                //-           td.text-right 29 
+                                //-           td.text-right 29
                                 //-             i.icon-positive
                                 //-           td.text-right 1,996
-                                //-           td.text-right 32 
+                                //-           td.text-right 32
                                 //-             i.icon-positive
                                 //-       - }
 
@@ -383,9 +385,9 @@ html(lang='en')
                             //-     h3 Supporters
                             //-     h4 Thanks to the following organisations
                             //-     img.center(src='/img/supporter_logos.png')
-                                
-                                  
-                              
+
+
+
                             section.section.section-company-info.view.view-company.hide#company-info
 
                               #company-info-component
@@ -456,7 +458,7 @@ html(lang='en')
                                           h4.stat-title Turnover (2013)
                                           .stat-amount 43.3M
                                             small GBP
-                                          .stat-change 
+                                          .stat-change
                                             i.icon-positive
                                             span 15.6%
 
@@ -499,8 +501,8 @@ html(lang='en')
                                                 td 21<sup>st</sup> Aug 2001
                                                 td --
 
-                                  
-                                  
+
+
                           footer.page-footer
                             div
                               | Platform and analytics by &nbsp;
@@ -508,22 +510,18 @@ html(lang='en')
                             div.report-issue
                               a(href='mailto:clustermap-issues@trampolinesystems.com?subject=MedCity Cluster Map issue report') Report issue
 
-    //begin-static-base-js
-    script(type="text/javascript", src="cljs/goog/base.js")
-    //end-static-base-js
-    //base-js
-      {{{base-js}}}
+
 
     //begin-static-dynamic-js
-    <script type="text/javascript" src="clustermap.js"></script><script type="text/javascript">goog.require("clustermap.core");</script>
+    <script type="text/javascript" src="clustermap.js"></script>
     //end-static-dynamic-js
     //dynamic-js
-      <script type="text/javascript" src="clustermap.js"></script><script type="text/javascript">goog.require("clustermap.core");</script>
+      <script type="text/javascript" src="clustermap.js"></script>
 
     //begin-static-repl-js
     //end-static-repl-js
     //repl-js
-      <script type="text/javascript">{{{repl-js}}}</script>
+    //<script type="text/javascript">{{{repl-js}}}</script>
 
 
     script(type="text/javascript").
@@ -539,7 +537,7 @@ html(lang='en')
             if ($win.scrollTop() > height) {
 
               $('body').addClass('page-condensed');
-              
+
             }
           }
         });
@@ -594,4 +592,3 @@ html(lang='en')
         });
 
       });
-

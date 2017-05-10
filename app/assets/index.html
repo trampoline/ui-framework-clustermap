@@ -20,10 +20,11 @@
     
     -->
     <meta name="author" content="Trampoline Systems Ltd">
-    <link type="text/css" rel="stylesheet" href="http://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.css">
+    <link type="text/css" rel="stylesheet" href="//api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.css">
     <link type="text/css" rel="stylesheet" href="css/app.css">
     <script type="text/javascript" src="js/polyfills.js"></script>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.2.min.js"></script><!--[if lte IE 7]>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="https://cdn.ravenjs.com/3.14.0/raven.min.js"></script><!--[if lte IE 7]>
     <script type="text/javascript">$(document).ready(function(){ $('html').addClass('ie7'); });</script><![endif]-->
     <!--[if IE 8]>
     <script type="text/javascript">$(document).ready(function(){ $('html').addClass('ie8'); });</script><![endif]-->
@@ -39,9 +40,8 @@
       });
       
     </script>
-    <script type="text/javascript" src="http://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.js"></script>
+    <script type="text/javascript" src="//api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.js"></script>
     <script type="text/javascript" src="js/vendor.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/0.9.0/react.js"></script>
     <!--begin-static-app-config-->
     <script type="text/javascript">window.config={"api":{"prefix": "medcity"}}</script>
     <!--end-static-app-config-->
@@ -68,7 +68,7 @@
         <div class="grdc">
           <header class="page-header">
             <div id="reset-all-component">
-              <h1 class="logo">Trampoline Pro (beta): Greater London</h1>
+              <h1 class="logo">Trampoline Pro / All UK businesses</h1>
             </div>
             <ul class="nav-links">
               <li class="link-intro"><a href="#">Introduction</a></li>
@@ -87,9 +87,9 @@
       </div>
       <div class="grdr">
         <div id="intro" class="grdc intro">
-          <h2>Trampoline Pro (beta): Greater London</h2>
+          <h2>Trampoline Pro / All UK businesses</h2>
           <p>
-            This is a functional beta of Trampoline Pro, a cloud business information solution for analysts and policy-makers. The platform provides a range of data feeds and analytic tools focusing on business activity and trends.
+            Trampoline Pro analytics covering all limited companies in the UK.
             
           </p>
         </div>
@@ -149,7 +149,7 @@
                         <li><a href="#map">Map</a></li>
                         <li><a href="#charts">Charts</a></li>
                         <li><a href="#index">Companies</a></li>
-                        <li><a href="#credits">Supporters</a></li>
+                        <!--li: a(href="#credits") Supporters-->
                       </ul>
                     </div>
                   </div>
@@ -205,15 +205,6 @@
                               </header>
                               <div class="panel">
                                 <div class="panel-heading">
-                                  <h4>Sectors</h4>
-                                  <div><span id="sector-histogram-var-select-component" class="custom-select"></span></div>
-                                </div>
-                                <div class="panel-body">
-                                  <div id="sector-histogram-component" class="chart-container"></div>
-                                </div>
-                              </div>
-                              <div class="panel">
-                                <div class="panel-heading">
                                   <h4>Trends<small>(grouped by reported year)</small></h4>
                                   <div><span id="trends-timeline-var-select-component" class="custom-select"></span></div>
                                 </div>
@@ -221,6 +212,17 @@
                                   <div id="trends-timeline-component" class="chart-container"></div>
                                 </div>
                               </div>
+                              <div class="panel">
+                                <div class="panel-heading">
+                                  <h4>Sectors</h4>
+                                  <div><span id="sector-histogram-var-select-component" class="custom-select"></span></div>
+                                </div>
+                                <div class="panel-body">
+                                  <div id="sector-histogram-component" class="chart-container"></div>
+                                </div>
+                              </div>
+                              
+                              
                               <div class="panel-grid-container">
                                 <div class="panel-grid">
                                   <div class="panel-row">
@@ -399,26 +401,17 @@
         </div>
       </div>
     </div>
-    <!--begin-static-base-js-->
-    <script type="text/javascript" src="cljs/goog/base.js"></script>
-    <!--end-static-base-js-->
-    <!--base-js
-    {{{base-js}}}
-    
-    -->
-    <!--begin-static-dynamic-js--><script type="text/javascript" src="clustermap.js"></script><script type="text/javascript">goog.require("clustermap.core");</script>
+    <!--begin-static-dynamic-js--><script type="text/javascript" src="clustermap.js"></script>
     <!--end-static-dynamic-js-->
     <!--dynamic-js
-    <script type="text/javascript" src="clustermap.js"></script><script type="text/javascript">goog.require("clustermap.core");</script>
+    <script type="text/javascript" src="clustermap.js"></script>
     
     -->
     <!--begin-static-repl-js-->
     <!--end-static-repl-js-->
-    <!--repl-js
-    <script type="text/javascript">{{{repl-js}}}</script>
+    <!--repl-js-->
+    <!--<script type="text/javascript">{{{repl-js}}}</script>-->
     
-    
-    -->
     <script type="text/javascript">
       $(function(){
       
